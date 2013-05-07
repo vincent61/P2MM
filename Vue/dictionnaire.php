@@ -2,7 +2,12 @@
 	<form action="../Controleurs/dictionnaire.php" method="post"> 
         <b>Ajout:</b></br>
         Nom: <input type="text" name="dictionnaire" />
-        Langue:<input type="text" name="langue" />
+        Langue:
+        <SELECT name="langue" size="1">
+        <?php 
+		foreach ($langues as $langue)
+		echo '<OPTION>'. $langue['langue'];?>
+    	</SELECT>
         Fichier Dictionnaire:<input type="file" name="fichierDictionnaire" />
         Casse:<input type="text" name="casse" />
 
@@ -28,50 +33,63 @@
 <?php
 // on fait une boucle qui va faire un tour pour chaque enregistrement 
 foreach($dictionnaire as $dictionnaire)
-{
-	echo '<tr>';
-	if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
-	{
+{?>
+	<tr>
+	<?php if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
+	{?>
 		
-		echo '<form action="../Controleurs/dictionnaire.php" method="post">';
-		echo '</th>';
-		echo '<th>';
-		echo '<input type="text" name="newDictionnaire" value='.$dictionnaire['dictionnaire'].'>';
-		echo '</th>';
-		echo '<th>';
-		echo '<input type="text" name="newLangue" value='.$dictionnaire['langue'].'>';
-		echo '</th>';
-		echo '<th>';
-		echo '<input type="text" name="newFichierDictionnaire" value='.$dictionnaire['fichierDictionnaire'].'>';
-		echo '</th>';
-		echo '<th>';
-		echo '<input type="text" name="newCasse" value='.$dictionnaire['casse'].'>';
-		echo '</th>';
-		echo '<input type="hidden" name="oldDictionnaire" value='.$dictionnaire['dictionnaire'].'>';
-		echo '<input type="hidden" name="oldLangue" value='.$dictionnaire['langue'].'>';
-		echo '<input type="hidden" name="oldFichierDictionnaire" value='.$dictionnaire['fichierDictionnaire'].'>';
-		echo '<input type="hidden" name="oldCasse" value='.$dictionnaire['casse'].'>';
-		
+		<form action="../Controleurs/dictionnaire.php" method="post">
+		</th>
+		<th>
+		<input type="text" name="newDictionnaire" value=<?php echo $dictionnaire['dictionnaire'];?>>
+		</th>
+		<th>
+        <SELECT name="newLangue" size="1">
+        <?php 
+		foreach ($langues as $langue)
+		{
+			echo '<OPTION';
+			if($langue['langue'] == $dictionnaire['langue'])
+			{
+				echo ' selected';
+			}
+			echo '>'.$langue['langue'];
+		}
+		?>
+    	</SELECT>
+		</th>
+		<th>
+		<input type="text" name="newFichierDictionnaire" value=<?php echo $dictionnaire['fichierDictionnaire'];?>>
+		</th>
+		<th>
+		<input type="text" name="newCasse" value=<?php echo $dictionnaire['casse'];?>>
+		</th>
+		<input type="hidden" name="oldDictionnaire" value=<?php echo $dictionnaire['dictionnaire'];?>>
+		<input type="hidden" name="oldLangue" value=<?php echo $dictionnaire['langue'];?>>
+		<input type="hidden" name="oldFichierDictionnaire" value=<?php echo $dictionnaire['fichierDictionnaire'];?>>
+		<input type="hidden" name="oldCasse" value=<?php echo $dictionnaire['casse'];?>>
+	<?php 	
 		
 	}
 	else{
-	echo '<th>'.$dictionnaire['dictionnaire'].'</th>';
-	echo '<th>'.$dictionnaire['langue'].'</th>';
-	echo '<th>'.$dictionnaire['fichierDictionnaire'].'</th>';
-	echo '<th>'.$dictionnaire['casse'].'</th>';
-
+		?>
+	<th><?php echo $dictionnaire['dictionnaire'];?></th>
+	<th><?php echo $dictionnaire['langue'];?></th>
+	<th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
+	<th><?php echo $dictionnaire['casse'];?></th>
+<?php 
 	}
-	echo'<th><a href="../Controleurs/dictionnaire.php?delete='.$dictionnaire['dictionnaire'].'"><img src=\'../Vue/ressources/supprimer.png\' height=\'20\' width=\'20\' ></a></th>'."\n";
-	echo'<th><a href="../Controleurs/dictionnaire.php?edit='.$dictionnaire['dictionnaire'].'"><img src=\'../Vue/ressources/edit.png\' height=\'20\' width=\'20\' ></a></th>'."\n";
-	if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
-	{
-			echo' <th><input type="submit" value="Ajouter"></th>';
-			//echo'<a href="../Controleurs/dictionnaire.php?edit='.$dictionnaire['dictionnaire'].'"><img src=\'../Vue/ressources/edit.png\' height=\'20\' width=\'20\' ></a><'."\n";
-			echo '</form>';
-	}
-	echo '</tr>';
-}
-?>
+	?>
+	<th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
+	<th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
+	<?php 
+    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
+	{?>
+			<th><input type="submit" value="Modifier"></th>
+			</form>
+	<?php }?>
+	</tr>
+<?php }?>
 </TABLE>
 
 

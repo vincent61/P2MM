@@ -48,7 +48,6 @@ class DictionnaireManager{
  
   public function update($oldDico, $newDico)
   {
-	  echo 'UPDATE Dictionnaire SET dictionnaire = \''.$newDico->getDictionnaire().'\', langue = \''.$newDico->getLangue().'\',fichierDictionnaire = \''.$newDico->getFichierDictionnaire().'\', casse = '.$newDico->getCasse().' WHERE dictionnaire = \''.$oldDico->getDictionnaire().'\';';
 	   $this->_db->exec('UPDATE Dictionnaire SET dictionnaire = \''.$newDico->getDictionnaire().'\', langue = \''.$newDico->getLangue().'\',fichierDictionnaire = \''.$newDico->getFichierDictionnaire().'\', casse = '.$newDico->getCasse().' WHERE dictionnaire = \''.$oldDico->getDictionnaire().'\';');
   }
  

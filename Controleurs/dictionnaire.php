@@ -1,8 +1,11 @@
 ﻿<?php
 include '../dbconnect.php';
 include '../Modele/Managers/DictionnaireManager.php';
+include '../Modele/Managers/LangueManager.php';
+
 
 $dictionnaireManager = new DictionnaireManager($con);
+$langueManager = new LangueManager($con);
 
 // Gestion des ajouts
 if(isset($_POST['dictionnaire'])){
@@ -21,7 +24,7 @@ if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){
 
 //Récupération du contenu de la BDD
 $dictionnaire = $dictionnaireManager->getAll();
-
+$langues = $langueManager->getAll();
 //On inclue la vue
 include '../Vue/dictionnaire.php'; 
 ?>
