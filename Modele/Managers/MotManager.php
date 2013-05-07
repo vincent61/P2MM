@@ -123,24 +123,34 @@ class MotManager{
 			
 			for ($ii=0; $ii<($tailleResultatInter); $ii++)
 					{ // Exception div/0
-							if ($j < $tailleResultatInter/$nbCodesLettre) 
-								{
-									$j++;    // j est un compteur permettant de parcourir chaque partie identique de la liste de resultats
-								}
-								/* exemple: On 3 codes qui correspondent à notre lettre. On aura donc auparavant recopié 2 fois la liste des resultats
-								 On obtient une listeResultat composées de 3 parties identiques. Sur chaque partie, on ajoute 1 code différent de la liste de code.
-								*/
-								
-							else {
-									$j=1;
-									$k++;   // k est la variable qui permet d'identifier le code dans la liste codesLettres
-								}
-								
-							 //print_r (array_values($codesLettres));
-							 // echo ($codesLettres[$k]['code']);
-							 $listeResultat[$ii].= ($codesLettres[$k]['code']);
-							 //echo $listeResultat[$ii]; 
-							 //echo "<br>";
+						try {	
+								if ($nbCodesLettre==0)
+									{
+										throw new Exception('Division par zéro.');
+									}
+								else
+									if ($j < $tailleResultatInter/$nbCodesLettre) 
+										{
+											$j++;    // j est un compteur permettant de parcourir chaque partie identique de la liste de resultats
+										}
+										/* exemple: On 3 codes qui correspondent à notre lettre. On aura donc auparavant recopié 2 fois la liste des resultats
+										On obtient une listeResultat composées de 3 parties identiques. Sur chaque partie, on ajoute 1 code différent de la liste de code.
+										*/
+									
+									else {
+											$j=1;
+											$k++;   // k est la variable qui permet d'identifier le code dans la liste codesLettres
+										}
+									
+									//print_r (array_values($codesLettres));
+									// echo ($codesLettres[$k]['code']);
+									$listeResultat[$ii].= ($codesLettres[$k]['code']);
+									//echo $listeResultat[$ii]; 
+									//echo "<br>";
+							 
+							} catch (Exception $e) {
+								$suite=false;
+								echo 'Exception reçue : ',  $e->getMessage(), "\n"; }
 							
 					}
 			
@@ -154,22 +164,24 @@ class MotManager{
 		
   }
   // Ajout des résultats dans la table MotCode
-  
-  for ($i=0; $i<count($listeResultat); $i++){
-  echo $listeResultat[$i];
-  echo "<br>";
-  $motCode = new MotCode( $listeResultat[$i], "demi_bas");
-  $motCodeManager = new MotCodeManager($con);
-  $motCodeManager->add($motCode);
-  
-  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
-  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), "demi_bas");
-  $correspMotMan = new CorrespondanceMotManager($con);
-  $correspMotMan->add($correspMot);
-  
-		}
-  
+  if ($suite==true)
+  {
+	  for ($i=0; $i<count($listeResultat); $i++)
+	{
+		  echo $listeResultat[$i];
+		  echo "<br>";
+		  $motCode = new MotCode( $listeResultat[$i], "demi_bas");
+		  $motCodeManager = new MotCodeManager($con);
+		  $motCodeManager->add($motCode);
+		  
+		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
+		  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), "demi_bas");
+		  $correspMotMan = new CorrespondanceMotManager($con);
+		  $correspMotMan->add($correspMot);
+	}	  
 	}
+  else echo "Aucun mot inséré car division par zéro";
+ }
 }
 
 ?>
