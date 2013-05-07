@@ -1,7 +1,6 @@
 ﻿<?php
 
 include '../Modele/ModeleMemoire/Mot.php';
-
 include '../Modele/Managers/LettreManager.php';
 include '../Modele/Managers/MotCodeManager.php';
 include '../Modele/Managers/CorrespondanceLettreManager.php';
