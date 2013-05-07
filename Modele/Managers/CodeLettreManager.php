@@ -47,8 +47,9 @@ class CodeLettreManager{
   { 
 	$q = $this->_db->prepare('SELECT * FROM police order by police;');
 	$q->execute();
-	$q->fetchAll();
-	return $q;
+	$donnees = $q->fetchAll();
+	//echo $donnees['police'];
+	return $donnees;
   }
   
  

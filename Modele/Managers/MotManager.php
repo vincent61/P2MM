@@ -123,7 +123,7 @@ class MotManager{
 			echo $tailleResultatInter;*/
 			
 			for ($ii=0; $ii<($tailleResultatInter); $ii++)
-					{
+					{ // Exception div/0
 							if ($j < $tailleResultatInter/$nbCodesLettre) 
 								{
 									$j++;    // j est un compteur permettant de parcourir chaque partie identique de la liste de resultats

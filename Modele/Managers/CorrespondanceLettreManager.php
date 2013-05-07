@@ -54,7 +54,8 @@ class CorrespondanceLettreManager{
   $lettreAscii = (String) $lettreAsciiParam->getLettreAscii();
   $police = (String) $police;
  // echo 'SELECT code FROM CorrespondanceLettre WHERE lettreAscii = \''.$lettreAscii.'\' and police= \''.$police.'\';';
-  $q = $this->_db->query('SELECT code FROM CorrespondanceLettre WHERE lettreAscii = \''.$lettreAscii.'\' and police= \''.$police.'\';');
+  $q = $this->_db->prepare('SELECT code FROM CorrespondanceLettre WHERE lettreAscii = \''.$lettreAscii.'\' and police= \''.$police.'\';');
+	$q->execute();
 	$donnees = $q->fetchAll();
 	return $donnees;
   }
