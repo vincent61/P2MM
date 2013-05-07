@@ -7,5 +7,5 @@ $motManager= new MotManager($con);
 
 $motManager->codage(new Mot('aaac', 0, 'min_bas'), ("demi_bas"));
 
-
+//test
 ?>
