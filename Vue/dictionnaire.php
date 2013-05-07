@@ -93,4 +93,8 @@ foreach($dictionnaire as $dictionnaire)
 </TABLE>
 
 
+<?php  
+//$dictionnaireManager->testParser();
+?>
+
 

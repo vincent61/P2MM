@@ -55,6 +55,21 @@ class DictionnaireManager{
   {
     $this->_db = $db;
   }
+  
+  public function testParser()
+  {
+	$row = 1;
+	if (($handle = fopen("../dico.csv", "r")) !== FALSE) {
+		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+			$num = count($data);
+			for ($c=0; $c < $num; $c++) {
+				echo $data[$c] . "<br />\n";
+			}
+		}
+		fclose($handle);
+	}
+  }
+  
 }
 
 ?>
