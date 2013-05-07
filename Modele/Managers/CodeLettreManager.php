@@ -45,9 +45,9 @@ class CodeLettreManager{
 
   public function getListePolice()
   { 
-	$q = $this->_db->query('SELECT * FROM police order by police;');
+	$q = $this->_db->prepare('SELECT * FROM police order by police;');
 	$q->execute();
-	$q->fetch(PDO::FETCH_ASSOC);
+	$q->fetchAll();
 	return $q;
   }
   
