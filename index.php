@@ -7,4 +7,7 @@
 <p><a href="Controleurs/police.php">Police</a></p>
 <p><a href="Controleurs/langue.php">Langues</a></p>
 <p><a href="Controleurs/codelettre.php">Code lettre</a></p>
+<p><a href="Controleurs/mot.php">Mot</a></p>
+<p><a href="Controleurs/motcode.php">Mot codes</a></p>
+
 
