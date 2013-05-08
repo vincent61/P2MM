@@ -4,16 +4,12 @@
         Code: <input type="text" name="code" />
 		Type lettre:<input type="text" name="typelettre" />
 		Police :
-		<select name="listepolice">
-		<?php
-		foreach($codelettreListePolice as $codelettreListePolice){
+        <SELECT name="policeListe" size="1">
+        <?php 
+			foreach ($polices as $police)
+				echo '<OPTION>'. $police['police'];
 		?>
-			<option value= <?php echo $codelettreListePolice['police']; ?> > <?php echo $codelettreListePolice['police'];?> </option>
-		<?php
-		}
-		reset($codelettreListePolice);
-		?>
-		</select>
+    	</SELECT>
         
         <input type="submit" value="Ajouter">
     </form>
@@ -37,68 +33,51 @@
 <?php
 // on fait une boucle qui va faire un tour pour chaque enregistrement 
 
-foreach($codelettre as $codelettre)
-{
-	echo '<tr>';
-	if(isset($_GET['edit']) and $_GET['edit']==$codelettre['code'])
-	{
+foreach($codelettre as $codelettre){ ?>
+	<tr>
+	<?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){ ?>
 		
-		echo '<form action="../Controleurs/codelettre.php" method="post">';
-		echo '</th>';
-		echo '<th>';
-		echo '<input type="text" name="newCode" value='.$codelettre['code'].'>';
-		echo '</th>';
-		echo '<th>';
-		echo '<input type="text" name="newTypeLettre" value='.$codelettre['typeLettre'].'>';
-		echo '</th>';
-		echo '<th>';
-		//print_r($codelettreListePolice);
-		//echo count($codelettreListePolice);
-		
-		echo '<select name="newPolice">';
-				 
-				 
-		while ($affichage = mysql_fetch_array($codelettreListePolice))
+		<form action="../Controleurs/codelettre.php" method="post">
+		</th>
+		<th>
+		<input type="text" name="newCode" value=<?php echo $codelettre['code'];?>>
+		</th>
+		<th>
+		<input type="text" name="newTypeLettre" value=<?php echo $codelettre['typeLettre'];?>>
+		</th>
+		<th>
+        <SELECT name="newPolice" size="1">
+        <?php 
+		foreach ($polices as $police)
 		{
-		 echo '<option value="'.$affichage['police'].'">'.$affichage['police'].'</option>';
+			echo '<OPTION';
+			if($police['police'] == $codelettre['police'])
+			{
+				echo ' selected';
+			}
+			echo '>'.$police['police'];
 		}
-/*
-		foreach($codelettreListePolice as $codelettreListePolice){
 		?>
-			<option value=<?php echo $codelettreListePolice['police']; ?>><?php echo $codelettreListePolice['police']; ?></option>
-		<?php
-		}
+    	</SELECT>
+		</th>
+		<input type="hidden" name="oldCode" value=<?php echo $codelettre['code'];?>>
+		<input type="hidden" name="oldTypeLettre" value=<?php echo $codelettre['typeLettre'];?>>
+		<input type="hidden" name="oldPolice" value=<?php echo $codelettre['police'];?>>
 		
-*/
-		echo '</select>';
-		
-		
+	<?php }else{?>
+	<th><?php echo $codelettre['code'];?></th>
+	<th><?php echo $codelettre['typeLettre'];?></th>
+	<th><?php echo $codelettre['police'];?></th>
 
-		echo '</th>';
-		echo '<input type="hidden" name="oldCode" value='.$codelettre['code'].'>';
-		echo '<input type="hidden" name="oldTypeLettre" value='.$codelettre['typeLettre'].'>';
-		echo '<input type="hidden" name="oldPolice" value='.$codelettre['police'].'>';
-		
-		
-	}
-	else{
-	echo '<th>'.$codelettre['code'].'</th>';
-	echo '<th>'.$codelettre['typeLettre'].'</th>';
-	echo '<th>'.$codelettre['police'].'</th>';
-
-	}
-	echo'<th><a href="../Controleurs/codelettre.php?delete='.$codelettre['code'].'"><img src=\'../Vue/ressources/supprimer.png\' height=\'20\' width=\'20\' ></a></th>'."\n";
-	echo'<th><a href="../Controleurs/codelettre.php?edit='.$codelettre['code'].'"><img src=\'../Vue/ressources/edit.png\' height=\'20\' width=\'20\' ></a></th>'."\n";
-	if(isset($_GET['edit']) and $_GET['edit']==$codelettre['code'])
-	{
-			echo' <th><input type="submit" value="Ajouter"></th>';
-			//echo'<a href="../Controleurs/dictionnaire.php?edit='.$codelettre['police'].'"><img src=\'../Vue/ressources/edit.png\' height=\'20\' width=\'20\' ></a><'."\n";
-			echo '</form>';
-	}
-	echo '</tr>';
-}
-
-?>
+	<?php }?>
+	<th><a href="../Controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&deletePolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
+	<th><a href="../Controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&editPolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
+	<?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){?>
+			<th><input type="submit" value="Ajouter"></th>
+			</form>
+	<?php }?>
+	</tr>
+<?php }?>
 
 </TABLE>
 

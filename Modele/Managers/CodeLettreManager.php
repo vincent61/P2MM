@@ -26,12 +26,11 @@ class CodeLettreManager{
 		throw new Exception('Type reçu erroné.');
   }
  
-  public function delete($codeLettre)
+  public function delete($cd, $pol)
   {
-	if($codeLettre instanceof CodeLettre)
-		$this->_db->exec('DELETE FROM CodeLettre WHERE code = \''.$codeLettre->getCode().'\' AND police = \'' .$codeLettre->getPolice() .'\';');
-	else
-		throw new Exception('Type reçu erroné.');
+	$code = (String) $cd;
+	$police = (String) $pol;
+	$this->_db->exec('DELETE FROM CodeLettre WHERE code = \''.$code.'\' AND police = \'' .$police.'\';');
   }
  
   public function get($code, $police)
@@ -54,10 +53,10 @@ class CodeLettreManager{
   
  
   public function update($codeLettre, $newCodeLettre)
-  {
-	if($codeLettre instanceof CodeLettre && $newCodeLettre instanceof CodeLettre)
-	   $this->_db->exec('UPDATE CodeLettre SET code = \''.$newCodeLettre.getCode().'\', typeLettre = '.$codeLettre->getTypeLettre().', police = \''.$codeLettre->getPolice().'\' WHERE code = \''.$codeLettre->getCode().'\'');
-	else
+  {  
+	if($codeLettre instanceof CodeLettre && $newCodeLettre instanceof CodeLettre){
+		$this->_db->exec('UPDATE CodeLettre SET code = \''.$newCodeLettre->getCode().'\', typeLettre = \''.$newCodeLettre->getTypeLettre().'\', police = \''.$newCodeLettre->getPolice().'\' WHERE code = \''.$codeLettre->getCode().'\' AND police = \'' .$codeLettre->getPolice() .'\';');
+	}else
 	   throw new Exception('Type reçu erroné.');
   }
  
