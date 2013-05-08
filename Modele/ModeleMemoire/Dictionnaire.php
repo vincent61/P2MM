@@ -37,8 +37,9 @@ protected $casse;
 		while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
 			$num = count($data);
 			for ($c=0; $c < $num; $c++) {
-				echo $data[$c] . "<br />\n";
-				$motManager->codage(new Mot($data[$c], 0, 'min_bas'), ("demi_bas"));
+				echo "<br />\n";
+				$motManager->add(new Mot($data[$c], 0, $this->getDictionnaire()));
+				$motManager->codage(new Mot($data[$c], 0, $this->getDictionnaire()), ("demi_bas"));
 			}
 		}
 		fclose($handle);
