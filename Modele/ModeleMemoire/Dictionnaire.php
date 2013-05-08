@@ -1,5 +1,5 @@
 <?php
-include '../Modele/Managers/MotManager.php';
+//include '../Modele/Managers/MotManager.php';
 class Dictionnaire{
 	
 protected $dictionnaire;
@@ -26,6 +26,7 @@ protected $casse;
 		return $this->casse;
 	}
 	
+	/*
 	public function remplirMotsCode()
   {
 	  include '../cheminsPerso.php';
@@ -44,5 +45,6 @@ protected $casse;
 		fclose($handle);
 	}
   }
+  */
 }
 ?>
