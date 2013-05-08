@@ -1,17 +1,21 @@
 ﻿<?php
 include '../dbconnect.php';
 include '../Modele/Managers/CodeLettreManager.php';
+include '../Modele/Managers/PoliceManager.php';
 
 $codeLettreManager = new CodeLettreManager($con);
+$policeManager = new PoliceManager($con);
 
 // Gestion des ajouts
-if(isset($_POST['code']) && isset($_POST['typelettre']) && isset($_POST['listepolice'])){
-	$codeLettreManager->add(new CodeLettre($_POST['code'],$_POST['typelettre'],$_POST['listepolice']));
+
+
+if(isset($_POST['code']) && isset($_POST['typelettre']) && isset($_POST['policeListe'])){
+	$codeLettreManager->add(new CodeLettre($_POST['code'],$_POST['typelettre'],$_POST['policeListe']));
 }
 
 //Gestion des supression
-if(isset($_GET['delete'])){
-	$codeLettreManager->delete($_GET['delete']);
+if(isset($_GET['deleteCode']) && isset($_GET['deletePolice'])){
+	$codeLettreManager->delete($_GET['deleteCode'],$_GET['deletePolice']);
 }
 
 //Gestion de l'edition
@@ -21,7 +25,7 @@ if(isset($_POST['oldCode']) and isset($_POST['newCode'])){
 
 //Récupération du contenu de la BDD
 $codelettre = $codeLettreManager->getAll();
-$codelettreListePolice = $codeLettreManager->getListePolice();
+$polices = $policeManager->getAll();
 
 //On inclue la vue
 include '../Vue/codelettre.php'; 
