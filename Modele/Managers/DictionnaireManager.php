@@ -27,6 +27,7 @@ class DictionnaireManager{
   public function delete($dictionnaire)
   {
 	$dictionnaire = (String) $dictionnaire;
+	echo 'DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'';
     $this->_db->exec('DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'');
   }
  
