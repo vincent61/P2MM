@@ -9,24 +9,22 @@ class MotCodeManager{
 
   }
  
-  public function add(MotCode $motCode)
+  public function add($motCode)
   {
-  if($motCode instanceof MotCode){
-	$q = $this->_db->query('SELECT * FROM MotCode WHERE code = \''.$motCode->getCode().'\' AND police= \''.$motCode->getPolice() .'\';');
-    $this->_db->exec('INSERT INTO MotCode SET code = \''.$motCode->getCode().'\', police = \''.$motCode->getPolice().'\';');
-	$donnees = $q->fetch(PDO::FETCH_ASSOC);
+  	  if($motCode instanceof MotCode){
+  	  	echo 'yes';
+	    $q = $this->_db->query('SELECT code, police FROM motcode WHERE code = \''.$motCode->getCode().'\'AND police = \'' .$motCode->getPolice() .'\';');
+		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['code'])
 		{
-			echo "Le motCode existe déja.";
-		}
-	
-	}
-	else{
-			throw new Exception('Type reçu erroné.');
-	}
+			echo "Le Mot existe déja.";
+		}else{  
+	    	$this->_db->exec('INSERT INTO motcode (code, police) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');');
+		  }
+	  }
   }
  
-  public function delete(MotCode $motCode)
+  public function delete($motCode)
   {
   if($motCode instanceof MotCode){
     $this->_db->exec('DELETE FROM MotCode WHERE code = \''.$motCode->getCode().'\' AND police = \''.$motCode->getPolice().'\';');
@@ -38,12 +36,19 @@ class MotCodeManager{
  
   public function get($code, $police)
   { 
-  $c = (String) $code;
-  $p = (String) $police;
+  	$c = (String) $code;
+  	$p = (String) $police;
 
-    $q = $this->_db->query('SELECT * FROM MotCode WHERE code = \''.$c.'\' AND police= \''.$p .'\';');
+    $q = $this->_db->query('SELECT * FROM motcode WHERE code = \''.$c.'\' AND police= \''.$p .'\';');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
     return new MotCode($donnees['code'], $donnees['police']);
+  }
+  
+   public function getAll()
+  { 
+    $q = $this->_db->query('SELECT code, police FROM motcode ;');
+    $donnees = $q->fetchAll();
+    return $donnees;
   }
  /*
   public function getList()
@@ -62,8 +67,7 @@ class MotCodeManager{
  
   public function update($motCode, $newMotCode)
   {
-  echo 'UPDATE MotCode SET code = \''.$newMotCode->getCode().'\', police=\''.$newMotCode->getPolice().'\' WHERE code = \''.$motCode->getCode().'\'AND police = \''.$motCode->getPolice().'\';';
-	 if($motCode instanceof MotCode and $newMotCode instanceof MotCode){
+  	 if($motCode instanceof MotCode and $newMotCode instanceof MotCode){
 	   $this->_db->exec('UPDATE MotCode SET code = \''.$newMotCode->getCode().'\', police=\''.$newMotCode->getPolice().'\' WHERE code = \''.$motCode->getCode().'\'AND police = \''.$motCode->getPolice().'\';');
 	   }
 	else{
