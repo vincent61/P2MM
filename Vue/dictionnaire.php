@@ -68,18 +68,14 @@ foreach($dictionnaire as $dictionnaire)
 		<input type="hidden" name="oldLangue" value=<?php echo $dictionnaire['langue'];?>>
 		<input type="hidden" name="oldFichierDictionnaire" value=<?php echo $dictionnaire['fichierDictionnaire'];?>>
 		<input type="hidden" name="oldCasse" value=<?php echo $dictionnaire['casse'];?>>
-	<?php 	
-		
-	}
-	else{
-		?>
-	<th><?php echo $dictionnaire['dictionnaire'];?></th>
-	<th><?php echo $dictionnaire['langue'];?></th>
-	<th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
-	<th><?php echo $dictionnaire['casse'];?></th>
+	<?php }else{ ?>
+		<th><?php echo $dictionnaire['dictionnaire'];?></th>
+		<th><?php echo $dictionnaire['langue'];?></th>
+		<th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
+		<th><?php echo $dictionnaire['casse'];?></th>
 <?php 
 	}
-	?>
+	?>																							
 	<th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
 	<th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
 	<?php 
