@@ -1,5 +1,5 @@
 ﻿<fieldset>
-	<form action="../Controleurs/dictionnaire.php" method="post"> 
+	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post"> 
         <b>Ajout:</b></br>
         Nom: <input type="text" name="dictionnaire" />
         Langue:
@@ -26,6 +26,7 @@
 <th><u>Casse</u></th>
 
 
+<th><u></u></th>
 <th><u></u></th>
 <th><u></u></th>
 </tr>
@@ -82,6 +83,7 @@ foreach($dictionnaire as $dictionnaire)
 	?>
 	<th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
 	<th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
+   	<th><a href="../Controleurs/dictionnaire.php?addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/arrow.png' height='20' width='20' ></a></th>
 	<?php 
     if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 	{?>
@@ -94,7 +96,6 @@ foreach($dictionnaire as $dictionnaire)
 
 
 <?php  
-//$dictionnaireManager->testParser();
 ?>
 
 
