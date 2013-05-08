@@ -1,10 +1,10 @@
 ﻿<?php
 
 include '../Modele/ModeleMemoire/Mot.php';
-include '../Modele/Managers/LettreManager.php';
-include '../Modele/Managers/MotCodeManager.php';
-include '../Modele/Managers/CorrespondanceLettreManager.php';
-include '../Modele/Managers/CorrespondanceMotManager.php';
+//include '../Modele/Managers/LettreManager.php';
+//include '../Modele/Managers/MotCodeManager.php';
+//include '../Modele/Managers/CorrespondanceLettreManager.php';
+//include '../Modele/Managers/CorrespondanceMotManager.php';
 
 class MotManager{
 	private $_db; // Instance de db
@@ -15,10 +15,10 @@ class MotManager{
 
   }
  
-  public function add(Mot $mot)
+  public function add($mot)
   {
 	  if($mot instanceof Mot){
-	$q = $this->_db->query('SELECT mot,casse, dictionnaire FROM Mot WHERE mot = \''.$mot->getMot().'\';');
+	    $q = $this->_db->query('SELECT mot,casse, dictionnaire FROM mot WHERE mot = \''.$mot->getMot().'\'AND dictionnaire = \'' .$mot->getDictionnaire() .'\';');
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['mot'])
 		{
@@ -30,9 +30,11 @@ class MotManager{
 	  }
   }
  
-  public function delete(Mot $mot)
+  public function delete($mot, $dictionnaire)
   {
-    $this->_db->exec('DELETE FROM Mot WHERE mot = \''.$mot->getMot().'\'');
+  	$d = (String) $dictionnaire;
+  	$m = (String) $mot;
+    $this->_db->exec('DELETE FROM Mot WHERE mot = \''.$m.'\' AND dictionnaire = \'' .$d .'\';');
   }
  
   public function get($mot)
@@ -43,10 +45,19 @@ class MotManager{
     return new Mot($donnees['mot'],$donnees['casse'],$donnees['dictionnaire']);
   }
 
+   public function getAll()
+  { 
+    $q = $this->_db->query('SELECT mot, casse, dictionnaire FROM mot ;');
+    $donnees = $q->fetchAll();
+    return $donnees;
+  }
  
   public function update($oldMot, $newMot)
   {
-	   $this->_db->exec('UPDATE Mot SET mot = \''.$newMot->getMot().'\', casse = \''.$newMot->getCasse().'\',dictionnaire = \''.$newMot->getDictionnaire().'\', casse = '.$newMot->getCasse().' WHERE mot = \''.$oldMot->getMot().'\';');
+  	if($oldMot instanceof Mot && $newMot instanceof Mot){
+	   $this->_db->exec('UPDATE Mot SET mot = \''.$newMot->getMot().'\', casse = \''.$newMot->getCasse().'\',dictionnaire = \''.$newMot->getDictionnaire().'\', casse = '.$newMot->getCasse().' WHERE mot = \''.$oldMot->getMot().'\' AND dictionnaire = \'' .$oldMot->getDictionnaire() .'\';');
+  	}else
+	   throw new Exception('Type reçu erroné.');
   }
  
   public function setDb($db)

@@ -1,5 +1,4 @@
 ﻿<?php 
-
 class Mot{
 
 protected $mot;
@@ -30,10 +29,5 @@ protected $dictionnaire;
 	public function getDictionnaire(){
 		return $this->dictionnaire;
 	}
-
-
-
-
 }
-
 ?>
