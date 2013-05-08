@@ -48,6 +48,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 
 //Gestion des supression
 if(isset($_GET['delete'])){
+	unlink ($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$_FILES['fichierDictionnaire']['name']);
 	$dictionnaireManager->delete($_GET['delete']);
 }
 
