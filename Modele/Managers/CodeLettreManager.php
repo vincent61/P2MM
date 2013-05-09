@@ -61,8 +61,8 @@ class CodeLettreManager{
   }
  
      public function getAll()
-  { 
-    $q=$this->_db->prepare("SELECT * FROM codelettre order by code");
+  {
+    $q=$this->_db->prepare("SELECT code, typeLettre, police FROM CodeLettre ORDER BY  'code'");
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;

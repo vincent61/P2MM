@@ -41,7 +41,8 @@ class DictionnaireManager{
   
    public function getAll()
   { 
-    $q = $this->_db->query('SELECT dictionnaire,langue, fichierDictionnaire, casse FROM Dictionnaire ;');
+    $q = $this->_db->prepare('SELECT dictionnaire,langue, fichierDictionnaire, casse FROM Dictionnaire ;');
+	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
   }

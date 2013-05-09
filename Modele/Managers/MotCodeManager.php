@@ -46,7 +46,8 @@ class MotCodeManager{
   
    public function getAll()
   { 
-    $q = $this->_db->query('SELECT code, police FROM motcode ;');
+    $q = $this->_db->prepare('SELECT code, police FROM motcode ;');
+	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
   }

@@ -47,7 +47,8 @@ class MotManager{
 
    public function getAll()
   { 
-    $q = $this->_db->query('SELECT mot, casse, dictionnaire FROM mot ;');
+    $q = $this->_db->prepare('SELECT mot, casse, dictionnaire FROM mot ;');
+	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
   }
