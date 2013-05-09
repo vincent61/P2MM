@@ -12,14 +12,15 @@ class MotCodeManager{
   public function add($motCode)
   {
   	  if($motCode instanceof MotCode){
-  	  	echo 'yes';
-	    $q = $this->_db->query('SELECT code, police FROM motcode WHERE code = \''.$motCode->getCode().'\'AND police = \'' .$motCode->getPolice() .'\';');
+	    $q = $this->_db->prepare('SELECT code, police FROM motcode WHERE code = \''.$motCode->getCode().'\'AND police = \'' .$motCode->getPolice() .'\';');
+		$q->execute();
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['code'])
 		{
 			echo "Le Mot existe déja.";
 		}else{  
-	    	$this->_db->exec('INSERT INTO motcode (code, police) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');');
+		echo 'INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');';
+	    	$this->_db->exec('INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\')');
 		  }
 	  }
   }
@@ -46,7 +47,8 @@ class MotCodeManager{
   
    public function getAll()
   { 
-    $q = $this->_db->prepare('SELECT code, police FROM motcode ;');
+echo 'SELECT code, police FROM MotCode ORDER BY code';
+    $q = $this->_db->prepare('SELECT code, police FROM MotCode ORDER BY code');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;

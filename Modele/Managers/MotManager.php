@@ -18,7 +18,8 @@ class MotManager{
   public function add($mot)
   {
 	  if($mot instanceof Mot){
-	    $q = $this->_db->query('SELECT mot,casse, dictionnaire FROM mot WHERE mot = \''.$mot->getMot().'\'AND dictionnaire = \'' .$mot->getDictionnaire() .'\';');
+	    $q = $this->_db->prepare('SELECT mot,casse, dictionnaire FROM mot WHERE mot = \''.$mot->getMot().'\'AND dictionnaire = \'' .$mot->getDictionnaire() .'\';');
+		$q->execute();
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['mot'])
 		{
@@ -47,7 +48,7 @@ class MotManager{
 
    public function getAll()
   { 
-    $q = $this->_db->prepare('SELECT mot, casse, dictionnaire FROM mot ;');
+    $q = $this->_db->prepare('SELECT mot, casse, dictionnaire FROM Mot order by mot');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
