@@ -33,13 +33,13 @@ protected $casse;
 			$correspondances = explode(":", $ligneCorrespondance);
 			$lettre = $correspondances[0];
 			$l = new Lettre($lettre);
-			$codesArray = explode(",", $correspondances[1]);
-			$code = array_pop($codesArray);
+			$codesArray = explode(",", $correspondances[1]);			
 			$i = 0;
-			while($code !==NULL){
-				$code = array_pop($codesArray);
+			while(($code = array_pop($codesArray)) !==NULL){
+				
 				$c = new CodeLettre($code, $i, $this->getPolice());
 				$clManager->addCombinaison($l, $c);
+				$code = array_pop($codesArray);
 				$i++;
 			}
 		
