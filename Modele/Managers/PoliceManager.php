@@ -1,5 +1,8 @@
 ﻿<?php
+
 include '../Modele/ModeleMemoire/Police.php';
+
+
 class PoliceManager{
 	private $_db; // Instance de db
  

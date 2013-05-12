@@ -1,5 +1,8 @@
 ﻿<?php
 include '../Modele/ModeleMemoire/CorrespondanceLettre.php';
+include '../Modele/Managers/CodeLettreManager.php';
+include '../Modele/Managers/LettreManager.php';
+
 
 class CorrespondanceLettreManager{
 	private $_db; // Instance de db
@@ -28,7 +31,26 @@ class CorrespondanceLettreManager{
 		
       
   }
- 
+  public function addCombinaison($lettre, $codeLettre){
+  //cette fonction se charge d'ajouter une nouvelle lettre dans la BDD, ainsi que le code et la correspondance associés
+	  if($lettre instanceof Lettre and $codeLettre instanceof CodeLettre ){
+		  include '../dbconnect.php';
+		  
+		  $clm = new CodeLettreManager($con);
+		  $lm = new LettreManager($con);
+		  
+		  $cor = new CorrespondanceLettre($lettre->getLettreAscii(), $codeLettre->getCode(), $codeLettre->getPolice() );
+		  
+		  $lm->add($lettre);
+		  $clm->add($codeLettre);
+		  $this->add($cor);
+	  
+	}
+	else{
+		throw new Exception('Type reçu erroné');
+	}
+	
+ }
   public function delete(CorrespondanceLettre $cor)
   {
 	if($cor instanceof CorrespondanceLettre){

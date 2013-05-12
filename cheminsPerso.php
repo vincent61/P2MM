@@ -1,3 +1,3 @@
 ﻿<?php
-$cheminServer= '/Applications/MAMP/htdocs/';
+$cheminServer= "C:\wamp\www\\";
 ?>

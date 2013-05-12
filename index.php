@@ -1,5 +1,5 @@
 <?php
-// Ne doit plus servir qu'a appelé une vue !!!! 
+// Ne doit plus servir qu'à appeler une vue !!!! 
 ?>
 
 <p><a href="Controleurs/lettre.php">Lettre</a></p>
