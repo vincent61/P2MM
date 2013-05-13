@@ -39,8 +39,8 @@ protected $casse;
 			$num = count($data);
 			for ($c=0; $c < $num; $c++) {
 				echo "<br />\n";
-				$motManager->add(new Mot($data[$c], 0, $this->getDictionnaire()));
-				$motManager->codage(new Mot($data[$c], 0, $this->getDictionnaire()), ("min_haut"));
+				$motManager->add(new Mot($data[$c], $this->casse, $this->getDictionnaire()));
+				$motManager->codage(new Mot($data[$c], $this->casse, $this->getDictionnaire()), ("min_haut"));
 			}
 		}
 		fclose($handle);
