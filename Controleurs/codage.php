@@ -4,8 +4,9 @@ include '../Modele/Managers/MotManager.php';
 
 $mot= new Mot("mot", 0, "min_bas");
 $motManager= new MotManager($con);
+$pol=array('demi_bas','demi_haut');
+$mot = new Mot('dibi', 0, 'min_bas');
+$motManager->codage($mot, $pol);
+//$motManager->codage(new Mot('x', 0, 'min_bas'));
 
-$motManager->codage(new Mot('aaac', 0, 'min_bas'), ("demi_bas"));
-
-//test
 ?>

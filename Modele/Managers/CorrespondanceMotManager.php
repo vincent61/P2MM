@@ -58,6 +58,16 @@ class CorrespondanceMotManager{
 	 }
   }
  
+  public function existCorrespMot($mot, $police)  // Renvoie le nombre de mots codes correspondants au mot passé en paramètre
+  {
+	$mot = (String) $mot;
+	$police = (String) $police;
+	$q = $this->_db->query('SELECT count(*) as total FROM CorrespondanceMot WHERE mot = \''.$mot.'\' and police= \''.$police.'\';');
+	$donnees = $q->fetch(PDO::FETCH_ASSOC);
+	return $donnees['total'];
+  
+  }
+ 
   public function setDb($db)
   {
     $this->_db = $db;

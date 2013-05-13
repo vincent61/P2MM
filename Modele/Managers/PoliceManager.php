@@ -79,6 +79,15 @@ class PoliceManager{
     $donnees = $q->fetchAll();
     return $donnees;
   }
+  
+  public function getAllCasse($casse)
+  { 
+    $q=$this->_db->prepare('SELECT police FROM Police WHERE casse = '.$casse.' order by police');
+	$q->execute();
+    $donnees = $q->fetchAll();
+    return $donnees;
+  }
+  
 }
 
 ?>

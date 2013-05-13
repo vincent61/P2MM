@@ -29,8 +29,10 @@ class LettreManager{
   public function get($lettre)
   { 
 	$l = (String) $lettre;
-    $q = $this->_db->query('SELECT lettreAscii FROM Lettre WHERE lettreAscii = \''.$lettre.'\'');
+    $q = $this->_db->query('SELECT lettreAscii, count(*) as total FROM Lettre WHERE lettreAscii = \''.$lettre.'\'');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
+	if ($donnees['total']==0)
+		throw new Exception('Lettre n\'existe pas.');
     return new Lettre($donnees['lettreAscii']);
   }
   
