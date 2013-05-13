@@ -1,10 +1,9 @@
 ﻿<?php
 
 include '../Modele/ModeleMemoire/Mot.php';
-include '../Modele/Managers/LettreManager.php';
 include '../Modele/Managers/PoliceManager.php';
 include '../Modele/Managers/MotCodeManager.php';
-include '../Modele/Managers/CorrespondanceLettreManager.php';
+//include '../Modele/Managers/CorrespondanceLettreManager.php';
 include '../Modele/Managers/CorrespondanceMotManager.php';
 
 class MotManager{
@@ -78,6 +77,7 @@ class MotManager{
   public function codage(Mot $motParam, array $policesParam=NULL)
   {
   include '../dbconnect.php';
+  echo "ici";
   $motManager = new MotManager ($con);
   $mot= $motParam->getMot();
   
@@ -139,17 +139,10 @@ class MotManager{
 		{	
 			//echo $mot[$i];
 			if ($suite)
-		{       // Interet de suite???
-			try                
-			{	
-				try {
+		{       	
+			try {
 				$vraieLettre= $lettreManager->get($mot[$i]);  // La lettre en cours doit correspondre à une lettre existante dans la table Lettre de la BDD
-				}
-				catch (Exception $e) 
-								{
-									$suite=false;
-									echo 'Exception : ',  $e->getMessage(), "\n"; 
-								}
+								
 				$codesLettres= $correspLetMan->getCodes($vraieLettre, $pol);  // On récupere les codes auxquels correspond la lettre en cours
 				/*foreach($codesLettres as $codelettre)
 					{	
@@ -178,7 +171,7 @@ class MotManager{
 				
 				for ($ii=0; $ii<($tailleResultatInter); $ii++)
 						{ // Exception div/0
-							try {	
+								
 									if ($nbCodesLettre==0)
 										{
 											throw new Exception('Division par zéro.');
@@ -201,18 +194,15 @@ class MotManager{
 										$listeResultat[$ii].= ($codesLettres[$k]['code']);
 										//echo $listeResultat[$ii]; 
 								 
-								} catch (Exception $e) 
+								}
+								
+				} catch (Exception $e) 
 								{
 									$suite=false;
 									echo 'Exception reçue : ',  $e->getMessage(), "\n"; 
 								}
-						}	
-			}
-			catch (Exception $e)
-			{	$suite=false;
-				throw new Exception('Lettre n\'existe pas!', 0, $e);
-			}
-		}}
+		}
+		}
 	} 
   // Ajout des résultats dans la table MotCode
   if ($suite==true)
