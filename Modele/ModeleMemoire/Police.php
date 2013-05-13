@@ -37,7 +37,7 @@ protected $casse;
 			$i = 0;
 			while(($code = array_pop($codesArray)) !==NULL){
 				
-				$c = new CodeLettre($code, $i, $this->getPolice());
+				$c = new CodeLettre(trim($code), $i, $this->getPolice());
 				$clManager->addCombinaison($l, $c);
 				$i++;
 			}
