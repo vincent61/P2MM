@@ -1,5 +1,5 @@
 ﻿<fieldset>
-	<form action="../Controleurs/Police.php" method="post"> 
+	<form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post"> 
         <b>Ajout:</b></br>
         Police: <input type="text" name="police" />
         Fichier Codes:<input type="file" name="fichierCodes" />

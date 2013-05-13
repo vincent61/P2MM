@@ -31,7 +31,9 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 	 // ce qui signifie qu'il n'y a eu aucune erreur  
 		if ((isset($_FILES['fichierDictionnaire']['tmp_name'])&&($_FILES['fichierDictionnaire']['error'] == UPLOAD_ERR_OK))) {   
 			if(substr($_FILES['fichierDictionnaire']['name'], -3, 3)=='csv'){  
-				$chemin_destination = $cheminServer.'P2MM/Fichiers/Dictionnaires/';     
+				$chemin_destination = $cheminServer.'P2MM/Fichiers/Dictionnaires/'; 
+				//Pour assurer un nom de fichier unique, on le renomme avec le nom (unique) du dictionnaire
+				$_FILES['fichierDictionnaire']['name'] = $_POST['dictionnaire'].".csv";
 				move_uploaded_file($_FILES['fichierDictionnaire']['tmp_name'], $chemin_destination.$_FILES['fichierDictionnaire']['name']);     
 				// Gestion des ajouts
 				$dictionnaireManager->add(new Dictionnaire($_POST['dictionnaire'],$_POST['langue'],$_FILES['fichierDictionnaire']['name'],$_POST['casse']));
@@ -52,7 +54,7 @@ if(isset($_GET['delete'])){
 	$dictionnaireManager->delete($_GET['delete']);
 }
 
-//Gestion des supression
+//Gestion du codage des mots
 if(isset($_GET['addMotsCode'])){
 	$dictionnaireManager->get($_GET['addMotsCode'])->remplirMotsCode();
 }
