@@ -1,10 +1,9 @@
 ﻿<?php
 
 include '../Modele/ModeleMemoire/Mot.php';
-//include '../Modele/Managers/LettreManager.php';
-//include '../Modele/Managers/MotCodeManager.php';
-//include '../Modele/Managers/CorrespondanceLettreManager.php';
-//include '../Modele/Managers/CorrespondanceMotManager.php';
+include '../Modele/Managers/MotCodeManager.php';
+include '../Modele/Managers/CorrespondanceLettreManager.php';
+include '../Modele/Managers/CorrespondanceMotManager.php';
 
 class MotManager{
 	private $_db; // Instance de db
@@ -105,7 +104,7 @@ class MotManager{
 		try                
 		{	
 			$vraieLettre= $lettreManager->get($mot[$i]);  // La lettre en cours doit correspondre à une lettre existante dans la table Lettre de la BDD
-			$codesLettres= $correspLetMan->getCodes($vraieLettre,'demi_bas');  // On récupere les codes auxquels correspond la lettre en cours
+			$codesLettres= $correspLetMan->getCodes($vraieLettre,'min_haut');  // On récupere les codes auxquels correspond la lettre en cours
 			/*foreach($codeslettres as $codelettre)
 				{	
 					echo ($codeslettre);
@@ -183,12 +182,12 @@ class MotManager{
 	{
 		  echo $listeResultat[$i];
 		  echo "<br>";
-		  $motCode = new MotCode( $listeResultat[$i], "demi_bas");
+		  $motCode = new MotCode( $listeResultat[$i], "min_haut");
 		  $motCodeManager = new MotCodeManager($con);
 		  $motCodeManager->add($motCode);
 		  
 		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
-		  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), "demi_bas");
+		  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), "min_haut");
 		  $correspMotMan = new CorrespondanceMotManager($con);
 		  $correspMotMan->add($correspMot);
 	}	  

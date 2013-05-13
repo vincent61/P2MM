@@ -1,5 +1,5 @@
 <?php
-//include '../Modele/Managers/MotManager.php';
+include '../Modele/Managers/MotManager.php';
 class Dictionnaire{
 	
 protected $dictionnaire;
@@ -26,7 +26,7 @@ protected $casse;
 		return $this->casse;
 	}
 	
-	/*
+	
 	public function remplirMotsCode()
   {
 	  include '../cheminsPerso.php';
@@ -40,12 +40,12 @@ protected $casse;
 			for ($c=0; $c < $num; $c++) {
 				echo "<br />\n";
 				$motManager->add(new Mot($data[$c], 0, $this->getDictionnaire()));
-				$motManager->codage(new Mot($data[$c], 0, $this->getDictionnaire()), ("demi_bas"));
+				$motManager->codage(new Mot($data[$c], 0, $this->getDictionnaire()), ("min_haut"));
 			}
 		}
 		fclose($handle);
 	}
   }
-  */
+  
 }
 ?>
