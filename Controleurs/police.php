@@ -64,7 +64,6 @@ if(isset($_POST['oldPolice']) and isset($_POST['newPolice'])){
 	//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi
 	rename($chemin_destination.$_POST['oldFichierCodes'], $chemin_destination.$nomFichier);
 			
-	//$policeManager->update(new Police($_POST['oldPolice'],$_POST['oldFichierCodes'],$_POST['oldCasse']),new Police($_POST['newPolice'],$_POST['newFichierCodes'],$_POST['newCasse']));
 }
 
 //Récupération du contenu de la BDD
