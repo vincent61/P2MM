@@ -225,7 +225,7 @@ class MotManager{
  }}
  
  
- public function motsCompatibles(Mot $motParam){
+ public function motsCompatibles($motParam){
 		include '../dbconnect.php';
 		$result = array(); // tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
@@ -239,7 +239,7 @@ class MotManager{
 		
 		foreach ($motsCodes as $motCode)
 			{
-				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam->getMot());
+				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam);
 				//print_r (array_values($motsComp));
 				//echo "<br>";
 				if ($motsComp)
@@ -253,6 +253,7 @@ class MotManager{
 						array_push($result, $ligne);
 					}
 			}		
+		//print_r (array_values($result));
 		return $result;
  }
 }

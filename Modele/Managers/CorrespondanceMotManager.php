@@ -48,7 +48,7 @@ class CorrespondanceMotManager{
   
   public function getAllCodes($motParam)
   { 
-	$q = $this->_db->prepare('SELECT motCode, police FROM CorrespondanceMot WHERE mot = \''.$motParam->getMot().'\'');
+	$q = $this->_db->prepare('SELECT motCode, police FROM CorrespondanceMot WHERE mot = \''.$motParam.'\'');
 	$q->execute();
 	$donnees = $q->fetchAll();
 	return $donnees;  }
