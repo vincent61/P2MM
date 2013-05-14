@@ -46,6 +46,21 @@ class CorrespondanceMotManager{
 	return new CorrespondanceMot($donnees['mot'],$donnees['motCode'],$donnees['police']);
   }
   
+  public function getAllCodes($motParam)
+  { 
+	$q = $this->_db->prepare('SELECT motCode, police FROM CorrespondanceMot WHERE mot = \''.$motParam->getMot().'\'');
+	$q->execute();
+	$donnees = $q->fetchAll();
+	return $donnees;  }
+  
+  
+   public function getAllMotsExcept($motC, $pol, $motPar)
+  { 
+	$q = $this->_db->prepare('SELECT mot FROM CorrespondanceMot WHERE motCode = \''.$motC.'\'  AND police = \''.$pol.'\' AND mot!= \''.$motPar.'\' ');
+	$q->execute();
+	$donnees = $q->fetchAll();
+	return $donnees;  }
+  
   public function update($cor, $newCor)
   {
 	if($cor instanceof CorrespondanceMot){

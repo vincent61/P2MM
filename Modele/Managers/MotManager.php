@@ -77,7 +77,7 @@ class MotManager{
   public function codage(Mot $motParam, array $policesParam=NULL)
   {
   include '../dbconnect.php';
-  echo "ici";
+  
   $motManager = new MotManager ($con);
   $mot= $motParam->getMot();
   
@@ -223,6 +223,38 @@ class MotManager{
   }
   else echo "Aucun mot inséré <br>";
  }}
+ 
+ 
+ public function motsCompatibles(Mot $motParam){
+		include '../dbconnect.php';
+		$result = array(); // tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
+		
+	//TODO: test si toutes les polices ont été codées pour ce mot. sinon coder
+		
+		
+		$corrMotManager = new CorrespondanceMotManager($con);
+		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné
+		//echo count($result);
+		//print_r (array_values($motsCodes));
+		
+		foreach ($motsCodes as $motCode)
+			{
+				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam->getMot());
+				//print_r (array_values($motsComp));
+				//echo "<br>";
+				if ($motsComp)
+					{	
+						$motsC=array();
+						foreach ($motsComp as $comp)
+								array_push($motsC, $comp['mot']);
+						
+						$ligne = array ("code" => $motCode[0], "police" => $motCode[1], "mots" => $motsC,);
+						//print_r (array_values($ligne));
+						array_push($result, $ligne);
+					}
+			}		
+		return $result;
+ }
 }
 
 ?>
