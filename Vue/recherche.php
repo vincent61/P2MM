@@ -7,8 +7,8 @@
 	</head>
 
 	<body>
-		<? include "base/header.html"; ?>
-		<? include "base/navBar.html"; ?>
+		<?php include "base/header.html"; ?>
+		<?php include "base/navBar.html"; ?>
 		<div id="recherche">
 		</div>
 		<div id="resultats">
@@ -19,6 +19,6 @@
 			<a href="#resultats"> Résultats </a> 
 		</menu>
 
-		<? include "base/footer.html"; ?>
+		<?php include "base/footer.html"; ?>
 	</body>
 </html>
