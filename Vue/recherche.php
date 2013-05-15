@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 
 	<head>
@@ -16,7 +16,7 @@
 		
 		<menu id="menuRech">
 			<a href="#recherche"> Recherche </a>
-			<a href="#resultats"> R�sultats </a> 
+			<a href="#resultats"> Résultats </a> 
 		</menu>
 
 		<? include "base/footer.html"; ?>
