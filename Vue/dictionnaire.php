@@ -10,7 +10,6 @@
     	</SELECT>
         Fichier Dictionnaire:<input type="file" name="fichierDictionnaire" />
         Casse:<input type="text" name="casse" />
-
         <input type="submit" value="Ajouter">
     </form>
 </fieldset>
