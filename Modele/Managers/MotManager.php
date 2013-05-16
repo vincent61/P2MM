@@ -231,6 +231,8 @@ class MotManager{
 		
 	//TODO: test si toutes les polices ont été codées pour ce mot. sinon coder
 		
+		$motManager= new MotManager($con);
+		//$motManager->codage($motParam);
 		
 		$corrMotManager = new CorrespondanceMotManager($con);
 		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné

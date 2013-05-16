@@ -1,5 +1,5 @@
 <?php
-include '../Modele/Managers/MotManager.php';
+include_once '../Modele/Managers/MotManager.php';
 class Dictionnaire{
 	
 protected $dictionnaire;
@@ -40,12 +40,12 @@ protected $casse;
 			for ($c=0; $c < $num; $c++) {
 				echo "<br />\n";
 				$motManager->add(new Mot($data[$c], $this->casse, $this->getDictionnaire()));
-				$motManager->codage(new Mot($data[$c], $this->casse, $this->getDictionnaire()), ("min_haut"));
+				$motManager->codage(new Mot($data[$c], $this->casse, $this->getDictionnaire()));
 			}
 		}
 		fclose($handle);
 	}
   }
-  
+ 
 }
 ?>

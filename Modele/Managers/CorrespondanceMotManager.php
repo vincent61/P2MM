@@ -1,5 +1,4 @@
 <?php
-//en cours (non achevé, non testé)
 include '../Modele/ModeleMemoire/CorrespondanceMot.php';
 
 class CorrespondanceMotManager{

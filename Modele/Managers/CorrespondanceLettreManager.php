@@ -21,7 +21,6 @@ class CorrespondanceLettreManager{
 				echo "La correpondance Lettre existe déja.";
 			}
 			else{
-			echo 'INSERT INTO CorrespondanceLettre VALUES (\''.$cor->getLettreAscii().'\',\''.$cor->getCode().'\',\''.$cor->getPolice().'\');';
 			  $this->_db->exec('INSERT INTO CorrespondanceLettre VALUES (\''.$cor->getLettreAscii().'\',\''.$cor->getCode().'\',\''.$cor->getPolice().'\');');
 			  }
 			}
