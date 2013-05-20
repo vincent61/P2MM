@@ -1,5 +1,41 @@
-﻿<fieldset>
-	<form action="../Controleurs/codelettre.php" method="post"> 
+﻿<script type="text/javascript">
+
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (trim(form.elements['code'].value) == ""){
+		valid = false;
+		msg = msg + "- Code\n";
+		displayPopUp = true;
+	}
+
+	var value = trim(form.elements['typelettre'].value);
+	
+	if (value == ""){
+		valid = false;
+		msg = msg + "- Type lettre\n";
+		displayPopUp = true;
+	}else{
+		if (value != parseFloat(value)){
+			valid = false;
+			alert("Le code saisie n'est pas un nombre!");
+		}
+	}
+
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+<fieldset>
+	<form action="../Controleurs/codelettre.php" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Code: <input type="text" name="code" />
 		Type lettre:<input type="text" name="typelettre" />
