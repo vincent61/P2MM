@@ -95,7 +95,7 @@ class MotManager{
 		}
 	*/	
   if (is_null($policesParam))  // Si aucune police spécifiée, on code le mot dans toutes les polices existantes correspondantes à la casse du mot
-  		{	$polices=$policesManager->getAllCasse($motParam->getCasse());
+  		{	$polices=$policesManager->getAllCasse((int)$motParam->getCasse());
 			foreach($polices as $pol)
 			{			$policetab[$inc]=$pol[0];
 						$inc++;		

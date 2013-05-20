@@ -87,7 +87,8 @@ class PoliceManager{
     return $donnees;
   }
   
-  public function getAllCasse(int $casse)
+  public function getAllCasse($casse)
+  //vérifier que casse est bien un int
   { 
     $q=$this->_db->prepare('SELECT police FROM Police WHERE casse = '.$casse.' order by police');
 	$q->execute();
