@@ -1,17 +1,21 @@
 ﻿<script type="text/javascript">
 
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
 function validForm(form){
 	var valid = true;
 	var msg = "Saisir : \n";
 	var displayPopUp = false;
 
-	if (form.elements['police'].value == ""){
+	if (trim(form.elements['police'].value) == ""){
 		valid = false;
 		msg = msg + "- Nom police\n";
 		displayPopUp = true;
 	}
 
-	if (form.elements['fichierCodes'].value == ""){
+	if (trim(form.elements['fichierCodes'].value) == ""){
 		valid = false;
 		msg = msg + "- Fichier codes\n";
 		displayPopUp = true;

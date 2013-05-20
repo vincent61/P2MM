@@ -1,11 +1,15 @@
 ﻿<script type="text/javascript">
 
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
 function validForm(form){
 	var valid = true;
 	var msg = "Saisir : \n";
 	var displayPopUp = false;
 
-	if (form.elements['lettre'].value == ""){
+	if (trim(form.elements['lettre'].value) == ""){
 		valid = false;
 		msg = msg + "- Lettre";
 		displayPopUp = true;

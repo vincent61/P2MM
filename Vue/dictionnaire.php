@@ -1,17 +1,21 @@
 ﻿<script type="text/javascript">
 
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
 function validForm(form){
 	var valid = true;
 	var msg = "Saisir : \n";
 	var displayPopUp = false;
 
-	if (form.elements['dictionnaire'].value == ""){
+	if (trim(form.elements['dictionnaire'].value) == ""){
 		valid = false;
 		msg = msg + "- Nom dictionnaire";
 		displayPopUp = true;
 	}
 
-	if (form.elements['fichierDictionnaire'].value == ""){
+	if (trim(form.elements['fichierDictionnaire'].value) == ""){
 		valid = false;
 		msg = msg + "- Fichier dictionnaire";
 		displayPopUp = true;
