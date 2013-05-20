@@ -1,7 +1,7 @@
 ﻿<?php
 
-include '../Modele/ModeleMemoire/Police.php';
-
+include_once '../Modele/ModeleMemoire/Police.php';
+include_once '../Modele/Managers/CorrespondanceLettreManager.php';
 
 class PoliceManager{
 	private $_db; // Instance de db
@@ -11,7 +11,15 @@ class PoliceManager{
     $this->setDb($db);
   }
  
-  public function add($police)
+ public function setDb($db)
+  {
+    $this->_db = $db;
+  }
+  public function getDb(){
+		return $this->_db;
+  }
+  
+  public function add(Police $police)
   { 
 	if($police instanceof Police){
 		$q = $this->_db->query('SELECT police FROM Police WHERE police = \''.$police->getPolice().'\';');
@@ -22,6 +30,8 @@ class PoliceManager{
 		}
 		else{
 		$this->_db->exec('INSERT INTO Police VALUES (\''.$police->getPolice().'\',\''.$police->getFichierCodes().'\',\''.$police->getCasse().'\');');
+		//si insetion réussie:
+		$this->remplirLettresCodes($police);
 		}
 	}
 	else
@@ -67,10 +77,7 @@ class PoliceManager{
 		throw new Exception('Type reçu erroné.');
   }
  
-  public function setDb($db)
-  {
-    $this->_db = $db;
-  }
+  
   
     public function getAll()
   { 
@@ -80,13 +87,40 @@ class PoliceManager{
     return $donnees;
   }
   
-  public function getAllCasse($casse)
+  public function getAllCasse(int $casse)
   { 
     $q=$this->_db->prepare('SELECT police FROM Police WHERE casse = '.$casse.' order by police');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
   }
+  
+  public function remplirLettresCodes(Police $police)
+  {
+	include '../cheminsPerso.php';
+
+	  $clManager = new CorrespondanceLettreManager($this->getDb());
+	  if (($handle = fopen($cheminServer.'P2MM/Fichiers/Polices/'.$police->getFichierCodes(), "r")) !== FALSE) {
+		while (($ligneCorrespondance = fgets($handle)) !== FALSE) {
+			$correspondances = explode(":", $ligneCorrespondance);
+			$lettre = $correspondances[0];
+			$l = new Lettre($lettre);
+			$codesArray = explode(",", $correspondances[1]);			
+			$i = 0;
+			while(($code = array_pop($codesArray)) !==NULL){
+				
+				$c = new CodeLettre(trim($code), $i, $police->getPolice());
+				$clManager->addCombinaison($l, $c);
+				$i++;
+			}
+		
+			}
+		
+		fclose($handle);
+		}
+		
+	}
+  
   
 }
 
