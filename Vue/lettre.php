@@ -1,5 +1,25 @@
-﻿<fieldset>
-	<form action="../Controleurs/lettre.php" method="post"> 
+﻿<script type="text/javascript">
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (form.elements['lettre'].value == ""){
+		valid = false;
+		msg = msg + "- Lettre";
+		displayPopUp = true;
+	}
+
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+
+<fieldset>
+	<form action="../Controleurs/lettre.php" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b><input type="text" name="lettre" />
         <input type="submit" value="Ajouter">
     </form>
