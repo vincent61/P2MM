@@ -15,7 +15,8 @@ class CorrespondanceLettreManager{
   public function add(CorrespondanceLettre $cor)
   {
 	  if($cor instanceof CorrespondanceLettre){
-			$q = $this->_db->query('SELECT * FROM CorrespondanceLettre WHERE lettreAscii = \''.$cor->getLettreAscii().'\' AND police= \''.$cor->getPolice().'\' AND code= \''.$cor->getCode() .'\';');
+			$q = $this->_db->prepare('SELECT * FROM CorrespondanceLettre WHERE lettreAscii = \''.$cor->getLettreAscii().'\' AND police= \''.$cor->getPolice().'\' AND code= \''.$cor->getCode() .'\';');
+			$q->execute();
 			$donnees = $q->fetch(PDO::FETCH_ASSOC);
 			if($donnees['lettreAscii']){
 				echo "La correpondance Lettre existe déja.";
