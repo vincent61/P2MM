@@ -1,6 +1,6 @@
 ﻿<?php
 include '../Modele/ModeleMemoire/CorrespondanceLettre.php';
-include '../Modele/Managers/CodeLettreManager.php';
+include_once '../Modele/Managers/CodeLettreManager.php';
 include '../Modele/Managers/LettreManager.php';
 
 
