@@ -1,5 +1,28 @@
-﻿<fieldset>
-	<form action="../Controleurs/motcode.php" method="post"> 
+﻿<script type="text/javascript">
+
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (trim(form.elements['code'].value) == ""){
+		valid = false;
+		msg = msg + "- Code\n";
+		displayPopUp = true;
+	}
+
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+<fieldset>
+	<form action="../Controleurs/motcode.php" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Code: <input type="text" name="code" />
 		Police :

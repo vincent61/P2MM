@@ -19,7 +19,7 @@ class MotCodeManager{
 		{
 			echo "Le Mot existe déja.";
 		}else{  
-		echo 'INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');';
+		    //echo 'INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');';
 	    	$this->_db->exec('INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\')');
 		  }
 	  }
@@ -47,7 +47,7 @@ class MotCodeManager{
   
    public function getAll()
   { 
-echo 'SELECT code, police FROM MotCode ORDER BY code';
+    //echo 'SELECT code, police FROM MotCode ORDER BY code';
     $q = $this->_db->prepare('SELECT code, police FROM MotCode ORDER BY code');
 	$q->execute();
     $donnees = $q->fetchAll();
