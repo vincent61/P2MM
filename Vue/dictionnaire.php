@@ -1,5 +1,40 @@
-﻿<fieldset>
-	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post"> 
+﻿<script type="text/javascript">
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (form.elements['dictionnaire'].value == ""){
+		valid = false;
+		msg = msg + "- Nom dictionnaire";
+		displayPopUp = true;
+	}
+
+	if (form.elements['fichierDictionnaire'].value == ""){
+		valid = false;
+		msg = msg + "- Fichier dictionnaire";
+		displayPopUp = true;
+	}else{
+	    var validExts = new Array(".csv");
+	    var fileExt = form.elements['fichierDictionnaire'].value;
+	    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+
+	    if (validExts.indexOf(fileExt) < 0) {
+	      alert("- Type de fichier sélectionné invalide, le type de fichier accepté est csv.");
+	      valid = false;
+	    }
+	}
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+
+
+<fieldset>
+	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Nom: <input type="text" name="dictionnaire" />
         Langue:
@@ -8,8 +43,9 @@
 		foreach ($langues as $langue)
 		echo '<OPTION>'. $langue['langue'];?>
     	</SELECT>
-        Fichier Dictionnaire:<input type="file" name="fichierDictionnaire" />
-        Casse:<input type="text" name="casse" />
+        Fichier Dictionnaire:<input type="file" accept=".csv" name="fichierDictionnaire" />
+        Casse:<input type="radio" name="casse" value="0" checked>Majuscule
+        <input type="radio" name="casse" value="1">Minuscule
         <input type="submit" value="Ajouter">
     </form>
 </fieldset>
@@ -59,10 +95,10 @@ foreach($dictionnaire as $dictionnaire)
     	</SELECT>
 		</th>
 		<th>
-		<input type="text" name="newFichierDictionnaire" value=<?php echo $dictionnaire['fichierDictionnaire'];?>>
+		<?php echo $dictionnaire['fichierDictionnaire'];?>
 		</th>
 		<th>
-		<input type="text" name="newCasse" value=<?php echo $dictionnaire['casse'];?>>
+		<?php echo $dictionnaire['casse'];?>
 		</th>
 		<input type="hidden" name="oldDictionnaire" value=<?php echo $dictionnaire['dictionnaire'];?>>
 		<input type="hidden" name="oldLangue" value=<?php echo $dictionnaire['langue'];?>>
