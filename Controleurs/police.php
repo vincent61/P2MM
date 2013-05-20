@@ -60,7 +60,7 @@ if(isset($_POST['oldPolice']) and isset($_POST['newPolice'])){
 	$nomFichier = $_POST['newPolice'].'.txt';
 	$chemin_destination = $cheminServer.'P2MM/Fichiers/Polices/';
 	//renomme le fichier de codes avec le nouveau nom spécifié
-	$policeManager->update(new Police($_POST['oldPolice'],$_POST['oldFichierCodes'],$_POST['oldCasse']),new Police($_POST['newPolice'],$nomFichier,$_POST['newCasse']));
+	$policeManager->update(new Police($_POST['oldPolice'],$_POST['oldFichierCodes'],$_POST['oldCasse']),new Police($_POST['newPolice'],$nomFichier,$_POST['oldCasse']));
 	//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi
 	rename($chemin_destination.$_POST['oldFichierCodes'], $chemin_destination.$nomFichier);
 			

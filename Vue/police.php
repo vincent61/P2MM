@@ -1,9 +1,43 @@
-﻿<fieldset>
-	<form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post"> 
+﻿<script type="text/javascript">
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (form.elements['police'].value == ""){
+		valid = false;
+		msg = msg + "- Nom police\n";
+		displayPopUp = true;
+	}
+
+	if (form.elements['fichierCodes'].value == ""){
+		valid = false;
+		msg = msg + "- Fichier codes\n";
+		displayPopUp = true;
+	}else{
+	    var validExts = new Array(".txt");
+	    var fileExt = form.elements['fichierCodes'].value;
+	    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+
+	    if (validExts.indexOf(fileExt) < 0) {
+	      alert("Type de fichier sélectionné invalide, le type de fichier accepté est txt.");
+	      valid = false;
+	    }
+	}
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+<fieldset>
+	<form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Police: <input type="text" name="police" />
         Fichier Codes:<input type="file" name="fichierCodes" />
-        Casse:<input type="text" name="casse" />
+        Casse:<input type="radio" name="casse" value="0" checked>Majuscule
+        <input type="radio" name="casse" value="1">Minuscule
 
         <input type="submit" value="Ajouter">
     </form>
@@ -36,10 +70,10 @@ foreach($police as $police){ ?>
 		<input type="text" name="newPolice" value=<?php echo $police['police'];?>>
 		</th>
 		<th>
-		<input type="text" name="newFichierCodes" value=<?php echo $police['fichierCode'];?>>
+		<?php echo $police['fichierCode'];?>
 		</th>
 		<th>
-		<input type="text" name="newCasse" value=<?php echo $police['casse'];?>>
+		<?php echo $police['casse'];?>
 		</th>
 		<input type="hidden" name="oldPolice" value=<?php echo $police['police'];?>>
 		<input type="hidden" name="oldFichierCodes" value=<?php echo $police['fichierCode'];?>>
