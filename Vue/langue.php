@@ -1,5 +1,29 @@
-﻿<fieldset>
-	<form action="../Controleurs/langue.php" method="post"> 
+﻿<script type="text/javascript">
+
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (trim(form.elements['langue'].value) == ""){
+		valid = false;
+		msg = msg + "- Langue";
+		displayPopUp = true;
+	}
+
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+
+<fieldset>
+	<form action="../Controleurs/langue.php" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b><input type="text" name="langue" />
         <input type="submit" value="Ajouter">
     </form>
