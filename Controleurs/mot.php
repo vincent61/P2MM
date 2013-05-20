@@ -21,7 +21,7 @@ if(isset($_GET['deleteMot']) && isset($_GET['deleteDictionnaire'])){
 
 //Gestion de l'edition
 if(isset($_POST['oldMot']) and isset($_POST['newMot'])){
-	$motManager->update(new Mot($_POST['oldMot'],$_POST['oldCasse'],$_POST['oldDictionnaire']),new Mot($_POST['newMot'],$_POST['newCasse'],$_POST['newDictionnaire']));
+	$motManager->update(new Mot($_POST['oldMot'],$_POST['oldCasse'],$_POST['oldDictionnaire']),new Mot($_POST['newMot'],$_POST['oldCasse'],$_POST['newDictionnaire']));
 }
 
 //Récupération du contenu de la BDD

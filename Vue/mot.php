@@ -1,8 +1,33 @@
-﻿<fieldset>
-	<form action="../Controleurs/mot.php" method="post"> 
+﻿<script type="text/javascript">
+
+function trim(str) {
+    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
+}
+
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (trim(form.elements['mot'].value) == ""){
+		valid = false;
+		msg = msg + "- Mot\n";
+		displayPopUp = true;
+	}
+
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+
+</script>
+
+
+<fieldset>
+	<form action="../Controleurs/mot.php" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Mot: <input type="text" name="mot" />
-		Casse:<input type="text" name="casse" />
+		Casse:<input type="radio" name="casse" value="0" checked>Majuscule
+        <input type="radio" name="casse" value="1">Minuscule
 		Dictionnaire:
         <SELECT name="dictionnaireListe" size="1">
         <?php 
@@ -43,7 +68,7 @@ foreach($mots as $mots){ ?>
 		<input type="text" name="newMot" value=<?php echo $mots['mot'];?>>
 		</th>
 		<th>
-		<input type="text" name="newCasse" value=<?php echo $mots['casse'];?>>
+		<?php echo $mots['casse'];?>
 		</th>
 		<th>
         <SELECT name="newDictionnaire" size="1">
