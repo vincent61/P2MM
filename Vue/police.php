@@ -1,8 +1,6 @@
-﻿<script type="text/javascript">
+﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
 
-function trim(str) {
-    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
-}
+<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;
@@ -29,6 +27,13 @@ function validForm(form){
 	      valid = false;
 	    }
 	}
+
+	if (checkRadioButton(form.elements['casse']) == false){
+		valid = false;
+		msg = msg + "- Casse\n";
+		displayPopUp = true;
+	}
+	
 	if (displayPopUp == true) alert(msg);
 	return valid;
 }
@@ -39,8 +44,8 @@ function validForm(form){
 	<form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Police: <input type="text" name="police" />
-        Fichier Codes:<input type="file" name="fichierCodes" />
-        Casse:<input type="radio" name="casse" value="0" checked>Majuscule
+        Fichier Codes:<input type="file" name="fichierCodes" accept=".txt"/>
+        Casse:<input type="radio" name="casse" value="0">Majuscule
         <input type="radio" name="casse" value="1">Minuscule
 
         <input type="submit" value="Ajouter">

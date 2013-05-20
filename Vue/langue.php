@@ -1,8 +1,6 @@
-﻿<script type="text/javascript">
+﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
 
-function trim(str) {
-    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
-}
+<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;

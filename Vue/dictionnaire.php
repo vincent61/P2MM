@@ -1,8 +1,6 @@
-﻿<script type="text/javascript">
+﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
 
-function trim(str) {
-    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
-}
+<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;
@@ -11,13 +9,13 @@ function validForm(form){
 
 	if (trim(form.elements['dictionnaire'].value) == ""){
 		valid = false;
-		msg = msg + "- Nom dictionnaire";
+		msg = msg + "- Nom dictionnaire\n";
 		displayPopUp = true;
 	}
 
 	if (trim(form.elements['fichierDictionnaire'].value) == ""){
 		valid = false;
-		msg = msg + "- Fichier dictionnaire";
+		msg = msg + "- Fichier dictionnaire\n";
 		displayPopUp = true;
 	}else{
 	    var validExts = new Array(".csv");
@@ -29,6 +27,13 @@ function validForm(form){
 	      valid = false;
 	    }
 	}
+
+	if (checkRadioButton(form.elements['casse']) == false){
+		valid = false;
+		msg = msg + "- Casse\n";
+		displayPopUp = true;
+	}
+	
 	if (displayPopUp == true) alert(msg);
 	return valid;
 }
@@ -48,7 +53,7 @@ function validForm(form){
 		echo '<OPTION>'. $langue['langue'];?>
     	</SELECT>
         Fichier Dictionnaire:<input type="file" accept=".csv" name="fichierDictionnaire" />
-        Casse:<input type="radio" name="casse" value="0" checked>Majuscule
+        Casse:<input type="radio" name="casse" value="0">Majuscule
         <input type="radio" name="casse" value="1">Minuscule
         <input type="submit" value="Ajouter">
     </form>

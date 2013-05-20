@@ -1,8 +1,5 @@
-﻿<script type="text/javascript">
-
-function trim(str) {
-    return String(str).replace(/^\s*/,'').replace(/\s*$/,'');
-}
+﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
+<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;
@@ -15,6 +12,12 @@ function validForm(form){
 		displayPopUp = true;
 	}
 
+	if (checkRadioButton(form.elements['casse']) == false){
+		valid = false;
+		msg = msg + "- Casse\n";
+		displayPopUp = true;
+	}
+	
 	if (displayPopUp == true) alert(msg);
 	return valid;
 }
@@ -26,7 +29,7 @@ function validForm(form){
 	<form action="../Controleurs/mot.php" method="post" onsubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Mot: <input type="text" name="mot" />
-		Casse:<input type="radio" name="casse" value="0" checked>Majuscule
+		Casse:<input type="radio" name="casse" value="0">Majuscule
         <input type="radio" name="casse" value="1">Minuscule
 		Dictionnaire:
         <SELECT name="dictionnaireListe" size="1">
