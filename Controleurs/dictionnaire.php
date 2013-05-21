@@ -56,7 +56,8 @@ if(isset($_GET['delete'])){
 
 //Gestion du codage des mots
 if(isset($_GET['addMotsCode'])){
-	$dictionnaireManager->get($_GET['addMotsCode'])->remplirMotsCode();
+	include 'codagedico.php';
+	//$dictionnaireManager->get($_GET['addMotsCode'])->remplirMotsCode();
 }
 
 //Gestion de l'edition
