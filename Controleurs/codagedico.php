@@ -3,9 +3,9 @@ ignore_user_abort(1); //continue de s'exécuter mais si le navigateur ferme la co
 set_time_limit(0); // le script peut s'exécuter de façon illimitée
 
 	$dictionnaireManager->get($_GET['addMotsCode'])->remplirMotsCode();
-	$message = "Le remplissage du dictionnaire est terminé\r\n";
+	$message = "Le remplissage du dictionnaire ".$_GET['addMotsCode']. " est terminé\r\n";
 	echo $message;
-	//mail('guerryma.utc@gmail.com', 'Résultat Codage', $message);
+	mail('guerryma.utc@gmail.com', 'Résultat Codage', $message);
 
 
 ?>
