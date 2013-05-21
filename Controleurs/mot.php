@@ -11,7 +11,7 @@ $dictionnaireManager = new DictionnaireManager($con);
 
 
 if(isset($_POST['mot']) && isset($_POST['casse']) && isset($_POST['dictionnaireListe'])){
-	$motManager->add(new Mot($_POST['mot'],$_POST['casse'],$_POST['dictionnaireListe']));
+	$motManager->add(new Mot($_POST['mot'],$_POST['casse'],$_POST['dictionnaireListe'],$_POST['frequence']));
 }
 
 //Gestion des supression
@@ -21,7 +21,7 @@ if(isset($_GET['deleteMot']) && isset($_GET['deleteDictionnaire'])){
 
 //Gestion de l'edition
 if(isset($_POST['oldMot']) and isset($_POST['newMot'])){
-	$motManager->update(new Mot($_POST['oldMot'],$_POST['oldCasse'],$_POST['oldDictionnaire']),new Mot($_POST['newMot'],$_POST['oldCasse'],$_POST['newDictionnaire']));
+	$motManager->update(new Mot($_POST['oldMot'],$_POST['oldCasse'],$_POST['oldDictionnaire'],$_POST['oldFrequence']),new Mot($_POST['newMot'],$_POST['oldCasse'],$_POST['newDictionnaire'],$_POST['newFrequence']));
 }
 
 //Récupération du contenu de la BDD

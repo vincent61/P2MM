@@ -4,8 +4,9 @@ class Mot{
 protected $mot;
 protected $casse;
 protected $dictionnaire;
+protected $frequence;
           
-	public function __construct($m, $c, $d){
+	public function __construct($m, $c, $d, $f){
 			
 		 $this->casse = $c;
 		 
@@ -18,6 +19,7 @@ protected $dictionnaire;
 		 
 		 $this->mot = $m;
 		 $this->dictionnaire = $d;
+		 $this->frequence = $f;
 		 
 	}
 	public function getMot(){
@@ -28,6 +30,9 @@ protected $dictionnaire;
 	}
 	public function getDictionnaire(){
 		return $this->dictionnaire;
+	}
+	public function getFrequence(){
+		return $this->frequence;
 	}
 }
 ?>

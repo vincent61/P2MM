@@ -26,7 +26,7 @@ class MotManager{
 			echo "Le Mot existe déja.";
 		}
 	  else{  
-    	$this->_db->exec('INSERT INTO Mot (mot, casse, dictionnaire) VALUES (\''.$mot->getMot().'\', '.$mot->getCasse().', \''.$mot->getDictionnaire().'\');');
+    	$this->_db->exec('INSERT INTO Mot (mot, casse, dictionnaire,frequence) VALUES (\''.$mot->getMot().'\', '.$mot->getCasse().', \''.$mot->getDictionnaire().'\', \''.$mot->getFrequence().'\');');
 	  }
 	  }
   }
@@ -41,14 +41,14 @@ class MotManager{
   public function get($mot)
   { 
   $mot = (String) $mot;
-    $q = $this->_db->query('SELECT mot,casse, dictionnaire FROM Mot WHERE mot = \''.$mot.'\';');
+    $q = $this->_db->query('SELECT mot,casse, dictionnaire,frequence FROM Mot WHERE mot = \''.$mot.'\';');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
-    return new Mot($donnees['mot'],$donnees['casse'],$donnees['dictionnaire']);
+    return new Mot($donnees['mot'],$donnees['casse'],$donnees['dictionnaire'],$donnees['frequence']);
   }
 
    public function getAll()
   { 
-    $q = $this->_db->prepare('SELECT mot, casse, dictionnaire FROM Mot order by mot');
+    $q = $this->_db->prepare('SELECT mot, casse, dictionnaire, frequence FROM Mot order by mot');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
@@ -57,7 +57,7 @@ class MotManager{
   public function update($oldMot, $newMot)
   {
   	if($oldMot instanceof Mot && $newMot instanceof Mot){
-	   $this->_db->exec('UPDATE Mot SET mot = \''.$newMot->getMot().'\', casse = \''.$newMot->getCasse().'\',dictionnaire = \''.$newMot->getDictionnaire().'\', casse = '.$newMot->getCasse().' WHERE mot = \''.$oldMot->getMot().'\' AND dictionnaire = \'' .$oldMot->getDictionnaire() .'\';');
+	   $this->_db->exec('UPDATE Mot SET mot = \''.$newMot->getMot().'\', casse = \''.$newMot->getCasse().'\',dictionnaire = \''.$newMot->getDictionnaire().'\', casse = \''.$newMot->getCasse().'\', frequence = \''.$newMot->getFrequence().'\' WHERE mot = \''.$oldMot->getMot().'\' AND dictionnaire = \'' .$oldMot->getDictionnaire() .'\' AND frequence = \'' .$oldMot->getFrequence() .'\';');
   	}else
 	   throw new Exception('Type reçu erroné.');
   }

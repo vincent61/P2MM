@@ -38,7 +38,8 @@ function validForm(form){
 				echo '<OPTION>'. $dictionnaire['dictionnaire'];
 		?>
     	</SELECT>
-        
+        Frequence: 
+        <input type="text" name="frequence" />
         <input type="submit" value="Ajouter">
     </form>
 </fieldset>
@@ -52,7 +53,7 @@ function validForm(form){
 <th><u>Mot</u></th>
 <th><u>Casse</u></th>
 <th><u>Dictionnaire</u></th>
-
+<th><u>Frequence</u></th>
 
 <th><u></u></th>
 <th><u></u></th>
@@ -88,20 +89,26 @@ foreach($mots as $mots){ ?>
 		?>
     	</SELECT>
 		</th>
+        <th>
+        	<input type="text" name="newFrequence" value=<?php echo $mots['frequence'];?>>
+		</th>
 		<input type="hidden" name="oldMot" value=<?php echo $mots['mot'];?>>
 		<input type="hidden" name="oldCasse" value=<?php echo $mots['casse'];?>>
 		<input type="hidden" name="oldDictionnaire" value=<?php echo $mots['dictionnaire'];?>>
-		
+		<input type="hidden" name="oldFrequence" value=<?php echo $mots['frequence'];?>>
+
 	<?php }else{?>
 	<th><?php echo $mots['mot'];?></th>
 	<th><?php echo $mots['casse'];?></th>
 	<th><?php echo $mots['dictionnaire'];?></th>
+    <th><?php echo $mots['frequence'];?></th>
+
 
 	<?php }?>
 	<th><a href="../Controleurs/mot.php?deleteMot=<?php echo $mots['mot'];?>&deleteDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
 	<th><a href="../Controleurs/mot.php?editMot=<?php echo $mots['mot'];?>&editDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
 	<?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
-			<th><input type="submit" value="Ajouter"></th>
+			<th><input type="submit" value="Modifier"></th>
 			</form>
 	<?php }?>
 	</tr>
