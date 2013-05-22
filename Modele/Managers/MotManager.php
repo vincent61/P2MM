@@ -226,7 +226,7 @@ class MotManager{
  }}
  
  
- public function motsCompatibles($motParam){ // prend en parametre un mot (type string) et sa casse
+ public function motsCompatibles($motParam){ // prend en parametre un mot (type string)
 		include '../dbconnect.php';
 		$result = array(); // tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
@@ -254,18 +254,17 @@ class MotManager{
 		
 		foreach ($motsCodes as $motCode)
 			{
-				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam);
-				//print_r (array_values($motsComp));
-				//echo "<br>";
+				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam, $casse);
 				if ($motsComp)
 					{	
 						$motsC=array();
 						foreach ($motsComp as $comp)
-								array_push($motsC, $comp['mot']);
-						
-						$ligne = array ("code" => $motCode[0], "police" => $motCode[1], "mots" => $motsC,);
-						//print_r (array_values($ligne));
-						array_push($result, $ligne);
+								//array_push($motsC, $comp['mot']);
+						{
+							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mot'],);
+							//print_r (array_values($ligne));
+							array_push($result, $ligne);
+						}
 					}
 			}		
 		//print_r (array_values($result));
