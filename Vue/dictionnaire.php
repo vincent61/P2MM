@@ -1,7 +1,6 @@
-﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
-
+﻿<?php include "base/header.php"; ?>
+<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <script type="text/javascript">
-
 function validForm(form){
 	var valid = true;
 	var msg = "Saisir : \n";
@@ -40,10 +39,11 @@ function validForm(form){
 
 </script>
 
-
-
-<fieldset>
-	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)"> 
+<div class="tbox1">
+<div class="box-style box-style01">
+<div class="content">
+<fieldset >
+	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Nom: <input type="text" name="dictionnaire" />
         Langue:
@@ -58,9 +58,9 @@ function validForm(form){
         <input type="submit" value="Ajouter">
     </form>
 </fieldset>
-
-</br>
-
+</div>
+</div>
+</div>
 <TABLE BORDER='1'>
 <CAPTION> Liste Dictionnaires</CAPTION>
 <tr>

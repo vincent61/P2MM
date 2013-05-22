@@ -1,10 +1,8 @@
-﻿<em><em><?php
+﻿<?php
 include '../dbconnect.php';
 include '../cheminsPerso.php';
 include '../Modele/Managers/DictionnaireManager.php';
 include '../Modele/Managers/LangueManager.php';
-
-
 $dictionnaireManager = new DictionnaireManager($con);
 $langueManager = new LangueManager($con);
 
