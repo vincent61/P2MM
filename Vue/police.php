@@ -94,7 +94,7 @@ foreach($police as $police){ ?>
 		<?php echo $police['fichierCode'];?>
 		</th>
 		<th>
-		<?php echo $police['casse'];?>
+		<?php echo $police['casse']=="0" ? 'Majuscule' : 'Minuscule'?>
 		</th>
 		<input type="hidden" name="oldPolice" value=<?php echo $police['police'];?>>
 		<input type="hidden" name="oldFichierCodes" value=<?php echo $police['fichierCode'];?>>
@@ -104,7 +104,7 @@ foreach($police as $police){ ?>
 	<?php }else{ ?>
 		<th><?php echo $police['police'];?></th>
 		<th><?php echo $police['fichierCode'];?></th>
-		<th><?php echo $police['casse'];?></th>
+		<th><?php echo $police['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
 	<?php }?>
 	<th><a href="../Controleurs/police.php?delete=<?php echo $police['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
 	<th><a href="../Controleurs/police.php?edit=<?php echo $police['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>

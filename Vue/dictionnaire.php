@@ -116,7 +116,7 @@ foreach($dictionnaire as $dictionnaire)
 		<?php echo $dictionnaire['fichierDictionnaire'];?>
 		</th>
 		<th>
-		<?php echo $dictionnaire['casse'];?>
+		<?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?>
 		</th>
 		<input type="hidden" name="oldDictionnaire" value=<?php echo $dictionnaire['dictionnaire'];?>>
 		<input type="hidden" name="oldLangue" value=<?php echo $dictionnaire['langue'];?>>
@@ -126,7 +126,7 @@ foreach($dictionnaire as $dictionnaire)
 		<th><?php echo $dictionnaire['dictionnaire'];?></th>
 		<th><?php echo $dictionnaire['langue'];?></th>
 		<th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
-		<th><?php echo $dictionnaire['casse'];?></th>
+		<th><?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
 <?php 
 	}
 	?>																							

@@ -84,7 +84,7 @@ foreach($mots as $mots){ ?>
 		<input type="text" name="newMot" value=<?php echo $mots['mot'];?>>
 		</th>
 		<th>
-		<?php echo $mots['casse'];?>
+		<?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?>
 		</th>
 		<th>
         <SELECT name="newDictionnaire" size="1">
@@ -111,7 +111,7 @@ foreach($mots as $mots){ ?>
 
 	<?php }else{?>
 	<th><?php echo $mots['mot'];?></th>
-	<th><?php echo $mots['casse'];?></th>
+	<th><?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
 	<th><?php echo $mots['dictionnaire'];?></th>
     <th><?php echo $mots['frequence'];?></th>
 
