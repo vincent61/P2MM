@@ -36,17 +36,11 @@ protected $casse;
 	 
 	  // A MODIFIER SELON L'ADRESSE DU SERVEUR.
 	  if (($handle = fopen($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$this->getFichierDictionnaire(), "r")) !== FALSE) {
-		   echo "<table>\n";
-      echo "<td><b>Name</b></td><td><b>Surname</b></td><td><b>Email</b></td>";
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
 			$num = count($data);
-			echo "<tr>";
 				$motManager->add(new Mot($data[0], $this->casse, $this->getDictionnaire(),$data[1]));
 				$motManager->codage(new Mot($data[0], $this->casse, $this->getDictionnaire(),$data[1]));
-			
-			echo "</tr>\n";
-		}
-		echo "</table>";
+			}
 		fclose($handle);
 	}
   }
