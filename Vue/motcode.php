@@ -18,9 +18,21 @@ function validForm(form){
 }
 
 </script>
-
-<fieldset>
-	<form action="../Controleurs/motcode.php" method="post" onsubmit="return validForm(this)"> 
+<?php include "base/header.php"; ?>
+<body>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			<?php include 'base/barreLaterale.php';?>
+				<div id="content">
+					<div class="post">
+						<h2 class="title">ots Codes</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<fieldset>
+	<form action="../Controleurs/motcode.php" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Code: <input type="text" name="code" />
 		Police :
@@ -94,6 +106,19 @@ foreach($motCodes as $motCodes){ ?>
 <?php }?>
 
 </TABLE>
+
+					</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<?php include "base/footer.html"; ?>
+</html>
 
 
 

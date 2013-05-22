@@ -24,9 +24,21 @@ function validForm(form){
 
 </script>
 
-
-<fieldset>
-	<form action="../Controleurs/mot.php" method="post" onsubmit="return validForm(this)"> 
+<?php include "base/header.php"; ?>
+<body>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			<?php include 'base/barreLaterale.php';?>
+				<div id="content">
+					<div class="post">
+						<h2 class="title">Mots</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<fieldset>
+	<form action="../Controleurs/mot.php" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
         Mot: <input type="text" name="mot" />
 		Casse:<input type="radio" name="casse" value="0">Majuscule
@@ -116,5 +128,15 @@ foreach($mots as $mots){ ?>
 
 </TABLE>
 
-
-
+					</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<?php include "base/footer.html"; ?>
+</html>

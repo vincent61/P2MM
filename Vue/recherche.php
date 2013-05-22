@@ -1,15 +1,21 @@
-﻿<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8" />
-		<title> Recherche de Combinaisons </title>
-	</head>
-
-	<body>
-		<?php include "base/header.html"; ?>
-		<?php include "base/navBar.html"; ?>
-			<div id="recherche">
+<?php include "base/header.php"; ?>
+<body>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			<?php include 'base/barreLaterale.php';?>
+				<div id="content">
+					<div class="post">
+						<h2 class="title">Espace de Recherche</h2>
+                            <div style="clear: both;">&nbsp;</div>
+                            <div class="entry">	
+                                <menu id="menuRech">
+                                    <a href="#recherche"> Recherche </a>
+                                    <a href="#resultats"> Résultats </a> 
+                                </menu>
+                           <div id="recherche">
 			<fieldset>
 			<form action="../Controleurs/recherche.php" method="post"> 
 			<b>Determiner la liste des mots compatibles:</b></br>
@@ -50,12 +56,15 @@
 			<?php }
 			?>
 			</div>
-		
-		<menu id="menuRech">
-			<a href="#recherche"> Recherche </a>
-			<a href="#resultats"> Résultats </a> 
-		</menu>
-
-		<?php include "base/footer.html"; ?>
-	</body>
+						</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<?php include "base/footer.html"; ?>
 </html>

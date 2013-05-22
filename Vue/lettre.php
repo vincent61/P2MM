@@ -19,9 +19,21 @@ function validForm(form){
 
 </script>
 
-
-<fieldset>
-	<form action="../Controleurs/lettre.php" method="post" onsubmit="return validForm(this)"> 
+<?php include "base/header.php"; ?>
+<body>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			<?php include 'base/barreLaterale.php';?>
+				<div id="content">
+					<div class="post">
+						<h2 class="title">Langues</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<fieldset>
+	<form action="../Controleurs/lettre.php" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b><input type="text" name="lettre" />
         <input type="submit" value="Ajouter">
     </form>
@@ -59,4 +71,15 @@ foreach($lettres as $lettres){ ?>
 	<th><a href="../Controleurs/lettre.php?edit=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th></tr>
 <?php } ?>
 </TABLE> 
-
+					</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<?php include "base/footer.html"; ?>
+</html>

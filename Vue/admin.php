@@ -1,26 +1,27 @@
-<?php
-// Ne doit plus servir qu'à appeler une vue !!!! 
-?>
-<!DOCTYPE html>
-<html>
-
-	<head>
-		<meta charset="utf-8" />
-		<title> Espace d'administration </title>
-	</head>
-
-	<body>
-		<?php include "base/header.html"; ?>
-        <?php include "base/navBar.html"; ?>
-        <menu>
-        <p><a href="../Controleurs/lettre.php">Lettre</a></p>
-        <p><a href="../Controleurs/dictionnaire.php">Dictionnaire</a></p>
-        <p><a href="../Controleurs/police.php">Police</a></p>
-        <p><a href="../Controleurs/langue.php">Langues</a></p>
-        <p><a href="../Controleurs/codelettre.php">Code lettre</a></p>
-        <p><a href="../Controleurs/mot.php">Mot</a></p>
-        <p><a href="../Controleurs/motcode.php">Mot codes</a></p>
-        </menu>
-        <?php include "base/footer.html"; ?>
-	</body>
+<?php include "base/header.php"; ?>
+<body>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			<?php include 'base/barreLaterale.php';?>
+				<div id="content">
+					<div class="post">
+						<h2 class="title">Espace d'administration</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<p><a href="#"><img src="ressources/eng.gif" width="220" height="187" alt="" /></a></p>
+							<p>This is <strong>Splendorous</strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.  The photo used in this template is from <a href="http://fotogrph.com/">Fotogrph</a>.  This free template is released under a <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attributions 2.5</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you keep the links in the footer intact. Aside from that, have fun with it :)							</p>
+					</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+<?php include "base/footer.html"; ?>
 </html>

@@ -1,4 +1,5 @@
 ﻿<?php
+ini_set("auto_detect_line_endings", true);
 include '../dbconnect.php';
 include '../cheminsPerso.php';
 include '../Modele/Managers/DictionnaireManager.php';

@@ -1,5 +1,4 @@
-﻿<?php include "base/header.php"; ?>
-<script type="text/javascript" src="/P2MM/functions.js" ></script>
+﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <script type="text/javascript">
 function validForm(form){
 	var valid = true;
@@ -39,28 +38,38 @@ function validForm(form){
 
 </script>
 
-<div class="tbox1">
-<div class="box-style box-style01">
-<div class="content">
-<fieldset >
+<?php include "base/header.php"; ?>
+<body>
+<div id="wrapper"> 
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+			<?php include 'base/barreLaterale.php';?>
+					<div id="content">
+					<div class="post">
+					<h2 class="title">Dictionnaires</h2>
+					<div style="clear: both;">&nbsp;</div>
+					<div class="entry">
+	<fieldset >
 	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
-        Nom: <input type="text" name="dictionnaire" />
-        Langue:
+        <p>Nom: <input type="text" name="dictionnaire" /></p>
+       <p> Langue:
         <SELECT name="langue" size="1">
         <?php 
 		foreach ($langues as $langue)
 		echo '<OPTION>'. $langue['langue'];?>
-    	</SELECT>
-        Fichier Dictionnaire:<input type="file" accept=".csv" name="fichierDictionnaire" />
-        Casse:<input type="radio" name="casse" value="0">Majuscule
+    	</SELECT></p>
+        <p>Fichier Dictionnaire:<input type="file" accept=".csv" name="fichierDictionnaire" /></p>
+        <p>Casse:
+        <input type="radio" name="casse" value="0">Majuscule
         <input type="radio" name="casse" value="1">Minuscule
-        <input type="submit" value="Ajouter">
+        </p>
+        <p><input type="submit" value="Ajouter"></p>
     </form>
 </fieldset>
-</div>
-</div>
-</div>
+
 <TABLE BORDER='1'>
 <CAPTION> Liste Dictionnaires</CAPTION>
 <tr>
@@ -135,7 +144,21 @@ foreach($dictionnaire as $dictionnaire)
 </TABLE>
 
 
-<?php  
-?>
+					</div>
+					</div>
+				</div>
+				<!-- end #content -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page --> 
+</div>
+
+
+        <?php include "base/footer.html"; ?>
+
+
+</html>
 
 
