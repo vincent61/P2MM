@@ -103,6 +103,15 @@ class PoliceManager{
 	  $clManager = new CorrespondanceLettreManager($this->getDb());
 	  if (($handle = fopen($cheminServer.'P2MM/Fichiers/Polices/'.$police->getFichierCodes(), "r")) !== FALSE) {
 		while (($ligneCorrespondance = fgets($handle)) !== FALSE) {
+			if($police->getCasse() ==0){
+				//si on traite des majuscules, la ligne est transformée également
+				$ligneCorrespondance = strtoupper((string)$ligneCorrespondance);
+			}
+			else{
+				$ligneCorrespondance = strtolower((string)$ligneCorrespondance);
+			
+			}
+			echo $ligneCorrespondance;
 			$correspondances = explode(":", $ligneCorrespondance);
 			$lettre = $correspondances[0];
 			$l = new Lettre($lettre);

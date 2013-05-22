@@ -36,6 +36,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 				// Gestion des ajouts
 				$dictionnaireManager->add(new Dictionnaire($_POST['dictionnaire'],$_POST['langue'],$_FILES['fichierDictionnaire']['name'],$_POST['casse']));
 					include 'codagedico.php';
+					codageDico($_POST['dictionnaire'], $dictionnaireManager);
 
 			} 
 			else
