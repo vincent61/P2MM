@@ -3,7 +3,7 @@ include '../dbconnect.php';
 include '../Modele/Managers/MotManager.php';
 
 
-$mot = new Mot('baba', 0, 'min_bas');
+$mot = new Mot('baba', 0, 'min_bas', 0);
 $motManager=new MotManager($con);
 
 if(isset($_POST['mot'])){

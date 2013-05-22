@@ -62,9 +62,10 @@ class MotManager{
 	   throw new Exception('Type reçu erroné.');
   }
  
-	public function exist($mot)
+	public function exist($motParam)
   { 
-    $q = $this->_db->query('SELECT count(*) AS total FROM Mot WHERE mot = \''.$mot.'\';');
+    $q = $this->_db->prepare('SELECT count(*) AS total FROM Mot WHERE mot = \''.$motParam->getMot().'\' AND casse = \''.$motParam->getCasse().'\';');
+	$q->execute();
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
     return $donnees['total'];
   }
@@ -79,6 +80,7 @@ class MotManager{
   include '../dbconnect.php';
   
   $motManager = new MotManager ($con);
+ 
   $mot= $motParam->getMot();
   
   $lettreManager= new LettreManager($con);
@@ -86,14 +88,12 @@ class MotManager{
   $policesManager= new PoliceManager($con);
   $policetab= array();
   $inc=0;
-  /*
-  if ($motManager->exist($mot)>0)  // si le mot n'existe pas dans la BDD, on l'ajoute à la table Mot
-		echo "Mot existe déjà en BDD <br>";
-		else
+ 
+  if (!$motManager->exist($motParam)>0)  // si le mot n'existe pas dans la BDD, on l'ajoute à la table Mot
 		{	$motManager->add($motParam);
-			echo "mot ajouté ";
+			echo "Le Mot a été ajouté <br>";
 		}
-	*/	
+	
   if (is_null($policesParam))  // Si aucune police spécifiée, on code le mot dans toutes les polices existantes correspondantes à la casse du mot
   		{	$polices=$policesManager->getAllCasse((int)$motParam->getCasse());
 			foreach($polices as $pol)
@@ -216,6 +216,7 @@ class MotManager{
 		  $motCodeManager->add($motCode);
 		  
 		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
+		
 		  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), $pol);
 		  $correspMotMan = new CorrespondanceMotManager($con);
 		  $correspMotMan->add($correspMot);
@@ -225,14 +226,26 @@ class MotManager{
  }}
  
  
- public function motsCompatibles($motParam){
+ public function motsCompatibles($motParam){ // prend en parametre un mot (type string) et sa casse
 		include '../dbconnect.php';
 		$result = array(); // tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
-	//TODO: test si toutes les polices ont été codées pour ce mot. sinon coder
-		
 		$motManager= new MotManager($con);
 		//$motManager->codage($motParam);
+		if (preg_match("#^[a-z]{1,}$#", $motParam)&& preg_match("#[^A-Z0-9]#", $motParam)){// si le mot est en minuscule
+			$casse=1;
+			$dico="autre_min";  // dico contenant par défaut les mots minuscules qui ne sont dans aucun dictionnaire
+		}
+		else if (preg_match("#^[A-Z]{1,}$#", $motParam) && preg_match("#[^a-z]#", $motParam)) // si le mot est en majuscule
+		{		$casse=0;
+				$dico="autre_maj";	// dico contenant par défaut les mots majuscules qui ne sont dans aucun dictionnaire
+			}
+		else {	echo "Le mot doit contenir des majuscules ou des minuscules"; //sinon
+				break;
+				return 0;}
+		
+		$motP = new Mot($motParam, $casse, $dico, 1);
+		$motManager->codage($motP);
 		
 		$corrMotManager = new CorrespondanceMotManager($con);
 		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné
