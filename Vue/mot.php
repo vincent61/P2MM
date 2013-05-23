@@ -1,4 +1,5 @@
-﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <script type="text/javascript">
 
 function validForm(form){
@@ -23,71 +24,70 @@ function validForm(form){
 }
 
 </script>
-
 <?php include "base/header.php"; ?>
 <body>
 <div id="wrapper"> 
-	<!-- end #header -->
-	<div id="page">
-		<div id="page-bgtop">
-			<div id="page-bgbtm">
-			<?php include 'base/barreLaterale.php';?>
-				<div id="content">
-					<div class="post">
-						<h2 class="title">Mots</h2>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-							<fieldset>
-	<form action="../Controleurs/mot.php" method="post" onSubmit="return validForm(this)"> 
-        <b>Ajout:</b></br></p>
-        <p>Mot: <input type="text" name="mot" /></p>
-		<p>Casse:<input type="radio" name="casse" value="0">Majuscule
-        <input type="radio" name="casse" value="1">Minuscule</p>
-		<p>Dictionnaire:
-        <SELECT name="dictionnaireListe" size="1">
-        <?php 
+  <!-- end #header -->
+  <div id="page">
+    <div id="page-bgtop">
+      <div id="page-bgbtm">
+        <?php include 'base/barreLaterale.php';?>
+        <div id="content">
+          <div class="post">
+            <h2 class="title">Mots</h2>
+            <div style="clear: both;">&nbsp;</div>
+            <div class="entry">
+              <fieldset>
+                <form action="../Controleurs/mot.php" method="post" onsubmit="return validForm(this)">
+                  <b>Ajout:</b></br>
+                  </p>
+                  <p>Mot:
+                    <input type="text" name="mot" />
+                  </p>
+                  <p>Casse:
+                    <input type="radio" name="casse" value="0" />
+                    Majuscule
+                    <input type="radio" name="casse" value="1" />
+                    Minuscule</p>
+                  <p>Dictionnaire:
+                    <select name="dictionnaireListe" size="1">
+                      <?php 
 			foreach ($dictionnaires as $dictionnaire)
 				echo '<OPTION>'. $dictionnaire['dictionnaire'];
 		?>
-    	</SELECT></p>
-       <p> Frequence: 
-        <input type="text" name="frequence" /></p>
-        <p><input type="submit" value="Ajouter"></p>
-    </form>
-</fieldset>
-
-</br>
-
-
-<TABLE BORDER='1'>
-<tr class="titre">
-<th><u>Mot</u></th>
-<th><u>Casse</u></th>
-<th><u>Dictionnaire</u></th>
-<th><u>Frequence</u></th>
-
-<th><u></u></th>
-<th><u></u></th>
-</tr>
-
-<?php
+                    </select>
+                  </p>
+                  <p> Frequence:
+                    <input type="text" name="frequence" />
+                  </p>
+                  <p>
+                    <input type="submit" value="Ajouter" />
+                  </p>
+                </form>
+              </fieldset>
+              </br>
+              <table border='1'>
+                <tr class="titre">
+                  <th><u>Mot</u></th>
+                  <th><u>Casse</u></th>
+                  <th><u>Dictionnaire</u></th>
+                  <th><u>Frequence</u></th>
+                  <th><u></u></th>
+                  <th><u></u></th>
+                </tr>
+                <?php
 // on fait une boucle qui va faire un tour pour chaque enregistrement 
 
 foreach($mots as $mots){ ?>
-	<tr>
-	<?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
-		
-		<form action="../Controleurs/mot.php" method="post">
-		</th>
-		<th>
-		<input type="text" name="newMot" value=<?php echo $mots['mot'];?>>
-		</th>
-		<th>
-		<?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?>
-		</th>
-		<th>
-        <SELECT name="newDictionnaire" size="1">
-        <?php 
+                <tr>
+                  <?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
+                  <form action="../Controleurs/mot.php" method="post">
+                    <td>  </th></td>
+                    <th> <input type="text" name="newMot" value="<?php echo $mots['mot'];?>" />
+                    </th>
+                    <th> <?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?> </th>
+                    <th> <select name="newDictionnaire" size="1">
+                        <?php 
 		foreach ($dictionnaires as $dictionnaire)
 		{
 			echo '<OPTION';
@@ -98,44 +98,38 @@ foreach($mots as $mots){ ?>
 			echo '>'.$dictionnaire['dictionnaire'];
 		}
 		?>
-    	</SELECT>
-		</th>
-        <th>
-        	<input type="text" name="newFrequence" value=<?php echo $mots['frequence'];?>>
-		</th>
-		<input type="hidden" name="oldMot" value=<?php echo $mots['mot'];?>>
-		<input type="hidden" name="oldCasse" value=<?php echo $mots['casse'];?>>
-		<input type="hidden" name="oldDictionnaire" value=<?php echo $mots['dictionnaire'];?>>
-		<input type="hidden" name="oldFrequence" value=<?php echo $mots['frequence'];?>>
-
-	<?php }else{?>
-	<th><?php echo $mots['mot'];?></th>
-	<th><?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
-	<th><?php echo $mots['dictionnaire'];?></th>
-    <th><?php echo $mots['frequence'];?></th>
-
-
-	<?php }?>
-	<th><a href="../Controleurs/mot.php?deleteMot=<?php echo $mots['mot'];?>&deleteDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
-	<th><a href="../Controleurs/mot.php?editMot=<?php echo $mots['mot'];?>&editDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
-	<?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
-			<th><input type="submit" value="Modifier"></th>
-			</form>
-	<?php }?>
-	</tr>
-<?php }?>
-
-</TABLE>
-
-					</div>
-					</div>
-				</div>
-				<!-- end #content -->
-				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
-	</div>
-	<!-- end #page --> 
+                      </select>
+                    </th>
+                    <th> <input type="text" name="newFrequence" value="<?php echo $mots['frequence'];?>" />
+                    </th>
+                    <input type="hidden" name="oldMot" value="<?php echo $mots['mot'];?>" />
+                    <input type="hidden" name="oldCasse" value="<?php echo $mots['casse'];?>" />
+                    <input type="hidden" name="oldDictionnaire" value="<?php echo $mots['dictionnaire'];?>" />
+                    <input type="hidden" name="oldFrequence" value="<?php echo $mots['frequence'];?>" />
+                    <?php }else{?>
+                    <th><?php echo $mots['mot'];?></th>
+                    <th><?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
+                    <th><?php echo $mots['dictionnaire'];?></th>
+                    <th><?php echo $mots['frequence'];?></th>
+                    <?php }?>
+                    <th><a href="../Controleurs/mot.php?deleteMot=<?php echo $mots['mot'];?>&amp;deleteDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../Controleurs/mot.php?editMot=<?php echo $mots['mot'];?>&amp;editDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
+                    <th><input type="submit" value="Modifier" /></th>
+                  </form>
+                  <?php }?>
+                </tr>
+                <?php }?>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- end #content -->
+        <div style="clear: both;">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <!-- end #page --> 
 </div>
 <?php include "base/footer.html"; ?>
 </html>

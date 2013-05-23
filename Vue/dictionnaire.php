@@ -1,4 +1,5 @@
-﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <script type="text/javascript">
 function validForm(form){
 	var valid = true;
@@ -37,68 +38,68 @@ function validForm(form){
 }
 
 </script>
-
 <?php include "base/header.php"; ?>
 <body>
 <div id="wrapper"> 
-	<!-- end #header -->
-	<div id="page">
-		<div id="page-bgtop">
-			<div id="page-bgbtm">
-			<?php include 'base/barreLaterale.php';?>
-					<div id="content">
-					<div class="post">
-					<h2 class="title">Dictionnaires</h2>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-	<fieldset >
-	<form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onSubmit="return validForm(this)"> 
-        <b>Ajout:</b></br>
-        <p>Nom: <input type="text" name="dictionnaire" /></p>
-       <p> Langue:
-        <SELECT name="langue" size="1">
-        <?php 
+  <!-- end #header -->
+  <div id="page">
+    <div id="page-bgtop">
+      <div id="page-bgbtm">
+        <?php include 'base/barreLaterale.php';?>
+        <div id="content">
+          <div class="post">
+            <h2 class="title">Dictionnaires</h2>
+            <div style="clear: both;">&nbsp;</div>
+            <div class="entry">
+              <fieldset >
+                <form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                  <b>Ajout:</b></br>
+                  <p>Nom:
+                    <input type="text" name="dictionnaire" />
+                  </p>
+                  <p> Langue:
+                    <select name="langue" size="1">
+                      <?php 
 		foreach ($langues as $langue)
 		echo '<OPTION>'. $langue['langue'];?>
-    	</SELECT></p>
-        <p>Fichier Dictionnaire:<input type="file" accept=".csv" name="fichierDictionnaire" /></p>
-        <p>Casse:
-        <input type="radio" name="casse" value="0">Majuscule
-        <input type="radio" name="casse" value="1">Minuscule
-        </p>
-        <p><input type="submit" value="Ajouter"></p>
-    </form>
-</fieldset>
-
-<TABLE BORDER='1'>
-<tr class="titre">
-<th><u>Dictionnaires</u></th>
-<th><u>Langue</u></th>
-<th><u>Fichier Dictionnaire</u></th>
-<th><u>Casse</u></th>
-
-
-<th><u></u></th>
-<th><u></u></th>
-<th><u></u></th>
-</tr>
-
-<?php
+                    </select>
+                  </p>
+                  <p>Fichier Dictionnaire:
+                    <input type="file" accept=".csv" name="fichierDictionnaire" />
+                  </p>
+                  <p>Casse:
+                    <input type="radio" name="casse" value="0" />
+                    Majuscule
+                    <input type="radio" name="casse" value="1" />
+                    Minuscule </p>
+                  <p>
+                    <input type="submit" value="Ajouter" />
+                  </p>
+                </form>
+              </fieldset>
+              <table border='1'>
+                <tr class="titre">
+                  <th><u>Dictionnaires</u></th>
+                  <th><u>Langue</u></th>
+                  <th><u>Fichier Dictionnaire</u></th>
+                  <th><u>Casse</u></th>
+                  <th><u></u></th>
+                  <th><u></u></th>
+                  <th><u></u></th>
+                </tr>
+                <?php
 // on fait une boucle qui va faire un tour pour chaque enregistrement 
 foreach($dictionnaire as $dictionnaire)
 {?>
-	<tr>
-	<?php if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
+                <tr>
+                  <?php if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 	{?>
-		
-		<form action="../Controleurs/dictionnaire.php" method="post">
-		</th>
-		<th>
-		<input type="text" name="newDictionnaire" value=<?php echo $dictionnaire['dictionnaire'];?>>
-		</th>
-		<th>
-        <SELECT name="newLangue" size="1">
-        <?php 
+                  <form action="../Controleurs/dictionnaire.php" method="post">
+                    <td></th></td>
+                    <th> <input type="text" name="newDictionnaire" value="<?php echo $dictionnaire['dictionnaire'];?>" />
+                    </th>
+                    <th> <select name="newLangue" size="1">
+                        <?php 
 		foreach ($langues as $langue)
 		{
 			echo '<OPTION';
@@ -109,55 +110,43 @@ foreach($dictionnaire as $dictionnaire)
 			echo '>'.$langue['langue'];
 		}
 		?>
-    	</SELECT>
-		</th>
-		<th>
-		<?php echo $dictionnaire['fichierDictionnaire'];?>
-		</th>
-		<th>
-		<?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?>
-		</th>
-		<input type="hidden" name="oldDictionnaire" value=<?php echo $dictionnaire['dictionnaire'];?>>
-		<input type="hidden" name="oldLangue" value=<?php echo $dictionnaire['langue'];?>>
-		<input type="hidden" name="oldFichierDictionnaire" value=<?php echo $dictionnaire['fichierDictionnaire'];?>>
-		<input type="hidden" name="oldCasse" value=<?php echo $dictionnaire['casse'];?>>
-	<?php }else{ ?>
-		<th><?php echo $dictionnaire['dictionnaire'];?></th>
-		<th><?php echo $dictionnaire['langue'];?></th>
-		<th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
-		<th><?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
-<?php 
+                      </select>
+                    </th>
+                    <th> <?php echo $dictionnaire['fichierDictionnaire'];?> </th>
+                    <th> <?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?> </th>
+                    <input type="hidden" name="oldDictionnaire" value="<?php echo $dictionnaire['dictionnaire'];?>" />
+                    <input type="hidden" name="oldLangue" value="<?php echo $dictionnaire['langue'];?>" />
+                    <input type="hidden" name="oldFichierDictionnaire" value="<?php echo $dictionnaire['fichierDictionnaire'];?>" />
+                    <input type="hidden" name="oldCasse" value="<?php echo $dictionnaire['casse'];?>" />
+                    <?php }else{ ?>
+                    <th><?php echo $dictionnaire['dictionnaire'];?></th>
+                    <th><?php echo $dictionnaire['langue'];?></th>
+                    <th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
+                    <th><?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
+                    <?php 
 	}
-	?>																							
-	<th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
-	<th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
-   	<th><a href="../Controleurs/dictionnaire.php?addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/arrow.png' height='20' width='20' ></a></th>
-	<?php 
+	?>
+                    <th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="../Controleurs/dictionnaire.php?addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/arrow.png' height='20' width='20' /></a></th>
+                    <?php 
     if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 	{?>
-			<th><input type="submit" value="Modifier"></th>
-			</form>
-	<?php }?>
-	</tr>
-<?php }?>
-</TABLE>
-
-
-					</div>
-					</div>
-				</div>
-				<!-- end #content -->
-				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
-	</div>
-	<!-- end #page --> 
+                    <th><input type="submit" value="Modifier" /></th>
+                  </form>
+                  <?php }?>
+                </tr>
+                <?php }?>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- end #content -->
+        <div style="clear: both;">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <!-- end #page --> 
 </div>
-
-
-        <?php include "base/footer.html"; ?>
-
-
+<?php include "base/footer.html"; ?>
 </html>
-
-

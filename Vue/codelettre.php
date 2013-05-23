@@ -1,5 +1,5 @@
-﻿<script type="text/javascript" src="/P2MM/functions.js" ></script>
-
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <script type="text/javascript">
 
 function validForm(form){
@@ -31,68 +31,64 @@ function validForm(form){
 }
 
 </script>
-
 <?php include "base/header.php"; ?>
 <body>
 <div id="wrapper"> 
-	<!-- end #header -->
-	<div id="page">
-		<div id="page-bgtop">
-			<div id="page-bgbtm">
-			<?php include 'base/barreLaterale.php';?>
-				<div id="content">
-					<div class="post">
-						<h2 class="title">Codes Lettres</h2>
-						<div style="clear: both;">&nbsp;</div>
-						<div class="entry">
-							<fieldset>
-	<form action="../Controleurs/codelettre.php" method="post" onSubmit="return validForm(this)"> 
-        <b>Ajout:</b></br>
-        <p>Code: <input type="text" name="code" />
-		<p>Type lettre:<input type="text" name="typelettre" /></p>
-		<p>Police :
-        <SELECT name="policeListe" size="1">
-        <?php 
+  <!-- end #header -->
+  <div id="page">
+    <div id="page-bgtop">
+      <div id="page-bgbtm">
+        <?php include 'base/barreLaterale.php';?>
+        <div id="content">
+          <div class="post">
+            <h2 class="title">Codes Lettres</h2>
+            <div style="clear: both;">&nbsp;</div>
+            <div class="entry">
+              <fieldset>
+                <form action="../Controleurs/codelettre.php" method="post" onsubmit="return validForm(this)">
+                  <b>Ajout:</b></br>
+                  <p>Code:
+                    <input type="text" name="code" />
+                  </p>
+                  <p>Type lettre:
+                    <input type="text" name="typelettre" />
+                  </p>
+                  <p>Police :
+                    <select name="policeListe" size="1">
+                      <?php 
 			foreach ($polices as $police)
 				echo '<OPTION>'. $police['police'];
 		?>
-    	</SELECT></p>
-        
-        <p><input type="submit" value="Ajouter"></p>
-    </form>
-</fieldset>
-
-</br>
-
-<TABLE BORDER='1'>
-<tr class="titre">
-<th><u>Code</u></th>
-<th><u>Type lettre</u></th>
-<th><u>Police</u></th>
-
-
-<th><u></u></th>
-<th><u></u></th>
-</tr>
-
-<?php
+                    </select>
+                  </p>
+                  <p>
+                    <input type="submit" value="Ajouter" />
+                  </p>
+                </form>
+              </fieldset>
+              </br>
+              <table border='1'>
+                <tr class="titre">
+                  <th><u>Code</u></th>
+                  <th><u>Type lettre</u></th>
+                  <th><u>Police</u></th>
+                  <th><u></u></th>
+                  <th><u></u></th>
+                </tr>
+                <?php
 // on fait une boucle qui va faire un tour pour chaque enregistrement 
 
 foreach($codelettre as $codelettre){ ?>
-	<tr>
-	<?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){ ?>
-		
-		<form action="../Controleurs/codelettre.php" method="post">
-		</th>
-		<th>
-		<input type="text" name="newCode" value=<?php echo $codelettre['code'];?>>
-		</th>
-		<th>
-		<input type="text" name="newTypeLettre" value=<?php echo $codelettre['typeLettre'];?>>
-		</th>
-		<th>
-        <SELECT name="newPolice" size="1">
-        <?php 
+                <tr>
+                  <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){ ?>
+                  <form action="../Controleurs/codelettre.php" method="post">
+                    <td></th></td>
+                    <th> <input type="text" name="newCode" value="<?php echo $codelettre['code'];?>" />
+                    </th>
+                    <th> <input type="text" name="newTypeLettre" value="<?php echo $codelettre['typeLettre'];?>" />
+                    </th>
+                    <th> <select name="newPolice" size="1">
+                        <?php 
 		foreach ($polices as $police)
 		{
 			echo '<OPTION';
@@ -103,42 +99,34 @@ foreach($codelettre as $codelettre){ ?>
 			echo '>'.$police['police'];
 		}
 		?>
-    	</SELECT>
-		</th>
-		<input type="hidden" name="oldCode" value=<?php echo $codelettre['code'];?>>
-		<input type="hidden" name="oldTypeLettre" value=<?php echo $codelettre['typeLettre'];?>>
-		<input type="hidden" name="oldPolice" value=<?php echo $codelettre['police'];?>>
-		
-	<?php }else{?>
-	<th><?php echo $codelettre['code'];?></th>
-	<th><?php echo $codelettre['typeLettre'];?></th>
-	<th><?php echo $codelettre['police'];?></th>
-
-	<?php }?>
-	<th><a href="../Controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&deletePolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' ></a></th>
-	<th><a href="../Controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&editPolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' ></a></th>
-	<?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){?>
-			<th><input type="submit" value="Ajouter"></th>
-			</form>
-	<?php }?>
-	</tr>
-<?php }?>
-
-</TABLE>
-
-					</div>
-					</div>
-				</div>
-				<!-- end #content -->
-				<div style="clear: both;">&nbsp;</div>
-			</div>
-		</div>
-	</div>
-	<!-- end #page --> 
+                      </select>
+                    </th>
+                    <input type="hidden" name="oldCode" value="<?php echo $codelettre['code'];?>" />
+                    <input type="hidden" name="oldTypeLettre" value="<?php echo $codelettre['typeLettre'];?>" />
+                    <input type="hidden" name="oldPolice" value="<?php echo $codelettre['police'];?>" />
+                    <?php }else{?>
+                    <th><?php echo $codelettre['code'];?></th>
+                    <th><?php echo $codelettre['typeLettre'];?></th>
+                    <th><?php echo $codelettre['police'];?></th>
+                    <?php }?>
+                    <th><a href="../Controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../Controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){?>
+                    <th><input type="submit" value="Ajouter" /></th>
+                  </form>
+                  <?php }?>
+                </tr>
+                <?php }?>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- end #content -->
+        <div style="clear: both;">&nbsp;</div>
+      </div>
+    </div>
+  </div>
+  <!-- end #page --> 
 </div>
 <?php include "base/footer.html"; ?>
 </html>
-
-
-
-
