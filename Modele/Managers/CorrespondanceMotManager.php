@@ -52,9 +52,9 @@ class CorrespondanceMotManager{
 	return $donnees;  }
   
   
-   public function getAllMotsExcept($motC, $pol, $motPar)
+   public function getAllMotsExcept($motC, $pol, $motPar, $cass)
   { 
-	$q = $this->_db->prepare('SELECT mot FROM CorrespondanceMot WHERE motCode = \''.$motC.'\'  AND police = \''.$pol.'\' AND mot!= \''.$motPar.'\' ');
+	$q = $this->_db->prepare('SELECT m.mot AS mo, m.casse AS ca FROM CorrespondanceMot c, Mot m WHERE c.motCode = \''.$motC.'\' AND c.police = \''.$pol.'\' AND c.mot!= \''.$motPar.'\' AND c.mot = m.mot HAVING ca = '.$cass.';');
 	$q->execute();
 	$donnees = $q->fetchAll();
 	return $donnees;  }

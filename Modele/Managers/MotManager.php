@@ -239,7 +239,6 @@ class MotManager{
 				$dico="autre_maj";	// dico contenant par défaut les mots majuscules qui ne sont dans aucun dictionnaire
 			}
 		else {	echo "Le mot doit contenir des majuscules ou des minuscules"; //sinon
-				break;
 				return 0;}
 		
 		$motP = new Mot($motParam, $casse, $dico, 1);
@@ -252,7 +251,7 @@ class MotManager{
 		
 		foreach ($motsCodes as $motCode)
 			{
-				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam, $casse);
+				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam, $casse); // Retourne tous les mots correspondants au motCode, à la police donnée, et à la casse du mot initial (sauf le mot initial)
 				if ($motsComp)
 					{	
 						$motsC=array();
