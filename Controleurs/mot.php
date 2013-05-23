@@ -25,8 +25,15 @@ if(isset($_POST['oldMot']) and isset($_POST['newMot'])){
 }
 
 //Récupération du contenu de la BDD
-$mots = $motManager->getAll();
-$dictionnaires = $dictionnaireManager->getAll();
+if(isset($_GET['order']))
+{
+	$mots = $motManager->getAll($_GET['order']);
+}
+else
+{
+	$mots = $motManager->getAll('frequence');
+}
+$dictionnaires = $dictionnaireManager->getAll('dictionnaire');
 
 //On inclue la vue
 include '../Vue/mot.php'; 

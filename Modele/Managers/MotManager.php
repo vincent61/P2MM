@@ -44,9 +44,13 @@ class MotManager{
     return new Mot($donnees['mot'],$donnees['casse'],$donnees['dictionnaire'],$donnees['frequence']);
   }
 
-   public function getAll()
+   public function getAll($order)
   { 
-    $q = $this->_db->prepare('SELECT mot, casse, dictionnaire, frequence FROM Mot order by mot');
+  echo $order;
+  if ($order=='frequence')
+    $q = $this->_db->prepare('select * from Mot order by '.$order.' desc;');
+	else
+	    $q = $this->_db->prepare('select * from Mot order by '.$order.' asc;');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;

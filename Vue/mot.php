@@ -64,12 +64,14 @@ function validForm(form){
                 </form>
               </fieldset>
               </br>
+              <form action="../Controleurs/mot.php">
+                    <input type="submit" value="Pertinence" />
+              </form>
               <table border='1'>
                 <tr class="titre">
-                  <th><u>Mot</u></th>
-                  <th><u>Casse</u></th>
-                  <th><u>Dictionnaire</u></th>
-                  <th><u>Frequence</u></th>
+                  <th><a href="../Controleurs/mot.php?order=mot"><u>Mot</u></a></th>
+                  <th><a href="../Controleurs/mot.php?order=casse"><u>Casse</u></a></th>
+                  <th><a href="../Controleurs/mot.php?order=dictionnaire"><u>Dictionnaire</u></a></th>
                   <th><u></u></th>
                   <th><u></u></th>
                 </tr>
@@ -80,7 +82,6 @@ foreach($mots as $mots){ ?>
                 <tr>
                   <?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
                   <form action="../Controleurs/mot.php" method="post">
-                    <td>  </th></td>
                     <th> <input type="text" name="newMot" value="<?php echo $mots['mot'];?>" />
                     </th>
                     <th> <?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?> </th>
@@ -98,17 +99,13 @@ foreach($mots as $mots){ ?>
 		?>
                       </select>
                     </th>
-                    <th> <input type="text" name="newFrequence" value="<?php echo $mots['frequence'];?>" />
-                    </th>
                     <input type="hidden" name="oldMot" value="<?php echo $mots['mot'];?>" />
                     <input type="hidden" name="oldCasse" value="<?php echo $mots['casse'];?>" />
                     <input type="hidden" name="oldDictionnaire" value="<?php echo $mots['dictionnaire'];?>" />
-                    <input type="hidden" name="oldFrequence" value="<?php echo $mots['frequence'];?>" />
                     <?php }else{?>
                     <th><?php echo $mots['mot'];?></th>
                     <th><?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
                     <th><?php echo $mots['dictionnaire'];?></th>
-                    <th><?php echo $mots['frequence'];?></th>
                     <?php }?>
                     <th><a href="../Controleurs/mot.php?deleteMot=<?php echo $mots['mot'];?>&amp;deleteDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
                     <th><a href="../Controleurs/mot.php?editMot=<?php echo $mots['mot'];?>&amp;editDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>

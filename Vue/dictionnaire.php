@@ -38,10 +38,10 @@
               </fieldset>
               <table border='1'>
                 <tr class="titre">
-                  <th><u>Dictionnaires</u></th>
-                  <th><u>Langue</u></th>
-                  <th><u>Fichier Dictionnaire</u></th>
-                  <th><u>Casse</u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=dictionnaire">Dictionnaire</u></a></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=langue">Langue</a></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=fichierDictionnaire">Fichier Dictionnaire</a></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=casse">Casse</a></u></th>
                   <th><u></u></th>
                   <th><u></u></th>
                   <th><u></u></th>

@@ -69,7 +69,14 @@ if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){
 }
 
 //Récupération du contenu de la BDD
-$dictionnaire = $dictionnaireManager->getAll();
+if(isset($_POST['order']))
+{
+	$dictionnaire = $dictionnaireManager->getAll($_POST['order']);
+}
+else
+{
+	$dictionnaire = $dictionnaireManager->getAll('dictionnaire');
+}
 $langues = $langueManager->getAll();
 //On inclue la vue
 include '../Vue/dictionnaire.php'; 
