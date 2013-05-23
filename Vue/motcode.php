@@ -34,16 +34,16 @@ function validForm(form){
 							<fieldset>
 	<form action="../Controleurs/motcode.php" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
-        Code: <input type="text" name="code" />
-		Police :
+        <p>Code: <input type="text" name="code" /></p>
+		<p>Police :
         <SELECT name="policeListe" size="1">
         <?php 
 			foreach ($polices as $police)
 				echo '<OPTION>'. $police['police'];
 		?>
-    	</SELECT>
+    	</SELECT></p>
         
-        <input type="submit" value="Ajouter">
+        <p><input type="submit" value="Ajouter"></p>
     </form>
 </fieldset>
 
@@ -52,7 +52,7 @@ function validForm(form){
 
 <TABLE BORDER='1'>
 <CAPTION> Liste Mot codes</CAPTION>
-<tr>
+<tr class="titre">
 <th><u>Code</u></th>
 <th><u>Police</u></th>
 

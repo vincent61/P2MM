@@ -5,6 +5,45 @@ http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 */
 
+table {
+width:100%;
+margin : auto;
+border-collapse:collapse;
+border-bottom: 1px solid #000066;
+border-top: 1px solid #FFFFFF;
+border-left: 1px solid #FFFFFF;
+border-right: 1px solid #FFFFFF;
+font-weight: light;
+}
+
+table tr{
+color : #9999C2;
+margin : auto;
+font-weight: light;
+
+}
+
+table tr:hover{
+background-color: #CCE0F5;
+}
+
+table tr.titre{
+margin : auto;
+font-size : 1.2em;
+color : #000066;
+border-bottom: 4px solid #000066;
+
+}
+
+table tr.titre:hover{
+background-color: #FFFFFF;
+}
+
+
+table th{
+text-align:center;
+}
+
 body {
 	margin: 0;
 	padding: 0;

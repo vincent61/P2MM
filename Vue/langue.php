@@ -34,8 +34,8 @@ function validForm(form){
 						<div class="entry">
 							<fieldset>
 	<form action="../Controleurs/langue.php" method="post" onSubmit="return validForm(this)"> 
-        <b>Ajout:</b><input type="text" name="langue" />
-        <input type="submit" value="Ajouter">
+        <b>Ajout:<p></b><input type="text" name="langue" />
+        <input type="submit" value="Ajouter"></p>
     </form>
 </fieldset>
 
@@ -44,6 +44,7 @@ function validForm(form){
 <TABLE BORDER='1'>
 <CAPTION> Liste langues</CAPTION>
 <b>
+<tr class="titre">
 	<th><u>Langue</u></th>	
 	<th><u></u></th>
 	<th><u></u></th></tr>

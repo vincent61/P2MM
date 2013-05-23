@@ -39,20 +39,20 @@ function validForm(form){
 						<div class="entry">
 							<fieldset>
 	<form action="../Controleurs/mot.php" method="post" onSubmit="return validForm(this)"> 
-        <b>Ajout:</b></br>
-        Mot: <input type="text" name="mot" />
-		Casse:<input type="radio" name="casse" value="0">Majuscule
-        <input type="radio" name="casse" value="1">Minuscule
-		Dictionnaire:
+        <b>Ajout:</b></br></p>
+        <p>Mot: <input type="text" name="mot" /></p>
+		<p>Casse:<input type="radio" name="casse" value="0">Majuscule
+        <input type="radio" name="casse" value="1">Minuscule</p>
+		<p>Dictionnaire:
         <SELECT name="dictionnaireListe" size="1">
         <?php 
 			foreach ($dictionnaires as $dictionnaire)
 				echo '<OPTION>'. $dictionnaire['dictionnaire'];
 		?>
-    	</SELECT>
-        Frequence: 
-        <input type="text" name="frequence" />
-        <input type="submit" value="Ajouter">
+    	</SELECT></p>
+       <p> Frequence: 
+        <input type="text" name="frequence" /></p>
+        <p><input type="submit" value="Ajouter"></p>
     </form>
 </fieldset>
 
@@ -61,7 +61,7 @@ function validForm(form){
 
 <TABLE BORDER='1'>
 <CAPTION> Liste Mots</CAPTION>
-<tr>
+<tr class="titre">
 <th><u>Mot</u></th>
 <th><u>Casse</u></th>
 <th><u>Dictionnaire</u></th>

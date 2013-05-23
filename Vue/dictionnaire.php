@@ -72,7 +72,7 @@ function validForm(form){
 
 <TABLE BORDER='1'>
 <CAPTION> Liste Dictionnaires</CAPTION>
-<tr>
+<tr class="titre">
 <th><u>Dictionnaires</u></th>
 <th><u>Langue</u></th>
 <th><u>Fichier Dictionnaire</u></th>

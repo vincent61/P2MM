@@ -48,26 +48,25 @@ function validForm(form){
 							<fieldset>
 	<form action="../Controleurs/codelettre.php" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
-        Code: <input type="text" name="code" />
-		Type lettre:<input type="text" name="typelettre" />
-		Police :
+        <p>Code: <input type="text" name="code" />
+		<p>Type lettre:<input type="text" name="typelettre" /></p>
+		<p>Police :
         <SELECT name="policeListe" size="1">
         <?php 
 			foreach ($polices as $police)
 				echo '<OPTION>'. $police['police'];
 		?>
-    	</SELECT>
+    	</SELECT></p>
         
-        <input type="submit" value="Ajouter">
+        <p><input type="submit" value="Ajouter"></p>
     </form>
 </fieldset>
 
 </br>
 
-
 <TABLE BORDER='1'>
 <CAPTION> Liste Codes Lettres</CAPTION>
-<tr>
+<tr class="titre">
 <th><u>Code</u></th>
 <th><u>Type lettre</u></th>
 <th><u>Police</u></th>

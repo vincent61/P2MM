@@ -33,7 +33,7 @@
 
 			<TABLE BORDER='1'>
 			<CAPTION> Liste des Mots Compatibles</CAPTION>
-			<tr>
+			<tr class="titre">
 			<th><u>Mot Initial</u></th>
 			<th><u>Code</u></th>
 			<th><u>Police</u></th>
@@ -44,7 +44,7 @@
 			// on fait une boucle qui va faire un tour pour chaque enregistrement 
 
 			foreach($motsComp as $motComp){ ?>
-				<tr><th><?php echo $motComp['initial'];?></th>	
+				<tr ><th><?php echo $motComp['initial'];?></th>	
 					<th><?php echo $motComp['code'];?></th>
 					<th><?php echo $motComp['police'];?></th>
 					<th><?php 

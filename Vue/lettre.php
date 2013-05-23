@@ -34,8 +34,8 @@ function validForm(form){
 						<div class="entry">
 							<fieldset>
 	<form action="../Controleurs/lettre.php" method="post" onSubmit="return validForm(this)"> 
-        <b>Ajout:</b><input type="text" name="lettre" />
-        <input type="submit" value="Ajouter">
+        <b>Ajout:</b><p><input type="text" name="lettre" />
+        <input type="submit" value="Ajouter"><p>
     </form>
 </fieldset>
 
@@ -45,6 +45,7 @@ function validForm(form){
 <TABLE BORDER='1'>
 <CAPTION> Liste lettres</CAPTION>
 <b>
+<tr class="titre">
 	<th><u>Lettre</u></th>
 	<th><u></u></th>
 	<th><u></u></th></tr>

@@ -53,14 +53,13 @@ function validForm(form){
 						<div style="clear: both;">&nbsp;</div>
 						<div class="entry">
 							<fieldset>
-	<form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)"> 
+	<form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post" onSubmit="return validForm(this)"> 
         <b>Ajout:</b></br>
-        Police: <input type="text" name="police" />
-        Fichier Codes:<input type="file" name="fichierCodes" accept=".txt"/>
-        Casse:<input type="radio" name="casse" value="0">Majuscule
-        <input type="radio" name="casse" value="1">Minuscule
-
-        <input type="submit" value="Ajouter">
+       <p>Police: <input type="text" name="police" /></p>
+       <p> Fichier Codes:<input type="file" name="fichierCodes" accept=".txt"/></p>
+       <p> Casse:<input type="radio" name="casse" value="0">Majuscule
+        <input type="radio" name="casse" value="1">Minuscule</p>
+        <p><input type="submit" value="Ajouter"></p>
     </form>
 </fieldset>
 
@@ -70,7 +69,7 @@ function validForm(form){
 
 
 <CAPTION> Liste Police</CAPTION>
-<tr>
+<tr class="titre">
 	<th><u>Police</u></th>
 	<th><u>Fichier Code</u></th>
 	<th><u>Casse</u></th>
