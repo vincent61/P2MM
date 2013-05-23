@@ -42,7 +42,6 @@ function validForm(form){
 </br>
 
 <TABLE BORDER='1'>
-<CAPTION> Liste langues</CAPTION>
 <b>
 <tr class="titre">
 	<th><u>Langue</u></th>	

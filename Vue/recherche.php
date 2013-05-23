@@ -11,10 +11,10 @@
 						<h2 class="title">Espace de Recherche</h2>
                             <div style="clear: both;">&nbsp;</div>
                             <div class="entry">	
-                                <menu id="menuRech">
+                                <div class="menuRech">
                                     <a href="#recherche"> Recherche </a>
                                     <a href="#resultats"> Résultats </a> 
-                                </menu>
+                                </div>
                            <div id="recherche">
 			<fieldset>
 			<form action="../Controleurs/recherche.php" method="post"> 

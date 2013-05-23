@@ -60,7 +60,6 @@ function validForm(form){
 
 
 <TABLE BORDER='1'>
-<CAPTION> Liste Mots</CAPTION>
 <tr class="titre">
 <th><u>Mot</u></th>
 <th><u>Casse</u></th>

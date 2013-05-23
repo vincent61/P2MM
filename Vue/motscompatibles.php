@@ -13,7 +13,6 @@
 ?>
 
 <TABLE BORDER='1'>
-<CAPTION> Liste des Mots Compatibles</CAPTION>
 <tr class="titre">
 <th><u>Mot Initial</u></th>
 <th><u>Code</u></th>

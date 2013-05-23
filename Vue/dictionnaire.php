@@ -71,7 +71,6 @@ function validForm(form){
 </fieldset>
 
 <TABLE BORDER='1'>
-<CAPTION> Liste Dictionnaires</CAPTION>
 <tr class="titre">
 <th><u>Dictionnaires</u></th>
 <th><u>Langue</u></th>

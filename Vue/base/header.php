@@ -22,7 +22,7 @@
 	<div id="header">
 		<div id="logo">
 			<h1><a href="#">Séparation</a></h1>
-			<p>Template design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a></p>
+			<p>Procédé inventé par Pierre Fourny</p>
 		</div>
 	</div>
 </div>

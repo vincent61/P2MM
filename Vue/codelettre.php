@@ -65,7 +65,6 @@ function validForm(form){
 </br>
 
 <TABLE BORDER='1'>
-<CAPTION> Liste Codes Lettres</CAPTION>
 <tr class="titre">
 <th><u>Code</u></th>
 <th><u>Type lettre</u></th>
