@@ -1,6 +1,5 @@
 <?php
 include '../Modele/ModeleMemoire/CorrespondanceMot.php';
-
 class CorrespondanceMotManager{
 	private $_db; // Instance de db
  
@@ -87,6 +86,4 @@ class CorrespondanceMotManager{
     $this->_db = $db;
   }
 }
-
 ?>
-	

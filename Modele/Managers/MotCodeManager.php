@@ -83,6 +83,4 @@ class MotCodeManager{
     $this->_db = $db;
   }
 }
-
 ?>
-	

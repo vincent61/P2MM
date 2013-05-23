@@ -73,6 +73,4 @@ class LettreManager{
     $this->_db = $db;
   }
 }
-
 ?>
-	

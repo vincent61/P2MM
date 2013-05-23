@@ -1,45 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<script type="text/javascript" src="/P2MM/functions.js" ></script>
-<script type="text/javascript">
-function validForm(form){
-	var valid = true;
-	var msg = "Saisir : \n";
-	var displayPopUp = false;
-
-	if (trim(form.elements['dictionnaire'].value) == ""){
-		valid = false;
-		msg = msg + "- Nom dictionnaire\n";
-		displayPopUp = true;
-	}
-
-	if (trim(form.elements['fichierDictionnaire'].value) == ""){
-		valid = false;
-		msg = msg + "- Fichier dictionnaire\n";
-		displayPopUp = true;
-	}else{
-	    var validExts = new Array(".csv");
-	    var fileExt = form.elements['fichierDictionnaire'].value;
-	    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
-
-	    if (validExts.indexOf(fileExt) < 0) {
-	      alert("- Type de fichier sélectionné invalide, le type de fichier accepté est csv.");
-	      valid = false;
-	    }
-	}
-
-	if (checkRadioButton(form.elements['casse']) == false){
-		valid = false;
-		msg = msg + "- Casse\n";
-		displayPopUp = true;
-	}
-	
-	if (displayPopUp == true) alert(msg);
-	return valid;
-}
-
-</script>
-<?php include "base/header.php"; ?>
-<body>
+﻿<?php include "base/header.php"; ?>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
@@ -52,7 +11,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset >
-                <form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                <form action="../Controleurs/dictionnaire.php" enctype="multipart/form-data" method="post" onSubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Nom:
                     <input type="text" name="dictionnaire" />
@@ -148,5 +107,43 @@ foreach($dictionnaire as $dictionnaire)
   </div>
   <!-- end #page --> 
 </div>
+<script type="text/javascript" src="/P2MM/functions.js" ></script>
+<script type="text/javascript">
+function validForm(form){
+	var valid = true;
+	var msg = "Saisir : \n";
+	var displayPopUp = false;
+
+	if (trim(form.elements['dictionnaire'].value) == ""){
+		valid = false;
+		msg = msg + "- Nom dictionnaire\n";
+		displayPopUp = true;
+	}
+
+	if (trim(form.elements['fichierDictionnaire'].value) == ""){
+		valid = false;
+		msg = msg + "- Fichier dictionnaire\n";
+		displayPopUp = true;
+	}else{
+	    var validExts = new Array(".csv");
+	    var fileExt = form.elements['fichierDictionnaire'].value;
+	    fileExt = fileExt.substring(fileExt.lastIndexOf('.'));
+
+	    if (validExts.indexOf(fileExt) < 0) {
+	      alert("- Type de fichier sélectionné invalide, le type de fichier accepté est csv.");
+	      valid = false;
+	    }
+	}
+
+	if (checkRadioButton(form.elements['casse']) == false){
+		valid = false;
+		msg = msg + "- Casse\n";
+		displayPopUp = true;
+	}
+	
+	if (displayPopUp == true) alert(msg);
+	return valid;
+}
+</script>
 <?php include "base/footer.html"; ?>
 </html>

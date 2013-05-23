@@ -1,6 +1,5 @@
 ﻿<?php 
 class Mot{
-
 protected $mot;
 protected $casse;
 protected $dictionnaire;

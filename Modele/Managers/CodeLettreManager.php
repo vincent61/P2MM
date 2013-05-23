@@ -73,6 +73,4 @@ class CodeLettreManager{
     $this->_db = $db;
   }
 }
-
 ?>
-	

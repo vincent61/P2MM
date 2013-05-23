@@ -1,5 +1,4 @@
-﻿<?php
-
+﻿<?php			 
 include_once '../Modele/ModeleMemoire/Police.php';
 include_once '../Modele/Managers/CorrespondanceLettreManager.php';
 
@@ -9,6 +8,7 @@ class PoliceManager{
   public function __construct($db)
   {
     $this->setDb($db);
+	
   }
  
  public function setDb($db)
@@ -122,16 +122,10 @@ class PoliceManager{
 				$c = new CodeLettre(trim($code), $i, $police->getPolice());
 				$clManager->addCombinaison($l, $c);
 				$i++;
+			}	
 			}
-		
-			}
-		
 		fclose($handle);
-		}
-		
+		}		
 	}
-  
-  
 }
-
 ?>

@@ -1,5 +1,4 @@
 <?php include "base/header.php"; ?>
-<body>
 <div id="wrapper"> 
 	<!-- end #header -->
 	<div id="page">

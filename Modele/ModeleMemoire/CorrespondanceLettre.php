@@ -1,5 +1,4 @@
 ﻿<?php
-
 class CorrespondanceLettre{
 protected $lettreAscii;
 protected $code;      

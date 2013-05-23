@@ -1,7 +1,5 @@
 ﻿<?php
-
 class Police{
-	
 protected $police;
 protected $fichierCodes;    
 protected $casse;        
@@ -9,7 +7,7 @@ protected $casse;
 		$this->police = $p;	
 		$this->fichierCodes = $f;
 		$this->casse = $c;
-	
+
 	}
 	public function getPolice(){
 		return $this->police;
@@ -19,21 +17,6 @@ protected $casse;
 	}
 	public function getCasse(){
 		return $this->casse;
-	}
-
-	
-  
+	}  
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,11 +1,9 @@
 ﻿<?php
-
 include '../Modele/ModeleMemoire/Mot.php';
 include '../Modele/Managers/PoliceManager.php';
 include '../Modele/Managers/MotCodeManager.php';
 //include '../Modele/Managers/CorrespondanceLettreManager.php';
 include '../Modele/Managers/CorrespondanceMotManager.php';
-
 class MotManager{
 	private $_db; // Instance de db
  

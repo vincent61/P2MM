@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <script type="text/javascript">
 
 function validForm(form){
@@ -32,7 +31,6 @@ function validForm(form){
 
 </script>
 <?php include "base/header.php"; ?>
-<body>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
@@ -128,5 +126,6 @@ foreach($codelettre as $codelettre){ ?>
   </div>
   <!-- end #page --> 
 </div>
+<script type="text/javascript" src="/P2MM/functions.js" ></script>
 <?php include "base/footer.html"; ?>
 </html>

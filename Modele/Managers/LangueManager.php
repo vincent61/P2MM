@@ -72,6 +72,4 @@ class LangueManager{
     $this->_db = $db;
   }
 }
-
 ?>
-	

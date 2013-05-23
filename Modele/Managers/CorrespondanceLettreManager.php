@@ -113,6 +113,4 @@ class CorrespondanceLettreManager{
     $this->_db = $db;
   }
 }
-
 ?>
-	
