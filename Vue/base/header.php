@@ -12,7 +12,8 @@
 <div id="menu-wrapper">
 	<div id="menu">
     <ul>
-			<li class="current_page_item"><a href="../Vue/recherche.php">Recherche</a></li>
+			<li class="current_page_item">
+            <a href="../Vue/recherche.php">Recherche</a></li>
 			<li><a href="../Vue/admin.php">Admin</a></li>		</div>
             	</ul>
 	<!-- end #menu --> 

@@ -28,7 +28,7 @@ function validForm(form){
 			<?php include 'base/barreLaterale.php';?>
 				<div id="content">
 					<div class="post">
-						<h2 class="title">ots Codes</h2>
+						<h2 class="title">Mots Codes</h2>
 						<div style="clear: both;">&nbsp;</div>
 						<div class="entry">
 							<fieldset>
