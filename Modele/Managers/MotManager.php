@@ -258,7 +258,7 @@ class MotManager{
 						foreach ($motsComp as $comp)
 								//array_push($motsC, $comp['mot']);
 						{
-							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mot'],);
+							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mo'],);
 							//print_r (array_values($ligne));
 							array_push($result, $ligne);
 						}
