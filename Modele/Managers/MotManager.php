@@ -230,7 +230,7 @@ class MotManager{
  }}
  
  
- public function motsCompatibles($motParam, $typeRecherche=0, $Dicos){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
+ public function motsCompatibles($motParam, $typeRecherche=0, $dicos){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
 		include '../dbconnect.php';
 		$result = array(); 
 		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
@@ -284,10 +284,12 @@ class MotManager{
 				}
 				if	($suite==1){
 						foreach ($motsComp as $comp)	
-						{
+						{	
+							if (in_array($comp['dico'], $dicos))
+							{
 							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mo'],);
 							//print_r (array_values($ligne));
-							array_push($result, $ligne);
+							array_push($result, $ligne);}
 						}
 					}
 			}}

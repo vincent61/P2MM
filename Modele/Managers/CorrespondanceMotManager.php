@@ -54,7 +54,7 @@ class CorrespondanceMotManager{
   
    public function getAllMotsExcept($motC, $pol, $motPar, $cass)
   { 
-	$q = $this->_db->prepare('SELECT m.mot AS mo, m.casse AS ca FROM CorrespondanceMot c, Mot m WHERE c.motCode = \''.$motC.'\' AND c.police = \''.$pol.'\' AND c.mot!= \''.$motPar.'\' AND c.mot = m.mot HAVING ca = '.$cass.' order by m.frequence;');
+	$q = $this->_db->prepare('SELECT m.mot AS mo, m.casse AS ca, m.dictionnaire AS dico FROM CorrespondanceMot c, Mot m WHERE c.motCode = \''.$motC.'\' AND c.police = \''.$pol.'\' AND c.mot!= \''.$motPar.'\' AND c.mot = m.mot HAVING ca = '.$cass.' order by m.frequence;');
 	$q->execute();
 	$donnees = $q->fetchAll();
 	return $donnees;  }
