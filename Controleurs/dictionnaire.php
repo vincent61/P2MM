@@ -65,8 +65,13 @@ if(isset($_GET['addMotsCode'])){
 
 //Gestion de l'edition
 if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){
-	$dictionnaireManager->update(new Dictionnaire($_POST['oldDictionnaire'],$_POST['oldLangue'],$_POST['oldFichierDictionnaire'],$_POST['oldCasse']),new Dictionnaire($_POST['newDictionnaire'],$_POST['newLangue'],$_POST['oldFichierDictionnaire'],$_POST['oldCasse']));
-}
+//Le nom du fichier doit etre le meme que celui du dictionnaire pour éviter d'écraser un fichier existant. Ne pas autoriser le changement de nom du fichier.
+	$nomFichier = $_POST['newDictionnaire'].'.csv';
+	$chemin_destination = $cheminServer.'P2MM/Fichiers/Dictionnaires/';
+	$dictionnaireManager->update(new Dictionnaire($_POST['oldDictionnaire'],$_POST['oldLangue'],$_POST['oldFichierDictionnaire'],$_POST['oldCasse']),new Dictionnaire($_POST['newDictionnaire'],$_POST['newLangue'],$nomFichier,$_POST['oldCasse']));
+		//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi
+	rename($chemin_destination.$_POST['oldFichierDictionnaire'], $chemin_destination.$nomFichier);
+	}
 
 //Récupération du contenu de la BDD
 if(isset($_POST['order']))
