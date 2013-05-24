@@ -5,8 +5,8 @@ set_time_limit(0); // le script peut s'exécuter de façon illimitée
 function codageDico($nomDico, $dictionnaireManager){
 
 	//$dictionnaireManager->get($_POST['dictionnaire'])->remplirMotsCode();
-	//$dictionnaireManager->get($nomDico)->remplirMotsCode();
-	$dictionnaireManager->remplirMotsCode();
+	$dico = $dictionnaireManager->get($nomDico);
+	$dictionnaireManager->remplirMotsCode($dico);
 
 	$message = "Le remplissage du dictionnaire ".$nomDico. " est terminé\r\n";
 	echo $message;
