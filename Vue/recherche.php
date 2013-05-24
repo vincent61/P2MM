@@ -14,10 +14,26 @@
               <div id="recherche">
                 <fieldset>
                   <form action="../Controleurs/recherche.php" method="post">
-                    <b>Determiner la liste des mots compatibles:</b></br>
-                    Mot:
+                    <p><b>Determiner la liste des mots compatibles:</b></p></br>
+					<p>Mot:
                     <input type="text" name="mot" />
-                    <input type="submit" value="Chercher" />
+                    <input type="submit" value="Chercher" /></br>
+					</p><p>
+                    <input type="radio" name="type_recherche" value="0" checked="checked"/>
+                    Toutes les réponses
+                    <input type="radio" name="type_recherche" value="1" />
+                    Seulement 1 mot / code
+					<input type="radio" name="type_recherche" value="2" />
+                    Seulement plus de 1 mot / code
+					</p></br>
+					<p>Dictionnaire : 
+                    <input type="checkbox" name="all" size="1" checked>Tous les dictionnaires<br />
+                      <?php 
+					foreach ($dicos as $dico)
+					echo "<input type='checkbox' name='".$dico['dictionnaire']."' size='1' checked>".$dico['dictionnaire']."<br />";
+		?>
+                    </select>
+                  </p>
                   </form>
                 </fieldset>
                 </br>
