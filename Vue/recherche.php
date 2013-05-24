@@ -17,7 +17,6 @@
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
 					<p>Mot:
                     <input type="text" name="mot" />
-                    <input type="submit" value="Chercher" /></br>
 					</p><p>
                     <input type="radio" name="type_recherche" value="0" checked="checked"/>
                     Toutes les réponses
@@ -25,22 +24,26 @@
                     Seulement 1 mot / code
 					<input type="radio" name="type_recherche" value="2" />
                     Seulement plus de 1 mot / code
-					</p></br>
-					<p>Dictionnaire : 
-                    <input type="checkbox" name="all" size="1" checked>Tous les dictionnaires<br />
-                      <?php 
+					</p>
+					<p>Dictionnaires :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
+					</br>
+		<?php 
 					foreach ($dicos as $dico)
 					echo "<input type='checkbox' name='".$dico['dictionnaire']."' size='1' checked>".$dico['dictionnaire']."<br />";
 		?>
-                    </select>
+                    
                   </p>
-                  </form>
+				  <p>
+                    <input type="submit" value="Chercher" /></br>
+                  </p></form>
                 </fieldset>
                 </br>
               </div>
               <div id="resultats">
                 <?php
-				if(isset($_POST['mot'])){    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
+				
+				if(isset($_POST['mot']) && isset($_POST['type_recherche'])){    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
+				
 			?>
                 <table border='1'>
                   <caption>
@@ -54,7 +57,7 @@
                   </tr>
                   <?php
 			// on fait une boucle qui va faire un tour pour chaque enregistrement 
-
+		if ($_POST['mot']!=NULL)
 			foreach($motsComp as $motComp){ ?>
                   <tr >
                     <th><?php echo $motComp['initial'];?></th>

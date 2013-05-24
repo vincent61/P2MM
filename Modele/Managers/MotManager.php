@@ -228,9 +228,11 @@ class MotManager{
  }}
  
  
- public function motsCompatibles($motParam){ // prend en parametre un mot (type string)
+ public function motsCompatibles($motParam, $typeRecherche, $Dicos){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
 		include '../dbconnect.php';
-		$result = array(); // tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
+		$result = array(); 
+		
+		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
 		$motManager= new MotManager($con);
 		//$motManager->codage($motParam);
