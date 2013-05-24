@@ -4,6 +4,30 @@ Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
 */
+.logo
+{
+transition:All 1s ease;
+-webkit-transition:All 1s ease;
+-moz-transition:All 1s ease;
+-o-transition:All 1s ease;
+transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-webkit-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-moz-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-o-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-ms-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+
+}
+
+.logo:hover
+{
+transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+-webkit-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+-moz-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+-o-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+-ms-transform: rotate(180deg) scale(1) skew(1deg) translate(0px);
+
+}
+
 
 table {
 width:100%;
@@ -118,9 +142,10 @@ a:hover {
 
 /* Logo */
 
+
 #logo {
 	margin: 0px;
-	padding: 10px 0px;
+	padding: 40px 0px;
 	color: #000000;
 	text-align: center;
 }
@@ -135,6 +160,48 @@ a:hover {
 	padding: 0px;
 	font-size: 3.8em;
 	color: #FFFFFF;
+}
+#logo .titreHaut {
+	transition:All 1s ease;
+-webkit-transition:All 1s ease;
+-moz-transition:All 1s ease;
+-o-transition:All 1s ease;
+transform: rotate(0deg) scale(1) skew(1deg) translate(-30px);
+-webkit-transform: rotate(0deg) scale(1) skew(1deg) translate(-30px);
+-moz-transform: rotate(0deg) scale(1) skew(1deg) translate(-30px);
+-o-transform: rotate(0deg) scale(1) skew(1deg) translate(-30px);
+-ms-transform: rotate(0deg) scale(1) skew(1deg) translate(-30px);
+}
+
+
+
+#logo .titreBas {	
+padding :3px;
+transition:All 1s ease;
+-webkit-transition:All 1s ease;
+-moz-transition:All 1s ease;
+-o-transition:All 1s ease;
+transform: rotate(0deg) scale(1) skew(1deg) translate(30px);
+-webkit-transform: rotate(0deg) scale(1) skew(1deg) translate(30px);
+-moz-transform: rotate(0deg) scale(1) skew(1deg) translate(30px);
+-o-transform: rotate(0deg) scale(1) skew(1deg) translate(30px);
+-ms-transform: rotate(0deg) scale(1) skew(1deg) translate(30px);
+}
+
+#logo:hover .titreHaut {
+	transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-webkit-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-moz-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-o-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-ms-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+}
+
+#logo:hover .titreBas {
+	transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-webkit-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-moz-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-o-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
+-ms-transform: rotate(0deg) scale(1) skew(1deg) translate(0px);
 }
 
 #logo h1 span {
@@ -469,7 +536,7 @@ fieldset {
 #banner-wrapper
 {
 	overflow: hidden;
-	padding: 3em 0em;
+	padding: 0em 0em;
 	background: rgba(0,0,0,.06);
 }
 

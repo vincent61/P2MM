@@ -19,7 +19,11 @@
 <div id="header-wrapper">
   <div id="header">
     <div id="logo">
-      <h1><a href="#">Séparation</a></h1>
+    <h1> </h1>
+    <p> </p>
+    <p><img class = "titreHaut" src="/P2MM/Vue/ressources/titreHaut.png" width="331" height="34" alt="" /></p>
+       <p><img class = "titreBas" src="/P2MM/Vue/ressources/titreBas.png" width="331" height="34" alt="" /></p>
+      <!--<h1><a href="#">Séparation</a></h1>-->
       <p>Procédé inventé par Pierre Fourny</p>
     </div>
   </div>

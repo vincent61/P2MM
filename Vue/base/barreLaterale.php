@@ -2,7 +2,7 @@
 				<div id="sidebar">
 					<ul>
 						<li>
-							<p><img src="/P2MM/Vue/ressources/petitLogo2.png" width="184" height="151" alt="" /></p>
+							<p><img class = "logo" src="/P2MM/Vue/ressources/petitLogo.png" width="151" height="151" alt="" /></p>
 						</li>
 						<li>
 							<h2>Categories</h2>
