@@ -26,7 +26,6 @@ echo "isset ok";
 			}
 	}
 	else {     
-	echo 'pas de pb\n';
 		// $_FILES['nom_du_fichier']['error'] vaut 0 soit UPLOAD_ERR_OK     
 		// ce qui signifie qu'il n'y a eu aucune erreur  
 		if ((isset($_FILES['fichierCodes']['tmp_name'])&&($_FILES['fichierCodes']['error'] == UPLOAD_ERR_OK))) {   
