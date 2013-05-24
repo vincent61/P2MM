@@ -13,7 +13,8 @@
               <div class="menuRech"> <a href="#recherche"> Recherche </a> <a href="#resultats"> Résultats </a> </div>
               <div id="recherche">
                 <fieldset>
-                  <form action="../Controleurs/recherche.php" method="post">
+                  <?php include "../Controleurs/recherche.php"; ?>
+				  <form action="recherche.php" method="post">
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
 					<p>Mot:
                     <input type="text" name="mot" />

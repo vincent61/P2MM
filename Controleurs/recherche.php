@@ -24,5 +24,5 @@ if(isset($_POST['mot'])){
 	$flag=1;
 	}}
 
-include '../Vue/recherche.php'; 
+//include '../Vue/recherche.php'; 
 ?>

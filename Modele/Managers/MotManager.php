@@ -93,7 +93,7 @@ class MotManager{
  
   if (!$motManager->exist($motParam)>0)  // si le mot n'existe pas dans la BDD, on l'ajoute à la table Mot
 		{	$motManager->add($motParam);
-			echo "Le Mot a été ajouté <br>";
+			//echo "Le Mot a été ajouté <br>";
 		}
 	
   if (is_null($policesParam))  // Si aucune police spécifiée, on code le mot dans toutes les polices existantes correspondantes à la casse du mot
@@ -174,11 +174,13 @@ class MotManager{
 				for ($ii=0; $ii<($tailleResultatInter); $ii++)
 						{ // Exception div/0
 								
-									if ($nbCodesLettre==0)
-										{
-											throw new Exception('Division par zéro.');
-										}
-									else
+									//if ($nbCodesLettre==0)
+										//{
+											$suite=false;
+											//throw new Exception('Division par zéro.');
+										//}
+									if ($nbCodesLettre>0)
+									{
 										if ($j < $tailleResultatInter/$nbCodesLettre) 
 											{
 												$j++;    // j est un compteur permettant de parcourir chaque partie identique de la liste de resultats
@@ -194,7 +196,7 @@ class MotManager{
 										
 										//print_r (array_values($codesLettres));
 										$listeResultat[$ii].= ($codesLettres[$k]['code']);
-										//echo $listeResultat[$ii]; 
+										}//echo $listeResultat[$ii]; 
 								 
 								}
 								
@@ -224,14 +226,13 @@ class MotManager{
 		  $correspMotMan->add($correspMot);
 	}	  
   }
-  else echo "Aucun mot inséré <br>";
+  //else echo "Aucun mot inséré <br>";
  }}
  
  
- public function motsCompatibles($motParam, $typeRecherche, $Dicos){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
+ public function motsCompatibles($motParam, $typeRecherche=0, $Dicos){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
 		include '../dbconnect.php';
 		$result = array(); 
-		
 		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
 		$motManager= new MotManager($con);
@@ -259,17 +260,39 @@ class MotManager{
 			{
 				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam, $casse); // Retourne tous les mots correspondants au motCode, à la police donnée, et à la casse du mot initial (sauf le mot initial)
 				if ($motsComp)
-					{	
-						$motsC=array();
-						foreach ($motsComp as $comp)
-								//array_push($motsC, $comp['mot']);
+			{	$suite=0;
+				//print_r (array_values($motsComp));
+				//echo "count : ".count($motsComp)."</br>";
+				
+				switch ($typeRecherche){   // En fonction du type de la recherche (0=tous les mots --- 1=1mot/code --- 2=+de 1mot/code)
+					case 0: $suite=1; // on prend tous les mots
+					break;
+					
+					case 1:
+						if (count($motsComp)==1)
+							$suite=1;
+						else $suite=0;
+					break;
+					
+					case 2: 
+						if (count($motsComp)>1)
+							$suite=1;
+						else $suite=0;
+					break;
+					
+					default: $suite=0;
+				}
+				if	($suite==1){
+						foreach ($motsComp as $comp)	
 						{
 							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mo'],);
 							//print_r (array_values($ligne));
 							array_push($result, $ligne);
 						}
 					}
-			}		
+			}}
+				
+			
 		//print_r (array_values($result));
 		return $result;
  }
