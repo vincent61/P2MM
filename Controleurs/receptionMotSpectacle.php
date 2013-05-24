@@ -14,8 +14,10 @@ $motSpectacleManager = new MotSpectacleManager($con);
 if(isset($_GET['deleteMot'])){
 	$motSpectacleManager->delete($_GET['deleteMot']);
 }
+
 $mots = $motSpectacleManager->getAll('frequence');
 include '../Vue/receptionMotSpectacle.php';
+
 ?>
 </body>
 </html>

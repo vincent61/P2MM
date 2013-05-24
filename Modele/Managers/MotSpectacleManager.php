@@ -41,7 +41,6 @@ class MotSpectacleManager{
 
    public function getAll($order)
   { 
-  echo $order;
 	    $q = $this->_db->prepare('select * from MotSpectacle');
 	$q->execute();
     $donnees = $q->fetchAll();
@@ -68,8 +67,5 @@ class MotSpectacleManager{
   {
     $this->_db = $db;
   }
-
-
 }
-
 ?>

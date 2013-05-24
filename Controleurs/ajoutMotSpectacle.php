@@ -10,7 +10,6 @@ include '../dbconnect.php';
 include '../Modele/Managers/MotSpectacleManager.php';
 
 $motSpectacleManager = new MotSpectacleManager($con);
-
 // Gestion des ajouts
 if(isset($_POST['mot']) ){
 	$motSpectacleManager->add(new MotSpectacle($_POST['mot']));
