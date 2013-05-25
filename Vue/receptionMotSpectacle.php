@@ -1,35 +1,45 @@
-﻿<?php
+﻿<head>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Séparation</title>
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css" />
+<link href="../Vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
+</head>
+<body>
+<div id="menu-wrapper">
+  <div id="menu">
+  <ul>
+    <li class="current_page_item"> <a href="../Vue/recherche.php">Recherche</a></li>
+    <li><a href="../Vue/admin.php">Admin</a></li>
+    <li><a href="../Controleurs/receptionMotSpectacle.php">Spectacle</a></li>
+    </div>
+  </ul>
+  <!-- end #menu --> 
+</div>
+</div>
+<div id="wrapper">
+<!-- end #header -->
+
+<?php
 include '../dbconnect.php';
 include '../Modele/Managers/MotSpectacleManager.php';
 $motSpectacleManager = new MotSpectacleManager($con);
 $result = $motSpectacleManager->getAll();
 
 ?>
-
-<table border='1'>
-  <tr class="titre">
-    <th><a href="../Controleurs/mot.php?order=mot"><u>Mot</u></a></th>
-    <th>&nbsp;</th>
-  </tr>
-  <?php
-// on fait une boucle qui va faire un tour pour chaque enregistrement 
-
-foreach($result as $mots){ ?>
-  <tr>
-    <th><?php echo $mots['mot'];?></th>
-    <th><a href="../Controleurs/receptionMotSpectacle.php?deleteMot=<?php echo $mots['mot'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-  </tr>
-  <?php }
-   ?>
-</table>
 <div id="content"> 
+<form action="../Controleurs/ajoutMotSpectacle.php" target="_blank">
+<input type="submit" value="INTERFACE D'AJOUT" />
+</form>
   <script> var compteur=0;</script>
   <?php
 $cpt=0;
 foreach($result as $mots){ 
 $cpt++;
- echo "<p id='p".$cpt."'>".$mots['mot']."</p>"; 
+ echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../Controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
  echo "<script>compteur++;</script>";
 }
 ?>
 </div>
+</html>

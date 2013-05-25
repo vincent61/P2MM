@@ -35,7 +35,7 @@ for(i=1;i<compteur+1;i++)
 	  element.style.top = position[i]["x"]+"px" ;
 	  element.style.left = position[i]["y"]+"px";
 	  element.style.fontSize =position[i]["font"]+"px";
-	 element.style.color = "black";
+	 element.style.color = "white";
 	}
 
  });
@@ -47,7 +47,6 @@ for(i=1;i<compteur+1;i++)
 <script language=javascript>
 var int=self.setInterval(function(){getMotSpectacle()},50);
 </script>
-<input type="button" name="submit" id="submit" value="submit" onClick = "getMotSpectacle()" />
 <?php
 include '../dbconnect.php';
 include '../Modele/Managers/MotSpectacleManager.php';
