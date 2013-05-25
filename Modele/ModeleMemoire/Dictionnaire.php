@@ -8,7 +8,7 @@ class Dictionnaire{
 	protected $casse;        
 	protected $statut;   
 
-	public function __construct($d,$l,$fd,$c){
+	public function __construct($d,$l,$fd,$c, $s="noncharge"){
 		$this->dictionnaire = $d;	
 		$this->langue = $l;	
 		$this->fichierDictionnaire = $fd;
