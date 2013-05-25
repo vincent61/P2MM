@@ -18,14 +18,8 @@ if(isset($_POST['mot']) ){
 
 
 //Récupération du contenu de la BDD
-if(isset($_GET['order']))
-{
+
 	$mots = $motSpectacleManager->getAll();
-}
-else
-{
-	$mots = $motSpectacleManager->getAll('frequence');
-}
 
 include "../Vue/ajoutMotSpectacle.php";
 ?>
