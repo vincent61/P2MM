@@ -5,7 +5,27 @@
 <title>Document sans titre</title>
 </head>
 
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+function getMotSpectacle(){
+ $.ajax({
+ type: "POST",
+ url: "../Vue/receptionMotSpectacle.php",
+ data: {}
+ }).done(function( result ) {
+ $("#msg").html( result );
+ });
+
+}
+</script>
+
+
 <body>
+<script language=javascript>
+var int=self.setInterval(function(){getMotSpectacle()},1000);
+</script>
+
+<input type="button" name="submit" id="submit" value="submit" onClick = "getMotSpectacle()" />
 <?php
 include '../dbconnect.php';
 include '../Modele/Managers/MotSpectacleManager.php';
@@ -15,9 +35,11 @@ if(isset($_GET['deleteMot'])){
 	$motSpectacleManager->delete($_GET['deleteMot']);
 }
 
+
 $mots = $motSpectacleManager->getAll('frequence');
-include '../Vue/receptionMotSpectacle.php';
+//include '../Vue/receptionMotSpectacle.php';
 
 ?>
+<div id="msg"></div>
 </body>
 </html>

@@ -39,9 +39,9 @@ class MotSpectacleManager{
     return new Mot($donnees['mot']);
   }
 
-   public function getAll($order)
+   public function getAll()
   { 
-	    $q = $this->_db->prepare('select * from MotSpectacle');
+	$q = $this->_db->prepare('select * from MotSpectacle');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
