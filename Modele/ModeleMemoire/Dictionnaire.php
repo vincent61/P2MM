@@ -13,6 +13,7 @@ class Dictionnaire{
 		$this->langue = $l;	
 		$this->fichierDictionnaire = $fd;
 		$this->casse = $c;
+		$this->statut = $s;
 	}
 	public function getDictionnaire(){
 		return $this->dictionnaire;
