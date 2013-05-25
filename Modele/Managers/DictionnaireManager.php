@@ -12,7 +12,7 @@ class DictionnaireManager{
   public function add(Dictionnaire $dictionnaire)
   {
 	  if($dictionnaire instanceof Dictionnaire){
-	$q = $this->_db->query('SELECT dictionnaire,langue, fichierDictionnaire, casse FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire->getDictionnaire().'\';');
+	$q = $this->_db->query('SELECT dictionnaire,langue, fichierDictionnaire, casse, statut FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire->getDictionnaire().'\';');
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['dictionnaire'])
 		{
@@ -27,21 +27,21 @@ class DictionnaireManager{
   public function delete($dictionnaire)
   {
 	$dictionnaire = (String) $dictionnaire;
-	echo 'DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'';
+	//echo 'DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'';
     $this->_db->exec('DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'');
   }
  
   public function get($dictionnaire)
   { 
-  $dictionnaire = (String) $dictionnaire;
-    $q = $this->_db->query('SELECT dictionnaire,langue, fichierDictionnaire, casse FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\';');
+  	$dictionnaire = (String) $dictionnaire;
+    $q = $this->_db->query('SELECT dictionnaire,langue, fichierDictionnaire, casse, statut FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\';');
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
-    return new Dictionnaire($donnees['dictionnaire'],$donnees['langue'],$donnees['fichierDictionnaire'],$donnees['casse']);
+    return new Dictionnaire($donnees['dictionnaire'],$donnees['langue'],$donnees['fichierDictionnaire'],$donnees['casse'],$donnees['statut']);
   }
   
    public function getAll($order)
   { 
-    $q = $this->_db->prepare('SELECT dictionnaire,langue, fichierDictionnaire, casse FROM Dictionnaire order by '.$order.';');
+    $q = $this->_db->prepare('SELECT dictionnaire,langue, fichierDictionnaire, casse, statut FROM Dictionnaire order by '.$order.';');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
@@ -52,6 +52,14 @@ class DictionnaireManager{
   {
 	   $this->_db->exec('UPDATE Dictionnaire SET dictionnaire = \''.$newDico->getDictionnaire().'\', langue = \''.$newDico->getLangue().'\',fichierDictionnaire = \''.$newDico->getFichierDictionnaire().'\', casse = '.$newDico->getCasse().' WHERE dictionnaire = \''.$oldDico->getDictionnaire().'\';');
   }
+  
+  public function updateStatut($dicoName, $newStatut)
+  {
+  	$dico = (String) $dicoName;
+  	$stat = (String) $newStatut;
+  	$this->_db->exec('UPDATE Dictionnaire SET statut = "'.$stat.'" WHERE dictionnaire = \''.$dico.'\';');
+  }
+  
  
   public function setDb($db)
   {

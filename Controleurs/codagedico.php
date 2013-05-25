@@ -9,8 +9,9 @@ function codageDico($nomDico, $dictionnaireManager){
 	$dictionnaireManager->remplirMotsCode($dico);
 
 	$message = "Le remplissage du dictionnaire ".$nomDico. " est terminé\r\n";
-	echo $message;
-	mail('guerryma.utc@gmail.com', 'Résultat Codage', $message);
+	//echo $message;
+	mail('danyferreira.utc@gmail.com', 'Résultat Codage', $message);
+	//mail('guerryma.utc@gmail.com', 'Résultat Codage', $message);
 
 }
 ?>

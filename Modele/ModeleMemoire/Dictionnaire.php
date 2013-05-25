@@ -2,16 +2,17 @@
 include_once '../Modele/Managers/MotManager.php';
 class Dictionnaire{
 	
-protected $dictionnaire;
-protected $langue;
-protected $fichierDictionnaire;    
-protected $casse;        
+	protected $dictionnaire;
+	protected $langue;
+	protected $fichierDictionnaire;    
+	protected $casse;        
+	protected $statut;   
+
 	public function __construct($d,$l,$fd,$c){
 		$this->dictionnaire = $d;	
 		$this->langue = $l;	
 		$this->fichierDictionnaire = $fd;
 		$this->casse = $c;
-	
 	}
 	public function getDictionnaire(){
 		return $this->dictionnaire;
@@ -24,6 +25,10 @@ protected $casse;
 	}
 	public function getCasse(){
 		return $this->casse;
+	}	
+	
+	public function getStatut(){
+		return $this->statut;
 	}	
  
 }

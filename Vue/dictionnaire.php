@@ -42,7 +42,7 @@
                   <th><u><a href="../Controleurs/dictionnaire.php?order=langue">Langue</a></u></th>
                   <th><u><a href="../Controleurs/dictionnaire.php?order=fichierDictionnaire">Fichier Dictionnaire</a></u></th>
                   <th><u><a href="../Controleurs/dictionnaire.php?order=casse">Casse</a></u></th>
-                  <th><u></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=statut">Statut</a></u></th>
                   <th><u></u></th>
                   <th><u></u></th>
                 </tr>
@@ -54,7 +54,6 @@ foreach($dictionnaire as $dictionnaire)
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 	{?>
                   <form action="../Controleurs/dictionnaire.php" method="post">
-                    <td></th></td>
                     <th> <input type="text" name="newDictionnaire" value="<?php echo $dictionnaire['dictionnaire'];?>" />
                     </th>
                     <th> <select name="newLangue" size="1">
@@ -73,24 +72,26 @@ foreach($dictionnaire as $dictionnaire)
                     </th>
                     <th> <?php echo $dictionnaire['fichierDictionnaire'];?> </th>
                     <th> <?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?> </th>
+                    <th> <?php echo $dictionnaire['statut'];?> </th>
                     <input type="hidden" name="oldDictionnaire" value="<?php echo $dictionnaire['dictionnaire'];?>" />
                     <input type="hidden" name="oldLangue" value="<?php echo $dictionnaire['langue'];?>" />
                     <input type="hidden" name="oldFichierDictionnaire" value="<?php echo $dictionnaire['fichierDictionnaire'];?>" />
                     <input type="hidden" name="oldCasse" value="<?php echo $dictionnaire['casse'];?>" />
+                    <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : 'Chargé')?> </th>
                     <?php }else{ ?>
                     <th><?php echo $dictionnaire['dictionnaire'];?></th>
                     <th><?php echo $dictionnaire['langue'];?></th>
                     <th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
                     <th><?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
+                    <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : 'Chargé')?> </th>
                     <?php 
 	}
 	?>
-                    <th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
-                    <th><a href="../Controleurs/dictionnaire.php?addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/arrow.png' height='20' width='20' /></a></th>
+                    <th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php 
-    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
-	{?>
+					    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
+						{?>
                     <th><input type="submit" value="Modifier" /></th>
                   </form>
                   <?php }?>
