@@ -176,7 +176,7 @@ class MotManager{
 								
 									//if ($nbCodesLettre==0)
 										//{
-											$suite=false;
+											//$suite=false;
 											//throw new Exception('Division par zéro.');
 										//}
 									if ($nbCodesLettre>0)
@@ -216,7 +216,6 @@ class MotManager{
 		  //echo $listeResultat[$i];
 		  //echo "<br>";
 		  $motCode = new MotCode( $listeResultat[$i], $pol);
-		  echo $motCode;
 		  $motCodeManager = new MotCodeManager($con);
 		  $motCodeManager->add($motCode);
 		  
