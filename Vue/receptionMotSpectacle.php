@@ -20,6 +20,19 @@
 </div>
 <div id="wrapper">
 <!-- end #header -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+function deleteMotSpectacle(mot, cpt){
+ $.ajax({
+ type: "POST",
+ url: "../Controleurs/receptionMotSpectacle.php",
+ data: {fmot:mot,fcpt:cpt}
+ }).done(function( result ) {
+//alert  (mot);
+ });
+
+}
+</script>
 
 <?php
 include '../dbconnect.php';
@@ -37,9 +50,15 @@ $result = $motSpectacleManager->getAll();
 $cpt=0;
 foreach($result as $mots){ 
 $cpt++;
- echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../Controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
+ //echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../Controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
+ echo "<p id='p".$cpt."'>".$mots['mot']." <a href='javascript:deleteMotSpectacle(\"".$mots['mot']."\",\"".$cpt."\");
+'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
+
+
  echo "<script>compteur++;</script>";
 }
 ?>
 </div>
+<div id="msg"></div>
+
 </html>
