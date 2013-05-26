@@ -46,7 +46,6 @@ class MotManager{
 
    public function getAll($order)
   { 
-  echo $order;
   if ($order=='frequence')
     $q = $this->_db->prepare('select * from Mot order by '.$order.' desc;');
 	else
