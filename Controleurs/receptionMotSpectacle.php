@@ -27,7 +27,6 @@ function getMotsSpectacle(){
 for(i=1;i<compteur+1;i++)
 	{
 	//On selectionne chaque mot affiché dans la fenêtre	
-	var x=document.getElementById("p"+i);
 	var element=document.getElementById("p"+i);
 	// On les replace en fonction de l'endroit donné par le client.
 	 element.style.position = "fixed";
