@@ -44,7 +44,7 @@ $motSpectacleManager = new MotSpectacleManager($con);
 $result = $motSpectacleManager->getAll();
 
 ?>
-<div id="content"> 
+<div id="content" > 
 <form action="../Controleurs/ajoutMotSpectacle.php" target="_blank">
 <input type="submit" value="INTERFACE D'AJOUT" />
 </form>
@@ -54,14 +54,33 @@ $cpt=0;
 foreach($result as $mots){ 
 $cpt++;
  //echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../Controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
- echo "<p id='p".$cpt."'>".$mots['mot']." <a href='javascript:deleteMotSpectacle(\"".$mots['mot']."\",\"".$cpt."\");
-'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
+ echo "<p id='p".$cpt."' draggable=\"true\" ondragstart=\"drag(event)\" ondragend=\"drop(event)\" >".$mots['mot']." <a  href='javascript:deleteMotSpectacle(\"".$mots['mot']."\",\"".$cpt."\"); 
+'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20'  /></a></p>"; 
 
 
  echo "<script>compteur++;</script>";
 }
 ?>
+<script>
+function drag(ev)
+{
+
+}
+
+function drop(ev)
+{
+
+	event = event || window.event;
+	// document.getElementById(ev.target.id).style.left =event.clientX+"px";
+	// document.getElementById(ev.target.id).style.top =event.clientY-70+"px";
+     position[ev.target.id]["x"]=event.clientY-110;
+	 position[ev.target.id]["y"]=event.clientX+20;
+}
+</script>
+
 </div>
-<div id="msg"></div>
+<div id="msg" ></div>
+
+
 
 </html>
