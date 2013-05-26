@@ -31,15 +31,11 @@ function deleteMotSpectacle(mot, cpt){
  url: "../Controleurs/receptionMotSpectacle.php",
  data: {fmot:mot,fcpt:cpt}
  }).done(function( result ) {
-//alert  (position["p"+(cpt+1)]["x"]+" "+position["p"+(cpt+1)]["y"]);
-
+// Decalage du tableau des positions pour que les mots ne bouge pas sur le client: Comme un mot est supprimer en base de données, les position sont décaler. pour eviter que tous les mots ne prenne la position du siuvant, on décale les valeurs des positions des mots suivant celui qui vient d'etre supprimé vers la gauche.
 for(i=cpt;i<500;i++){
 		position["p"+(i-1)]=position["p"+(i)];
 	}
-//alert  (position["p"+(cpt)]["x"]+" "+position["p"+(cpt)]["y"]);
 position ["p"+(cpt-1)]=pos;
-
-	//alert('hehe');
  });
 
 }
