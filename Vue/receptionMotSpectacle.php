@@ -23,12 +23,23 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 function deleteMotSpectacle(mot, cpt){
+	 var pos=position["p"+(cpt-1)];
+ var posy=position["p"+(cpt-1)]["y"];
+
  $.ajax({
  type: "POST",
  url: "../Controleurs/receptionMotSpectacle.php",
  data: {fmot:mot,fcpt:cpt}
  }).done(function( result ) {
-//alert  (mot);
+//alert  (position["p"+(cpt+1)]["x"]+" "+position["p"+(cpt+1)]["y"]);
+
+for(i=cpt;i<500;i++){
+		position["p"+(i-1)]=position["p"+(i)];
+	}
+//alert  (position["p"+(cpt)]["x"]+" "+position["p"+(cpt)]["y"]);
+position ["p"+(cpt-1)]=pos;
+
+	//alert('hehe');
  });
 
 }
