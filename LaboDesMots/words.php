@@ -13,18 +13,19 @@
 
 	if(isset($_POST['procedes'])){
 	//Recuperation des polices dans lesquelles les mots seront codés
+	//TODO: vérifier casse? 
 
 		$polices = explode(';',$_POST['procedes']);
 			}
-	else{
+	/*else{
 		//si aucune police n'est spécifiée, alors on code dans toutes les polices /!\ récupérer slmt les noms et vérifier la casse
 		$polices= $pm->getAll();
-		}
+		}*/
 	if(isset($_POST['word'])){
 	//recherche des mots compatibles dans les polices demandées
 	$casse = 1;
-		//$dicos =$dm->getAllByCasse($casse);
-		$words = $mm->motsCompatibles($_POST['word'], 0, ['autre_min']);
+		$dicos =$dm->getAllByCasse($casse);
+		$words = $mm->motsCompatibles($_POST['word'], 0, $dicos);
 		foreach($words as $word){
 		if(in_array($word['police'], $polices)){
 			$mot = $mm->get($word['compatible']);

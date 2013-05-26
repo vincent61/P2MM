@@ -55,7 +55,11 @@ class DictionnaireManager{
   $q = $this->_db->prepare('SELECT dictionnaire FROM Dictionnaire;');
 	$q->execute();
     $donnees = $q->fetchAll();
-    return $donnees;
+	$result = array();
+	foreach($donnees as $d){
+	array_push($result, $d['dictionnaire']);
+	}
+    return $result;
   }
  
   public function update($oldDico, $newDico)
