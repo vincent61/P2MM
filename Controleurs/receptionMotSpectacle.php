@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Document sans titre</title>
+<title>Mot Spectacle</title>
 </head>
 <script>
 //Au chargement de la page, le client génère la grille de placement des 1000 mots à venir (si tenté que 1000 mots vienne).

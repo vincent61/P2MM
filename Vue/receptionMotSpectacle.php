@@ -1,8 +1,4 @@
 ﻿<head>
-<meta name="Keywords" content="" />
-<meta name="Description" content="" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Séparation</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css" />
 <link href="../Vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
