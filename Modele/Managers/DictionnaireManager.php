@@ -47,6 +47,16 @@ class DictionnaireManager{
     return $donnees;
   }
 
+  public function getAllByCasse($casse){
+  /**
+  * Renvoie tous les dictionnaires dont la casse est $casse (int) 0 pour majuscule 1 pour minuscule
+  */
+  
+  $q = $this->_db->prepare('SELECT dictionnaire FROM Dictionnaire;');
+	$q->execute();
+    $donnees = $q->fetchAll();
+    return $donnees;
+  }
  
   public function update($oldDico, $newDico)
   {
