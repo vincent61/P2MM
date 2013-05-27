@@ -8,7 +8,6 @@ $policeManager = new PoliceManager($con);
 // Gestion des ajouts
 if(isset($_POST['police']) && $_POST['police']!=''&& isset($_FILES['fichierCodes']['name'])&& $_FILES['fichierCodes']['name']!= '' && isset($_POST['casse'])&& $_POST['casse']!=''){
 //if(isset($_POST['police'])){
-echo "isset ok";
 	if ($_FILES['fichierCodes']['error']) {     
 				  switch ($_FILES['fichierCodes']['error']){     
 						   case 1: // UPLOAD_ERR_INI_SIZE     

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html>
 <script type="text/javascript">
 
 function validForm(form){
@@ -51,7 +51,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../Controleurs/Police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                <form action="../Controleurs/police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Police:
                     <input type="text" name="police" />

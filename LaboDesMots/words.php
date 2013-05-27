@@ -13,7 +13,7 @@
 
 	if(isset($_POST['procedes'])){
 	//Recuperation des polices dans lesquelles les mots seront codés
-	//TODO: vérifier casse? 
+	//TODO: vérifier casse? Verifier espaces?
 
 		$polices = explode(';',$_POST['procedes']);
 			}
