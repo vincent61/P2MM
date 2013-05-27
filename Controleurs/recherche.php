@@ -19,10 +19,16 @@ foreach ($dicos as $dico)
 	
 
 if(isset($_POST['mot'])){
-	if (isset($_POST['type_recherche'])){
-	$motsComp = $motManager->motsCompatibles($_POST['mot'], $_POST['type_recherche'], $listeDico);
-	$flag=1;
-	}}
+	$mots = explode(" ", $_POST['mot']);
+		foreach($mots as $mot){
+		$motsCompUni= array();
+        if (isset($_POST['type_recherche'])){
+		$motsCompUni = $motManager->motsCompatibles($mot, $_POST['type_recherche'], $listeDico);
+		$motsComp=$motsComp+$motsCompUni;
+		$flag=1;
+			}
+		}
+	}
 
 //include '../Vue/recherche.php'; 
 ?>

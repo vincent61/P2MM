@@ -66,8 +66,8 @@
                     <th><?php echo $motComp['police'];?></th>
                     <th><?php 
 					//foreach ($motComp['mots'] as $mot)	
-								echo $motComp['compatible'] ; ?></th>
-                    <?php }?>
+					echo $motComp['compatible'] ; ?></th>
+                    <?php  }?>
                 </tr>
                 </table>
                 <?php }

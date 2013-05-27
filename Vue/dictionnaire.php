@@ -38,11 +38,11 @@
               </fieldset>
               <table border='1'>
                 <tr class="titre">
-                  <th><u><a href="../Controleurs/dictionnaire.php?order=dictionnaire">Dictionnaire</u></a></th>
-                  <th><u><a href="../Controleurs/dictionnaire.php?order=langue">Langue</a></u></th>
-                  <th><u><a href="../Controleurs/dictionnaire.php?order=fichierDictionnaire">Fichier Dictionnaire</a></u></th>
-                  <th><u><a href="../Controleurs/dictionnaire.php?order=casse">Casse</a></u></th>
-                  <th><u><a href="../Controleurs/dictionnaire.php?order=statut">Statut</a></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=dictionnaire"><span TITLE="Trier par Dictionnaires">Dictionnaire</span></u></a></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=langue"><span TITLE="Trier par Langues">Langues</span></a></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=fichierDictionnaire"><span TITLE="Trier par Fichiers">Fichier Dictionnaire</span></a></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=casse"><span TITLE="Trier par Casses">Casse</span></a></u></th>
+                  <th><u><a href="../Controleurs/dictionnaire.php?order=statut"><span TITLE="Trier par Statuts">Statut</span></a></u></th>
                   <th><u></u></th>
                   <th><u></u></th>
                 </tr>
