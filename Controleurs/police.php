@@ -35,6 +35,9 @@ if(isset($_POST['police']) && $_POST['police']!=''&& isset($_FILES['fichierCodes
 				move_uploaded_file($_FILES['fichierCodes']['tmp_name'], $chemin_destination.$_FILES['fichierCodes']['name']);     
 				// Gestion des ajouts
 				$policeManager->add(new Police($_POST['police'],$_FILES['fichierCodes']['name'],$_POST['casse']));
+				
+				include 'codagemotspolice.php';
+				codageMotsPolice($policeManager, $_POST['police'], $con);
 			} 
 			else
 			 {
