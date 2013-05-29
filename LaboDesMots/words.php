@@ -21,11 +21,26 @@
 		//si aucune police n'est spécifiée, alors on code dans toutes les polices /!\ récupérer slmt les noms et vérifier la casse
 		$polices= $pm->getAll();
 		}*/
+	
+	
+	// il faudrait vérifier que la casse et les polices sont compatibles, sauf si l'on code le mot dans les 2 casses.
+		
+
 	if(isset($_POST['word'])){
+		$searchWord = $_POST['word'];
+		if(isset($_POST['casse'])){
+		//gestion de la casse et transformation au cas où le mot n'est pas écrit dans la bonne casse
+			$casse = $_POST['casse'];
+			if($casse == "0"){
+				$searchWord = strtoupper($searchWord);
+			}
+			else
+				$searchWord = strtolower($searchWord);
+				
+		}
 	//recherche des mots compatibles dans les polices demandées
-	$casse = 1;
 		$dicos =$dm->getAllByCasse($casse);
-		$words = $mm->motsCompatibles($_POST['word'], 0, $dicos);
+		$words = $mm->motsCompatibles($searchWord, 0, $dicos);
 		foreach($words as $word){
 		if(in_array($word['police'], $polices)){
 			$mot = $mm->get($word['compatible']);

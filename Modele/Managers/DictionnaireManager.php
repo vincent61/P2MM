@@ -52,7 +52,7 @@ class DictionnaireManager{
   * Renvoie tous les dictionnaires dont la casse est $casse (int) 0 pour majuscule 1 pour minuscule
   */
   
-  $q = $this->_db->prepare('SELECT dictionnaire FROM Dictionnaire;');
+  $q = $this->_db->prepare('SELECT dictionnaire FROM Dictionnaire where casse='.$casse.';');
 	$q->execute();
     $donnees = $q->fetchAll();
 	$result = array();
