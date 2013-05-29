@@ -44,7 +44,7 @@ for(i=1;i<compteur+1;i++)
 
 <body>
 <script language=javascript>
-var int=self.setInterval(function(){getMotsSpectacle()},100);
+var int=self.setInterval(function(){getMotsSpectacle()},1000);
 //getMotsSpectacle();
 </script>
 <?php
