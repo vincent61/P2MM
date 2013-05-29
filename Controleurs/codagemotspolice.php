@@ -8,11 +8,10 @@ function codageMotsPolice($policeManager, $nomPolice,$connexion){
 
 	$motManager = new MotManager($connexion);
 	
-	$mots = $motManager->getAll('frequence');
 	$police=$policeManager->get($nomPolice);
+	$mots = $motManager->getAllByCasse($police->getCasse());
 	
 	foreach($mots as $mot){
-		if($mot['casse'] == $police->getCasse())
 			$motManager->codage(new Mot($mot['mot'], $mot['casse'], $mot['dictionnaire'], $mot['frequence']), array($nomPolice));
 	}
 

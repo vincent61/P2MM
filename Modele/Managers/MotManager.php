@@ -54,6 +54,20 @@ class MotManager{
     $donnees = $q->fetchAll();
     return $donnees;
   }
+  
+   public function getAllByCasse($casse)
+  { /**
+  * Rznvoie la liste des mots dont la casse est l'entier spécifié en paramètre.
+  */
+
+    $q = $this->_db->prepare('select * from Mot where casse='.$casse.';');
+	
+	$q->execute();
+    $donnees = $q->fetchAll();
+    return $donnees;
+  }
+  
+  
  
   public function update($oldMot, $newMot)
   {
