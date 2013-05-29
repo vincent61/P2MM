@@ -175,7 +175,7 @@ class MotManager{
 								
 									//if ($nbCodesLettre==0)
 										//{
-											//$suite=false;
+											//$suite=false; TODO Remarque: l'arret de la boucle en cas de valeur 0 est indispensable. cela veut dire qu'on ne peut pas coder lr mot
 											//throw new Exception('Division par zéro.');
 										//}
 									if ($nbCodesLettre>0)
