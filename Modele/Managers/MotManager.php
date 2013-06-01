@@ -300,7 +300,7 @@ class MotManager{
 						{	
 							if (in_array($comp['dico'], $dicos))
 							{
-							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mo'],);
+							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mo'],"dictionnaire" => $comp['dico']);
 							//print_r (array_values($ligne));
 							array_push($result, $ligne);}
 						}

@@ -54,6 +54,7 @@
                     <th><u>Mot Initial</u></th>
                     <th><u>Code</u></th>
                     <th><u>Police</u></th>
+                    <th><u>Dictionnaire</u></th>
                     <th><u>Mots Correspondants</u></th>
                   </tr>
                   <?php
@@ -64,6 +65,7 @@
                     <th><?php echo $motComp['initial'];?></th>
                     <th><?php echo $motComp['code'];?></th>
                     <th><?php echo $motComp['police'];?></th>
+                    <th><?php echo $motComp['dictionnaire'];?></th>
                     <th><?php 
 					//foreach ($motComp['mots'] as $mot)	
 					echo $motComp['compatible'] ; ?></th>
