@@ -271,7 +271,7 @@ class MotManager{
 		
 		foreach ($motsCodes as $motCode)
 			{
-				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $motParam, $casse); // Retourne tous les mots correspondants au motCode, à la police donnée, et à la casse du mot initial (sauf le mot initial)
+				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $casse); // Retourne tous les mots correspondants au motCode, à la police donnée, et à la casse du mot initial 
 				if ($motsComp)
 			{	$suite=0;
 				//print_r (array_values($motsComp));
