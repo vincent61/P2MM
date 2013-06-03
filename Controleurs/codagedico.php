@@ -8,6 +8,7 @@ function codageDico($nomDico, $dictionnaireManager){
 	//$dictionnaireManager->get($_POST['dictionnaire'])->remplirMotsCode();
 	$dico = $dictionnaireManager->get($nomDico);
 	$dictionnaireManager->updateStatut($nomDico, "enchargement");
+	//ajouter un try-catch et mail d'erreur en cas de problème. + s'assurer de la fin su script
 	$dictionnaireManager->remplirMotsCode($dico);
 	$dictionnaireManager->updateStatut($nomDico, "charge");
 
