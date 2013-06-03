@@ -18,7 +18,14 @@
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
 					<p>Mot:
                     <input type="text" name="mot" />
-					</p><p>
+					</p>
+					<p>
+					<input type="radio" name="casse" value="1" checked="checked"/>
+                    Minuscule
+                    <input type="radio" name="casse" value="0" />
+                    Majuscule
+					</p>
+					<p>
                     <input type="radio" name="type_recherche" value="0" checked="checked"/>
                     Toutes les réponses
                     <input type="radio" name="type_recherche" value="1" />

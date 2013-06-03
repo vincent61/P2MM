@@ -243,14 +243,14 @@ class MotManager{
  }}
  
  
- public function motsCompatibles($motParam, $typeRecherche=0, $dicos){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
+ public function motsCompatibles($motParam, $typeRecherche=0, $dicos, $casse){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
 		include '../dbconnect.php';
 		$result = array(); 
 		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
 		$motManager= new MotManager($con);
 		//$motManager->codage($motParam);
-		if (preg_match("#^[a-z]{1,}$#", $motParam)&& preg_match("#[^A-Z0-9]#", $motParam)){// si le mot est en minuscule
+		/*if (preg_match("#^[a-z]{1,}$#", $motParam)&& preg_match("#[^A-Z0-9]#", $motParam)){// si le mot est en minuscule
 			$casse=1;
 			$dico="autre_min";  // dico contenant par défaut les mots minuscules qui ne sont dans aucun dictionnaire
 		}
@@ -260,8 +260,9 @@ class MotManager{
 			}
 		else {	echo "Le mot doit contenir des majuscules ou des minuscules"; //sinon
 				return 0;}
+		*/
 		
-		$motP = new Mot($motParam, $casse, $dico, 1);
+		$motP = new Mot($motParam, $casse, "autre_min", 1);
 		$motManager->codage($motP);
 		
 		$corrMotManager = new CorrespondanceMotManager($con);

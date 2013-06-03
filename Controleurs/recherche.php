@@ -23,9 +23,11 @@ if(isset($_POST['mot'])){
 		foreach($mots as $mot){
 		$motsCompUni= array();
         if (isset($_POST['type_recherche'])){
-		$motsCompUni = $motManager->motsCompatibles($mot, $_POST['type_recherche'], $listeDico);
-		$motsComp=$motsComp+$motsCompUni;
-		$flag=1;
+			if (isset($_POST['casse'])){
+			$motsCompUni = $motManager->motsCompatibles($mot, $_POST['type_recherche'], $listeDico, $_POST['casse']);
+			$motsComp=$motsComp+$motsCompUni;
+			$flag=1;
+			}
 			}
 		}
 	}
