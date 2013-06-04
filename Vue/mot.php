@@ -64,58 +64,7 @@ function validForm(form){
                 </form>
               </fieldset>
               </br>
-              <form action="../Controleurs/mot.php">
-                    <input type="submit" value="Pertinence" />
-              </form>
-              <table border='1'>
-                <tr class="titre">
-                  <th><a href="../Controleurs/mot.php?order=mot"><u>Mot</u></a></th>
-                  <th><a href="../Controleurs/mot.php?order=casse"><u>Casse</u></a></th>
-                  <th><a href="../Controleurs/mot.php?order=dictionnaire"><u>Dictionnaire</u></a></th>
-                  <th><u></u></th>
-                  <th><u></u></th>
-                </tr>
-                <?php
-// on fait une boucle qui va faire un tour pour chaque enregistrement 
-
-foreach($mots as $mots){ ?>
-                <tr>
-                  <?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
-                  <form action="../Controleurs/mot.php" method="post">
-                    <th> <input type="text" name="newMot" value="<?php echo $mots['mot'];?>" />
-                    </th>
-                    <th> <?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?> </th>
-                    <th> <select name="newDictionnaire" size="1">
-                        <?php 
-		foreach ($dictionnaires as $dictionnaire)
-		{
-			echo '<OPTION';
-			if($dictionnaire['dictionnaire'] == $mots['dictionnaire'])
-			{
-				echo ' selected';
-			}
-			echo '>'.$dictionnaire['dictionnaire'];
-		}
-		?>
-                      </select>
-                    </th>
-                    <input type="hidden" name="oldMot" value="<?php echo $mots['mot'];?>" />
-                    <input type="hidden" name="oldCasse" value="<?php echo $mots['casse'];?>" />
-                    <input type="hidden" name="oldDictionnaire" value="<?php echo $mots['dictionnaire'];?>" />
-                    <?php }else{?>
-                    <th><?php echo $mots['mot'];?></th>
-                    <th><?php echo $mots['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
-                    <th><?php echo $mots['dictionnaire'];?></th>
-                    <?php }?>
-                    <th><a href="../Controleurs/mot.php?deleteMot=<?php echo $mots['mot'];?>&amp;deleteDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../Controleurs/mot.php?editMot=<?php echo $mots['mot'];?>&amp;editDictionnaire=<?php echo $mots['dictionnaire'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
-                    <?php if(isset($_GET['editMot']) and isset($_GET['editDictionnaire'])and $_GET['editMot']==$mots['mot'] and $_GET['editDictionnaire']==$mots['dictionnaire']){?>
-                    <th><input type="submit" value="Modifier" /></th>
-                  </form>
-                  <?php }?>
-                </tr>
-                <?php }?>
-              </table>
+              
             </div>
           </div>
         </div>

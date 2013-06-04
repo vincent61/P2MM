@@ -49,52 +49,6 @@ function validForm(form){
                 </form>
               </fieldset>
               </br>
-              <table border='1'>
-                <tr class="titre">
-                  <th><u>Code</u></th>
-                  <th><u>Police</u></th>
-                  <th><u></u></th>
-                  <th><u></u></th>
-                </tr>
-                <?php
-// on fait une boucle qui va faire un tour pour chaque enregistrement 
-
-foreach($motCodes as $motCodes){ ?>
-                <tr>
-                  <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$motCodes['code'] and $_GET['editPolice']==$motCodes['police']){?>
-                  <form action="../Controleurs/motcode.php" method="post">
-                    <td>  </th></td>
-                    <th> <input type="text" name="newCode" value="<?php echo $motCodes['code'];?>" />
-                    </th>
-                    <th> <select name="newPolice" size="1">
-                        <?php 
-		foreach ($polices as $police)
-		{
-			echo '<OPTION';
-			if($police['police'] == $motCodes['police'])
-			{
-				echo ' selected';
-			}
-			echo '>'.$police['police'];
-		}
-		?>
-                      </select>
-                    </th>
-                    <input type="hidden" name="oldCode" value="<?php echo $motCodes['code'];?>" />
-                    <input type="hidden" name="oldPolice" value="<?php echo $motCodes['police'];?>" />
-                    <?php }else{?>
-                    <th><?php echo $motCodes['code'];?></th>
-                    <th><?php echo $motCodes['police'];?></th>
-                    <?php }?>
-                    <th><a href="../Controleurs/motcode.php?deleteCode=<?php echo $motCodes['code'];?>&amp;deletePolice=<?php echo $motCodes['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../Controleurs/motcode.php?editCode=<?php echo $motCodes['code'];?>&amp;editPolice=<?php echo $motCodes['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
-                    <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$motCodes['code'] and $_GET['editPolice']==$motCodes['police']){?>
-                    <th><input type="submit" value="Ajouter" /></th>
-                  </form>
-                  <?php }?>
-                </tr>
-                <?php }?>
-              </table>
             </div>
           </div>
         </div>

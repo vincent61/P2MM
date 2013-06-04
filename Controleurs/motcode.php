@@ -25,7 +25,6 @@ if(isset($_POST['oldCode']) and isset($_POST['newCode'])){
 }
 
 //Récupération du contenu de la BDD
-$motCodes = $motCodeManager->getAll();
 $polices = $policeManager->getAll();
 
 //On inclue la vue
