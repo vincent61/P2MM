@@ -25,7 +25,8 @@ if(isset($_POST['mot'])){
         if (isset($_POST['type_recherche'])){
 			if (isset($_POST['casse'])){
 			$motsCompUni = $motManager->motsCompatibles($mot, $_POST['type_recherche'], $listeDico, $_POST['casse']);
-			$motsComp=$motsComp+$motsCompUni;
+			//$motsComp=$motsComp+$motsCompUni;
+			$motsComp = array_merge($motsComp, $motsCompUni);
 			$flag=1;
 			}
 			}
