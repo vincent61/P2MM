@@ -11,7 +11,8 @@
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <div class="menuRech"> <a href="#recherche"> Recherche </a> <a href="#resultats"> Résultats </a> </div>
-              <div id="recherche">
+              
+			  <div id="recherche">
                 <fieldset> 
 				  <form action="recherche.php" method="post">
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
@@ -19,34 +20,34 @@
                     <input type="text" name="mot" />
 					</p>
 					<p>
-					<input type="radio" name="casse" value="1" checked="checked"/>
-                    Minuscule
-                    <input type="radio" name="casse" value="0" />
-                    Majuscule
+						<input type="radio" name="casse" value="1" checked="checked"/>
+						Minuscule
+						<input type="radio" name="casse" value="0" />
+						Majuscule
 					</p>
 					<p>
-                    <input type="radio" name="type_recherche" value="0" checked="checked"/>
-                    Toutes les réponses
-                    <input type="radio" name="type_recherche" value="1" />
-                    Seulement 1 mot / code
-					<input type="radio" name="type_recherche" value="2" />
-                    Seulement plus de 1 mot / code
+						<input type="radio" name="type_recherche" value="0" checked="checked"/>
+						Toutes les réponses
+						<input type="radio" name="type_recherche" value="1" />
+						Seulement 1 mot / code
+						<input type="radio" name="type_recherche" value="2" />
+						Seulement plus de 1 mot / code
 					</p>
-					<div><p>Dictionnaires :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
+					<ul id="rechercheDicoProcede">
+					<li><b>Dictionnaires :</b><!-- Par défaut, tous les dictionnaires sont cochés directement -->
 					</br>
 					<?php 
 								foreach ($dicos as $dico)
 								echo "<input type='checkbox' name='".$dico['dictionnaire']."' size='1' checked>".$dico['dictionnaire']."<br />";
 					?>
-                    
-                  </p></div>
-				  <div><p>Procédés :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
+                 </li> 
+                <li><b>Procédés :</b><!-- Par défaut, tous les procedes sont cochés directement -->
 					</br>
 					<?php 
 								foreach ($procedes as $procede)
 								echo "<input type='checkbox' name='".$procede['police']."' size='1' checked>".$procede['police']."<br />";
 					?>		
-                  </p></div>
+                  </li></ul>
 				  <p>
 					<label for="download">Télécharger les résultats</label>
 					<input type="checkbox" name="download"/>
@@ -57,6 +58,7 @@
                 </fieldset>
                 </br>
               </div>
+			  
               <div id="resultats">
                 <?php
 				

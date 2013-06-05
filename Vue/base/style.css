@@ -130,6 +130,7 @@ a {
 a:hover {
 }
 
+
 /* Header */
 
 #header-wrapper {
@@ -389,6 +390,23 @@ fieldset {
     font-size: 20px;
     border-color: rgba(255,255,255,.09);
 }
+
+ul#rechercheDicoProcede li
+{	
+	text-align: center;
+	margin: 0;
+	padding:0;
+}
+  
+ ul#rechercheDicoProcede li
+ {
+  display: inline-block;
+  width: 300px;
+  height: 150px;
+  vertical-align: top;
+}
+ 
+ 
 
 .post .entry .menuRech a:hover
 {
