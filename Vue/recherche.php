@@ -42,6 +42,10 @@
                     
                   </p>
 				  <p>
+					<label for="download">Télécharger les résultats</label>
+					<input type="checkbox" name="download"/>
+				</p>
+				  <p>
                     <input type="submit" value="Chercher" /></br>
                   </p></form>
                 </fieldset>
