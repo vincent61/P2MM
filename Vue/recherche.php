@@ -32,24 +32,21 @@
 					<input type="radio" name="type_recherche" value="2" />
                     Seulement plus de 1 mot / code
 					</p>
-					<p>Dictionnaires :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
+					<div><p>Dictionnaires :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
 					</br>
-		<?php 
-					foreach ($dicos as $dico)
-					echo "<input type='checkbox' name='".$dico['dictionnaire']."' size='1' checked>".$dico['dictionnaire']."<br />";
-		?>
+					<?php 
+								foreach ($dicos as $dico)
+								echo "<input type='checkbox' name='".$dico['dictionnaire']."' size='1' checked>".$dico['dictionnaire']."<br />";
+					?>
                     
-                  </p>
-				  <p>Procédés :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
+                  </p></div>
+				  <div><p>Procédés :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
 					</br>
-		<?php 
-					foreach ($procedes as $procede)
-					echo "<input type='checkbox' name='".$procede['police']."' size='1' checked>".$procede['police']."<br />";
-		?>
-                    
-                  </p>
-				  
-				  
+					<?php 
+								foreach ($procedes as $procede)
+								echo "<input type='checkbox' name='".$procede['police']."' size='1' checked>".$procede['police']."<br />";
+					?>		
+                  </p></div>
 				  <p>
 					<label for="download">Télécharger les résultats</label>
 					<input type="checkbox" name="download"/>
