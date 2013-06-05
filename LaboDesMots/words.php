@@ -40,7 +40,7 @@
 		}
 	//recherche des mots compatibles dans les polices demandées
 		$dicos =$dm->getAllByCasse($casse);
-		$words = $mm->motsCompatibles($searchWord, 0, $dicos, $casse);
+		$words = $mm->motsCompatibles($searchWord,$dicos,$polices , $casse);
 		foreach($words as $word){
 		if(in_array($word['police'], $polices)){
 			$mot = $mm->get($word['compatible']);

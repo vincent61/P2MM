@@ -243,34 +243,25 @@ class MotManager{
  }}
  
  
- public function motsCompatibles($motParam, $typeRecherche=0, $dicos, $casse){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos dans lesquels on recherche les mots compatibles
+ public function motsCompatibles($motParam, $dicos, $procedes, $casse, $typeRecherche=0){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos et procédés dans lesquels on recherche les mots compatibles
 		include '../dbconnect.php';
 		$result = array(); 
 		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
-		$motManager= new MotManager($con);
-		//$motManager->codage($motParam);
-		/*if (preg_match("#^[a-z]{1,}$#", $motParam)&& preg_match("#[^A-Z0-9]#", $motParam)){// si le mot est en minuscule
-			$casse=1;
-			$dico="autre_min";  // dico contenant par défaut les mots minuscules qui ne sont dans aucun dictionnaire
-		}
-		else if (preg_match("#^[A-Z]{1,}$#", $motParam) && preg_match("#[^a-z]#", $motParam)) // si le mot est en majuscule
-		{		$casse=0;
-				$dico="autre_maj";	// dico contenant par défaut les mots majuscules qui ne sont dans aucun dictionnaire
-			}
-		else {	echo "Le mot doit contenir des majuscules ou des minuscules"; //sinon
-				return 0;}
-		*/
-		
+		$motManager= new MotManager($con);		
 		$motP = new Mot($motParam, $casse, "autre_min", 1);
 		$motManager->codage($motP);
 		
 		$corrMotManager = new CorrespondanceMotManager($con);
 		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné
+		
+		
 		//echo count($result);
 		//print_r (array_values($motsCodes));
 		
 		foreach ($motsCodes as $motCode)
+			{
+			if (in_array($motCode[1], $procedes))  // si le motCode est obtenu par un procede dans la liste des parametres, on traite ce mot
 			{
 				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $casse); // Retourne tous les mots correspondants au motCode, à la police donnée, et à la casse du mot initial 
 				if ($motsComp)
@@ -307,6 +298,7 @@ class MotManager{
 						}
 					}
 			}}
+			}
 				
 			
 		//print_r (array_values($result));

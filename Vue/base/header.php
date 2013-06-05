@@ -10,7 +10,7 @@
 <div id="menu-wrapper">
   <div id="menu">
   <ul>
-    <li class="current_page_item"> <a href="../Vue/recherche.php">Recherche</a></li>
+    <li class="current_page_item"> <a href="../Controleurs/recherche.php">Recherche</a></li>
     <li><a href="../Vue/admin.php">Admin</a></li>
     <li><a href="../Controleurs/receptionMotSpectacle.php">Spectacle</a></li>
     </div>

@@ -12,8 +12,7 @@
             <div class="entry">
               <div class="menuRech"> <a href="#recherche"> Recherche </a> <a href="#resultats"> Résultats </a> </div>
               <div id="recherche">
-                <fieldset>
-                  <?php include "../Controleurs/recherche.php"; ?>
+                <fieldset> 
 				  <form action="recherche.php" method="post">
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
 					<p>Mot:
@@ -41,6 +40,16 @@
 		?>
                     
                   </p>
+				  <p>Procédés :<!-- Par défaut, tous les dictionnaires sont cochés directement -->
+					</br>
+		<?php 
+					foreach ($procedes as $procede)
+					echo "<input type='checkbox' name='".$procede['police']."' size='1' checked>".$procede['police']."<br />";
+		?>
+                    
+                  </p>
+				  
+				  
 				  <p>
 					<label for="download">Télécharger les résultats</label>
 					<input type="checkbox" name="download"/>
