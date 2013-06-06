@@ -25,6 +25,7 @@ class MotManager{
 		}
 	  else{  
     	$this->_db->exec('INSERT INTO Mot (mot, casse, dictionnaire,frequence) VALUES (\''.$mot->getMot().'\', '.$mot->getCasse().', \''.$mot->getDictionnaire().'\', \''.$mot->getFrequence().'\');');
+		$this->codage($mot);
 	  }
 	  }
   }
@@ -94,7 +95,7 @@ class MotManager{
   {
   include '../dbconnect.php';
   
-  $motManager = new MotManager ($con);
+  //$motManager = new MotManager ($con);
  
   $mot= $motParam->getMot();
   
@@ -104,8 +105,8 @@ class MotManager{
   $policetab= array();
   $inc=0;
  
-  if (!$motManager->exist($motParam)>0)  // si le mot n'existe pas dans la BDD, on l'ajoute à la table Mot
-		{	$motManager->add($motParam);
+  if (!$this->exist($motParam)>0)  // si le mot n'existe pas dans la BDD, on l'ajoute à la table Mot
+		{	$this->add($motParam);
 			//echo "Le Mot a été ajouté <br>";
 		}
 	
@@ -248,9 +249,9 @@ class MotManager{
 		$result = array(); 
 		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
-		$motManager= new MotManager($con);		
+		//$motManager= new MotManager($con);		
 		$motP = new Mot($motParam, $casse, "autre_min", 1);
-		$motManager->codage($motP);
+		$this->codage($motP);
 		
 		$corrMotManager = new CorrespondanceMotManager($con);
 		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné

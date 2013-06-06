@@ -92,7 +92,7 @@ class DictionnaireManager{
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
 			$num = count($data);
 				$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
-				$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
+				//$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
 			}
 		fclose($handle);
 	}
