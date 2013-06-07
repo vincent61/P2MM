@@ -3,6 +3,7 @@
 include '../dbconnect.php';
 include '../Modele/Managers/MotManager.php';
 include_once '../Modele/Managers/DictionnaireManager.php';
+include_once '../cheminsPerso.php';
 
 //$mot = new Mot('baba', 0, 'min_bas', 0);
 $flag=0;
@@ -29,17 +30,27 @@ foreach ($procedes as $procede)
 	}
 	
 if(isset($_POST['mot'])){
-	$mots = explode(" ", $_POST['mot']);
-		foreach($mots as $mot){
-		$motsCompUni= array();
-        if (isset($_POST['type_recherche'])){
+	
+        if (isset($_POST['type_recherche'])){ 
 			if (isset($_POST['casse'])){
-			$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, $_POST['casse'], $_POST['type_recherche']);
-			//$motsComp=$motsComp+$motsCompUni;
-			$motsComp = array_merge($motsComp, $motsCompUni);
-			$flag=1;
+				$mots = explode(" ", $_POST['mot']);
+				foreach($mots as $mot){
+					$motsCompUni= array();
+					$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, $_POST['casse'], $_POST['type_recherche']);
+					//$motsComp=$motsComp+$motsCompUni;
+					$motsComp = array_merge($motsComp, $motsCompUni);
+					$flag=1;
+				}
+			
+				//écriture dans le fichier csv: on note uniquement les valeurs du tableau clé=>valeur
+		$cheminFichier = '/Fichiers/Recherches/recherche_'.microtime().'.csv';
+
+		$fichierResultats = fopen($cheminServer.'P2MM'.$cheminFichier, 'w');		
+		foreach ($motsComp as $results) {
+			fputcsv($fichierResultats, array_values($results), ';');
+}
 			}
-			}
+			fclose($fichierResultats);
 		}
 	}
 

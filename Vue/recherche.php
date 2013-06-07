@@ -56,10 +56,6 @@
 					?>		
                   </li></ul>
 				  <p>
-					<label for="download">Télécharger les résultats</label>
-					<input type="checkbox" name="download"/>
-				</p>
-				  <p>
                     <input type="submit" value="Chercher" /></br>
                   </p></form>
                 </fieldset>
@@ -72,6 +68,10 @@
 				if(isset($_POST['mot']) && isset($_POST['type_recherche'])){    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
 				
 			?>
+			<!--lien vers le fichier généré-->
+			<form action="<?php echo '../'.$cheminFichier ?>" method="get">
+				<input type="submit" value="Télecharger les résultats" />
+			</form>
                 <table border='1'>
                   <caption>
                   Liste des Mots Compatibles
