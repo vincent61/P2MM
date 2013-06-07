@@ -43,8 +43,18 @@ if(isset($_POST['mot'])){
 				}
 			
 				//écriture dans le fichier csv: on note uniquement les valeurs du tableau clé=>valeur
-		$cheminFichier = '/Fichiers/Recherches/recherche_'.microtime().'.csv';
-
+		$cheminFichierBase = '/Fichiers/Recherches/recherche_'.microtime();
+		$cheminFichier = $cheminFichierBase.'.csv';
+		$cheminFichierPhp = $cheminFichierBase.'.php';
+		
+	$phpCode= "<?php
+header('Content-disposition: attachment; filename=".$cheminFichier."');
+header('Content-type: application/pdf');
+readfile('".$cheminServer.'P2MM'.$cheminFichier."');
+?>"; //changer avec chemins relatifs?
+		$handle = fopen($cheminServer.'P2MM'.$cheminFichierPhp, 'w');
+		fwrite($handle, $phpCode);
+		fclose($handle);
 		$fichierResultats = fopen($cheminServer.'P2MM'.$cheminFichier, 'w');		
 		foreach ($motsComp as $results) {
 			fputcsv($fichierResultats, array_values($results), ';');

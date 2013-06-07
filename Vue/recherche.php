@@ -69,7 +69,7 @@
 				
 			?>
 			<!--lien vers le fichier généré-->
-			<form action="<?php echo '../'.$cheminFichier ?>" method="get">
+			<form action="<?php echo '../'.$cheminFichierPhp ?>" method="get">
 				<input type="submit" value="Télecharger les résultats" />
 			</form>
                 <table border='1'>
