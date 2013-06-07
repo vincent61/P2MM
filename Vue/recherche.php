@@ -4,7 +4,14 @@
   <div id="page">
     <div id="page-bgtop">
       <div id="page-bgbtm">
-        <?php include 'base/barreLaterale.php';?>
+        <div id="sidebar">
+		<ul>
+			<li>
+				<p><img class = "logo" src="../Vue/ressources/petitLogo.png" width="151" height="151" alt="" /></p>
+			</li>
+		</ul>
+        </div>
+        
         <div id="content">
           <div class="post">
             <h2 class="title">Espace de Recherche</h2>
