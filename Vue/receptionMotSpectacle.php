@@ -71,27 +71,28 @@ function drop(ev)
 {
 
 	event = event || window.event;
-	// document.getElementById(ev.target.id).style.left =event.clientX+"px";
-	// document.getElementById(ev.target.id).style.top =event.clientY-70+"px";
      position[ev.target.id]["x"]=event.clientY-110;
 	 position[ev.target.id]["y"]=event.clientX+20;
 }
 
 function play(cpt)
 {
-	//alert(document.getElementById('p'+cpt).firstChild.data);
 	mot= document.getElementById('p'+cpt).firstChild.data;
 	getMotsSpectacleCompatible(mot,cpt);
 }
 
 
 function getMotsSpectacleCompatible(mot,cpt){
+casse=0;
+type_recherche=0;
  $.ajax({
  type: "POST",
- url: "../Controleurs/receptionMotSpectacle.php",
- data: {fmot:mot}
+ url: "../Controleurs/interroSpectacle.php",
+ data: {fmot:mot,fcasse:casse,ftype_recherche:type_recherche}
  }).done(function( result) {
-document.getElementById('p'+cpt).firstChild.data='hehe';
+	// alert (motsComp[0]);
+	alert(result);
+//document.getElementById('p'+cpt).firstChild.data=motsComp[0];
  });
 
 }
