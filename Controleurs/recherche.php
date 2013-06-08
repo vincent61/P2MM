@@ -29,7 +29,7 @@ foreach ($procedes as $procede)
 		array_push($listeProcede, $nomProcede);
 	}
 	
-if(isset($_POST['mot'])){
+if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 	
         if (isset($_POST['type_recherche'])){ 
 			if (isset($_POST['casse'])){
@@ -63,6 +63,38 @@ readfile('".$cheminServer.'P2MM'.$cheminFichier."');
 			fclose($fichierResultats);
 		}
 	}
+
+// Obtient une liste de colonnes pour préparer le tri
+foreach ($motsComp as $key => $row) {
+	$motInit[$key]  = $row['initial'];
+	$pol[$key] = $row['police'];
+	$dico[$key]  = $row['dictionnaire'];
+	$comp[$key] = $row['compatible'];
+	$freq[$key] = $row['frequence'];
+}	
+
+if(isset($_GET['order']))
+{
+	switch ($_GET['order']) {
+	    case "motInit":
+	        array_multisort($motInit, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	        break;
+	    case "police":
+	        array_multisort($pol, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	        break;
+	    case "dictionnaire":
+	        array_multisort($dico, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	        break;
+	    case "motCorr":
+	        array_multisort($comp, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	        break;
+	    default:
+        	array_multisort($freq, SORT_DESC, $motsComp);
+	}
+}else{
+	//array_multisort($freq, SORT_DESC, $motsComp);
+	array_multisort($comp, SORT_ASC,$freq, SORT_DESC, $motsComp);
+}
 
 include '../Vue/recherche.php'; 
 ?>
