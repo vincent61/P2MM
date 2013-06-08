@@ -59,6 +59,6 @@ function validForm(form){
   </div>
   <!-- end #page --> 
 </div>
-<script type="text/javascript" src="/P2MM/functions.js" ></script>
+<script type="text/javascript" src="../functions.js" ></script>
 <?php include "base/footer.html"; ?>
 </html>

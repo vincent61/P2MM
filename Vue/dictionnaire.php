@@ -108,7 +108,7 @@ foreach($dictionnaire as $dictionnaire)
   </div>
   <!-- end #page --> 
 </div>
-<script type="text/javascript" src="/P2MM/functions.js" ></script>
+<script type="text/javascript" src="../functions.js" ></script>
 <script type="text/javascript">
 function validForm(form){
 	var valid = true;
