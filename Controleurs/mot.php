@@ -26,6 +26,7 @@ if(isset($_POST['oldMot']) and isset($_POST['newMot'])){
 
 
 $dictionnaires = $dictionnaireManager->getAll('dictionnaire');
+$numberOfWords = $motManager->getNumberOfWords();
 
 //On inclue la vue
 include '../Vue/mot.php'; 

@@ -64,7 +64,7 @@ function validForm(form){
                 </form>
               </fieldset>
               </br>
-              
+              <div style="text-align: center;">Nombre de mots dans la base : <?php echo $numberOfWords; ?></div>
             </div>
           </div>
         </div>

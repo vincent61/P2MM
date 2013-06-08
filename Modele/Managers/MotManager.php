@@ -44,6 +44,13 @@ class MotManager{
     $donnees = $q->fetch(PDO::FETCH_ASSOC);
     return new Mot($donnees['mot'],$donnees['casse'],$donnees['dictionnaire'],$donnees['frequence']);
   }
+  
+  public function getNumberOfWords()
+  { 
+    $req = $this->_db->query('SELECT COUNT(*) AS nb FROM Mot ;');
+    $donnees = $req->fetch(PDO::FETCH_ASSOC);
+    return $donnees['nb'];
+  }
 
    public function getAll($order)
   { 
