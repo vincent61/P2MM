@@ -34,6 +34,7 @@ class MotManager{
   {
   	$d = (String) $dictionnaire;
   	$m = (String) $mot;
+  	$this->_db->exec('DELETE FROM CorrespondanceMot WHERE mot = \''.$m.'\';');
     $this->_db->exec('DELETE FROM Mot WHERE mot = \''.$m.'\' AND dictionnaire = \'' .$d .'\';');
   }
  
@@ -80,6 +81,7 @@ class MotManager{
   public function update($oldMot, $newMot)
   {
   	if($oldMot instanceof Mot && $newMot instanceof Mot){
+  	   $this->_db->exec('UPDATE CorrespondanceMot SET mot = \''.$newMot->getMot().'\' WHERE mot = \''.$oldMot->getMot().'\';');
 	   $this->_db->exec('UPDATE Mot SET mot = \''.$newMot->getMot().'\', casse = \''.$newMot->getCasse().'\',dictionnaire = \''.$newMot->getDictionnaire().'\', casse = \''.$newMot->getCasse().'\', frequence = \''.$newMot->getFrequence().'\' WHERE mot = \''.$oldMot->getMot().'\' AND dictionnaire = \'' .$oldMot->getDictionnaire() .'\' AND frequence = \'' .$oldMot->getFrequence() .'\';');
   	}else
 	   throw new Exception('Type reçu erroné.');

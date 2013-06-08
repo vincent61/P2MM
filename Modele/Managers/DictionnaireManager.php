@@ -27,7 +27,7 @@ class DictionnaireManager{
   public function delete($dictionnaire)
   {
 	$dictionnaire = (String) $dictionnaire;
-	//echo 'DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'';
+	$this->_db->exec('DELETE FROM Mot WHERE dictionnaire = \''.$dictionnaire.'\'');
     $this->_db->exec('DELETE FROM Dictionnaire WHERE dictionnaire = \''.$dictionnaire.'\'');
   }
  
@@ -64,6 +64,7 @@ class DictionnaireManager{
  
   public function update($oldDico, $newDico)
   {
+  	   $this->_db->exec('UPDATE Mot SET dictionnaire = \''.$newDico->getDictionnaire().'\' WHERE dictionnaire = \''.$oldDico->getDictionnaire().'\';');
 	   $this->_db->exec('UPDATE Dictionnaire SET dictionnaire = \''.$newDico->getDictionnaire().'\', langue = \''.$newDico->getLangue().'\',fichierDictionnaire = \''.$newDico->getFichierDictionnaire().'\', casse = '.$newDico->getCasse().' WHERE dictionnaire = \''.$oldDico->getDictionnaire().'\';');
   }
   

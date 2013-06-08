@@ -30,6 +30,7 @@ class CodeLettreManager{
   {
 	$code = (String) $cd;
 	$police = (String) $pol;
+	$this->_db->exec('DELETE FROM CorrespondanceLettre WHERE code = \''.$code.'\' AND police = \'' .$police.'\';');
 	$this->_db->exec('DELETE FROM CodeLettre WHERE code = \''.$code.'\' AND police = \'' .$police.'\';');
   }
  
@@ -55,6 +56,7 @@ class CodeLettreManager{
   public function update($codeLettre, $newCodeLettre)
   {  
 	if($codeLettre instanceof CodeLettre && $newCodeLettre instanceof CodeLettre){
+	    $this->_db->exec('UPDATE CorrespondanceLettre SET code = \''.$newCodeLettre->getCode().'\', police = \''.$newCodeLettre->getPolice().'\' WHERE code = \''.$codeLettre->getCode().'\' AND police = \'' .$codeLettre->getPolice() .'\';');
 		$this->_db->exec('UPDATE CodeLettre SET code = \''.$newCodeLettre->getCode().'\', typeLettre = \''.$newCodeLettre->getTypeLettre().'\', police = \''.$newCodeLettre->getPolice().'\' WHERE code = \''.$codeLettre->getCode().'\' AND police = \'' .$codeLettre->getPolice() .'\';');
 	}else
 	   throw new Exception('Type reçu erroné.');

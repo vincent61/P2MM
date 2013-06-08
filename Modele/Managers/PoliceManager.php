@@ -41,7 +41,10 @@ class PoliceManager{
   public function delete($police)
   {
 	$policeString = (String) $police;
+	$this->_db->exec('DELETE FROM CodeLettre WHERE police = \''.$policeString.'\';');
+	$this->_db->exec('DELETE FROM MotCode WHERE police = \''.$policeString.'\';');
 	$this->_db->exec('DELETE FROM Police WHERE police = \''.$policeString.'\';');
+	
 
   }
  
@@ -70,10 +73,11 @@ class PoliceManager{
  
   public function update($oldPolice, $newPolice)
   {
-	if($oldPolice instanceof Police and $newPolice instanceof Police)
-		//echo 'UPDATE Police SET police = \''.$newPolice->getPolice().'\', fichierCode = \''.$newPolice->getFichierCodes().'\', casse = '.$newPolice->getCasse().' WHERE police = \''.$oldPolice->getPolice().'\';';
-	    $this->_db->exec('UPDATE Police SET police = \''.$newPolice->getPolice().'\', fichierCode = \''.$newPolice->getFichierCodes().'\', casse = '.$newPolice->getCasse().' WHERE police = \''.$oldPolice->getPolice().'\'');
-	else
+	if($oldPolice instanceof Police and $newPolice instanceof Police){
+	    $this->_db->exec('UPDATE CodeLettre SET police = \''.$newPolice->getPolice().'\' WHERE police = \''.$oldPolice->getPolice().'\'');
+	    $this->_db->exec('UPDATE MotCode SET police = \''.$newPolice->getPolice().'\' WHERE police = \''.$oldPolice->getPolice().'\'');
+		$this->_db->exec('UPDATE Police SET police = \''.$newPolice->getPolice().'\', fichierCode = \''.$newPolice->getFichierCodes().'\', casse = '.$newPolice->getCasse().' WHERE police = \''.$oldPolice->getPolice().'\'');
+	}else
 		throw new Exception('Type reçu erroné.');
   }
  

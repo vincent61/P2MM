@@ -20,6 +20,7 @@ class LettreManager{
   public function delete($lettre)
   {
 	if($lettre instanceof Lettre){
+		$this->_db->exec('DELETE FROM CorrespondanceLettre WHERE lettreAscii = \''.$lettre->getLettreAscii().'\';');
 		$this->_db->exec('DELETE FROM Lettre WHERE lettreAscii = \''.$lettre->getLettreAscii().'\';');
 	}
 	else
@@ -62,6 +63,7 @@ class LettreManager{
   public function update($oldLettre, $newLettre)
   {
 	if($oldLettre instanceof Lettre and $newLettre instanceof Lettre){
+	   $this->_db->exec('UPDATE CorrespondanceLettre SET lettreAscii = \''.$newLettre->getLettreAscii().'\' WHERE lettreAscii = \''.$oldLettre->getLettreAscii().'\';');
 	   $this->_db->exec('UPDATE Lettre SET lettreAscii = \''.$newLettre->getLettreAscii().'\' WHERE lettreAscii = \''.$oldLettre->getLettreAscii().'\';');
 	}
 	else

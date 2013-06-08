@@ -21,6 +21,7 @@ class LangueManager{
   public function delete($langue)
   {
 	if($langue instanceof Langue){
+		$this->_db->exec('DELETE FROM Dictionnaire WHERE langue = \''.$langue->getLangue().'\';');
 		$this->_db->exec('DELETE FROM Langue WHERE langue = \''.$langue->getLangue().'\';');
 	}
 	else
@@ -61,6 +62,7 @@ class LangueManager{
   public function update($oldLangue, $newLangue)
   {
 	if($oldLangue instanceof Langue and $newLangue instanceof Langue){
+	   $this->_db->exec('UPDATE Dictionnaire SET langue = \''.$newLangue->getLangue().'\' WHERE langue = \''.$oldLangue->getLangue().'\';');
 	   $this->_db->exec('UPDATE Langue SET langue = \''.$newLangue->getLangue().'\' WHERE langue = \''.$oldLangue->getLangue().'\';');
 	}
 	else

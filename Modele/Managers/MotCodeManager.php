@@ -28,6 +28,7 @@ class MotCodeManager{
   public function delete($motCode)
   {
   if($motCode instanceof MotCode){
+  	$this->_db->exec('DELETE FROM CorrespondanceMot WHERE motCode = \''.$motCode->getCode().'\' AND police = \''.$motCode->getPolice().'\';');
     $this->_db->exec('DELETE FROM MotCode WHERE code = \''.$motCode->getCode().'\' AND police = \''.$motCode->getPolice().'\';');
 	}
 	else{
@@ -71,6 +72,7 @@ class MotCodeManager{
   public function update($motCode, $newMotCode)
   {
   	 if($motCode instanceof MotCode and $newMotCode instanceof MotCode){
+  	   $this->_db->exec('UPDATE CorrespondanceMot SET motCode = \''.$newMotCode->getCode().'\', police=\''.$newMotCode->getPolice().'\' WHERE motCode = \''.$motCode->getCode().'\'AND police = \''.$motCode->getPolice().'\';');
 	   $this->_db->exec('UPDATE MotCode SET code = \''.$newMotCode->getCode().'\', police=\''.$newMotCode->getPolice().'\' WHERE code = \''.$motCode->getCode().'\'AND police = \''.$motCode->getPolice().'\';');
 	   }
 	else{
