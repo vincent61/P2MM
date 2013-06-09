@@ -77,19 +77,15 @@
                   Liste des Mots Compatibles
                   </caption>
                   <tr class="titre">
-                    <!--  <th><u>Mot Initial</u></th> -->
-                    <th><a href="../Controleurs/recherche.php?order=motInit"><u>Mot Initial</u></a></th>
+                    <th><u>Mot Initial</u></th>
                     <th><u>Code</u></th>
-                    <th><a href="../Controleurs/recherche.php?order=police"><u>Police</u></a></th>
-                    <th><a href="../Controleurs/recherche.php?order=dictionnaire"><u>Dictionnaire</u></a></th>
-                    <th><a href="../Controleurs/recherche.php?order=motCorr"><u>Mots Correspondants</u></a></th>
-                    <th><u>Frequence</u></th>
+                    <th><u>Police</u></th>
+                    <th><u>Dictionnaire</u></th>
+                    <th><u>Mots Correspondants</u></th>
                   </tr>
                   <?php
 			// on fait une boucle qui va faire un tour pour chaque enregistrement 
 		if ($_POST['mot']!=NULL)
-		
-		
 			foreach($motsComp as $motComp){ ?>
                   <tr >
                     <th><?php echo $motComp['initial'];?></th>
@@ -99,11 +95,11 @@
                     <th><?php 
 					//foreach ($motComp['mots'] as $mot)	
 					echo $motComp['compatible'] ; ?></th>
-                    <th><?php echo $motComp['frequence'];?></th>
                     <?php  }?>
                 </tr>
                 </table>
-                <?php }?>
+                <?php }
+			?>
               </div>
             </div>
           </div>
