@@ -3,7 +3,7 @@
 
 function validForm(form){
 	var valid = true;
-	var msg = "Saisir : \n";
+	var msg = "Saisir : \n\n";
 	var displayPopUp = false;
 
 	if (trim(form.elements['mot'].value) == ""){
@@ -15,6 +15,12 @@ function validForm(form){
 	if (checkRadioButton(form.elements['casse']) == false){
 		valid = false;
 		msg = msg + "- Casse\n";
+		displayPopUp = true;
+	}
+
+	if (trim(form.elements['frequence'].value) == ""){
+		valid = false;
+		msg = msg + "- Fréquence\n";
 		displayPopUp = true;
 	}
 	
