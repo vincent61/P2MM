@@ -51,7 +51,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../Controleurs/police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                <form action="../admin/police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Police:
                     <input type="text" name="police" />
@@ -84,7 +84,7 @@ function validForm(form){
 foreach($police as $police){ ?>
                 <tr>
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
-                  <form action="../Controleurs/police.php" method="post">
+                  <form action="../admin/police.php" method="post">
                     <td>  </th></td>
                     <th> <input type="text" name="newPolice" value="<?php echo $police['police'];?>" />
                     </th>
@@ -98,10 +98,10 @@ foreach($police as $police){ ?>
                     <th><?php echo $police['fichierCode'];?></th>
                     <th><?php echo $police['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
                     <?php }?>
-                    <th><a href="../Controleurs/police.php?delete=<?php echo $police['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../Controleurs/police.php?edit=<?php echo $police['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="../admin/police.php?delete=<?php echo $police['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../admin/police.php?edit=<?php echo $police['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
-                    <th><input type="submit" value="Ajouter" /></th>
+                    <th><input type="submit" value="Editer" /></th>
                   </form>
                   <?php } ?>
                 </tr>
