@@ -10,9 +10,9 @@
 						<h2 class="title">Espace d'administration</h2>
 						<div style="clear: both;">&nbsp;</div>
 						<div class="entry">
-							<p><a href="#"><img src="ressources/eng.gif" width="220" height="187" alt="" /></a></p>
+							<p><a href="#"><img src="../Vue/ressources/eng.gif" width="220" height="187" alt="" /></a></p>
 							<p>
-                            Ceci est l'Espace d'administration de l'application Séparation. C'est ici quee l'on peut ajouter des dictionnaires, des mots, des langues et des polices.
+                            Ceci est l'Espace d'administration de l'application Séparation. C'est ici que l'on peut ajouter des dictionnaires, des mots, des langues et des polices.
                             </p>
 					</div>
 					</div>
