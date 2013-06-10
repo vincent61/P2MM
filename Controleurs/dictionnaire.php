@@ -38,9 +38,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 				// Gestion des ajouts
 				$dictionnaireManager->add(new Dictionnaire($_POST['dictionnaire'],$_POST['langue'],$_FILES['fichierDictionnaire']['name'],$_POST['casse']));			
 				include 'codagedico.php';
-				//$dictionnaireManager->updateStatut($_POST['dictionnaire'], "enchargement");//déplacé dans codagedico.php
 				codageDico($_POST['dictionnaire'], $dictionnaireManager);
-				//$dictionnaireManager->updateStatut($_POST['dictionnaire'], "charge"); //déplacé dans codagedico.php
 
 			} 
 			else
@@ -59,13 +57,12 @@ if(isset($_GET['delete'])){
 	$dictionnaireManager->delete($_GET['delete']);
 }
 
-/*
+
 //Gestion du codage des mots
 if(isset($_GET['addMotsCode'])){
 	include 'codagedico.php';
-	//$dictionnaireManager->get($_GET['addMotsCode'])->remplirMotsCode();
+	codageDico($_GET['addMotsCode'], $dictionnaireManager);
 }
-*/
 
 //Gestion de l'edition
 if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){

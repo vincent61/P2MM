@@ -89,6 +89,8 @@ foreach($dictionnaire as $dictionnaire)
 	?>
                     <th><a href="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
                     <th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+					<th><a href="../Controleurs/dictionnaire.php?addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/arrow.png' height='20' width='20' ></a></th>
+					
                     <?php 
 					    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 						{?>

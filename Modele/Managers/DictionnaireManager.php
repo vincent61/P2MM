@@ -87,7 +87,8 @@ class DictionnaireManager{
 	  include '../dbconnect.php';
 	  $motManager = new MotManager($con);
 	  $row = 1;
-	 
+	  $log = $cheminServer.'error.log';
+	  error_log('Codage dico '.$dictionnaire->getDictionnaire(), 3, $log);
 	  // A MODIFIER SELON L'ADRESSE DU SERVEUR.
 	  if (($handle = fopen($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$dictionnaire->getFichierDictionnaire(), "r")) !== FALSE) {
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {

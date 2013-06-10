@@ -1,0 +1,9 @@
+<Files "dbconnect.php">
+order deny,allow
+deny from all
+</Files>
+
+<Files "cheminsPerso.php">
+order deny,allow
+deny from all
+</Files>
