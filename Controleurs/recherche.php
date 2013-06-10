@@ -62,9 +62,8 @@ readfile('".$cheminServer.'P2MM'.$cheminFichier."');
 			}
 			fclose($fichierResultats);
 		}
-	}
-
-// Obtient une liste de colonnes pour préparer le tri
+		
+		// Obtient une liste de colonnes pour préparer le tri
 foreach ($motsComp as $key => $row) {
 	$motInit[$key]  = $row['initial'];
 	$pol[$key] = $row['police'];
@@ -91,10 +90,14 @@ if(isset($_GET['order']))
 	    default:
         	array_multisort($freq, SORT_DESC, $motsComp);
 	}
-}else{
+}else
+{
 	//array_multisort($freq, SORT_DESC, $motsComp);
 	array_multisort($comp, SORT_ASC,$freq, SORT_DESC, $motsComp);
 }
+	}
+
+
 
 include '../Vue/recherche.php'; 
 ?>
