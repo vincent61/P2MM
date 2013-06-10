@@ -1,13 +1,22 @@
 <?php
-// Ne doit plus servir qu'à appeler une vue !!!! 
+/*include_once 'dbconnect.php';
+include_once 'cheminsPerso.php';
+include_once 'Controleurs/recherche.php';
+*/
+header('Location: Controleurs/recherche.php');
+//include_once 'global/dbconnect.php';
+//include_once 'global/cheminsPerso.php';
+
+/*
+//On inclut le contrôleur s'il existe et s'il est spécifié
+if (!empty($_GET['page']) && is_file('Controleurs/'.$_GET['page'].'.php'))
+{
+        include 'Controleurs/'.$_GET['page'].'.php';
+}
+else
+{
+        include 'Controleurs/recherche.php';
+}
+*/
+
 ?>
-
-<p><a href="Controleurs/lettre.php">Lettre</a></p>
-<p><a href="Controleurs/dictionnaire.php">Dictionnaire</a></p>
-<p><a href="Controleurs/police.php">Police</a></p>
-<p><a href="Controleurs/langue.php">Langues</a></p>
-<p><a href="Controleurs/codelettre.php">Code lettre</a></p>
-<p><a href="Controleurs/mot.php">Mot</a></p>
-<p><a href="Controleurs/motcode.php">Mot codes</a></p>
-
-
