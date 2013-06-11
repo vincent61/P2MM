@@ -65,32 +65,42 @@
               <div id="resultats">
                 <?php
 				
-				if(isset($_POST['mot']) && isset($_POST['type_recherche'])){    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
+				if((isset($_POST['mot']) && isset($_POST['type_recherche'])) || isset($motsComp)) {    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
 				
 			?>
 			<!--lien vers le fichier généré-->
 			<form action="<?php echo '../'.$cheminFichierPhp ?>" method="get">
 				<input type="submit" value="Télecharger les résultats" />
 			</form>
+			
                 <table border='1'>
                   <caption>
                   Liste des Mots Compatibles
                   </caption>
                   <tr class="titre">
                     <!--  <th><u>Mot Initial</u></th> -->
-                    <th><a href="../Controleurs/recherche.php?order=motInit"><u>Mot Initial</u></a></th>
+                    <th><u>Mot Initial</u></th>
                     <th><u>Code</u></th>
-                    <th><a href="../Controleurs/recherche.php?order=police"><u>Police</u></a></th>
-                    <th><a href="../Controleurs/recherche.php?order=dictionnaire"><u>Dictionnaire</u></a></th>
-                    <th><a href="../Controleurs/recherche.php?order=motCorr"><u>Mots Correspondants</u></a></th>
-                    <th><u>Frequence</u></th>
+                    <th><u>Police</u></th>
+                    <th><u>Dictionnaire</u></th>
+
+                    
+                    <form id="sortmotCorr" action="../Controleurs/recherche.php" method="post">
+					    <th><a onclick="document.getElementById('sortmotCorr').submit();">Mots Correspondants</a></th>
+					    <input type="hidden" name="results" value="<?php echo $resultsSerialized; ?>" />
+					    <input type="hidden" name="sortField" value="motCorr" />
+					</form>
+                    
+                    <form id="sortFreq" action="../Controleurs/recherche.php" method="post">
+					    <th><a onclick="document.getElementById('sortFreq').submit();">Fr�quence</a></th>
+					    <input type="hidden" name="results" value="<?php echo $resultsSerialized;?>" />
+					    <input type="hidden" name="sortField" value="frequence" />
+					</form>
+					
                   </tr>
                   <?php
 			// on fait une boucle qui va faire un tour pour chaque enregistrement 
-		if ($_POST['mot']!=NULL)
-		
-		
-			foreach($motsComp as $motComp){ ?>
+		    foreach($motsComp as $motComp){ ?>
                   <tr >
                     <th><?php echo $motComp['initial'];?></th>
                     <th><?php echo $motComp['code'];?></th>

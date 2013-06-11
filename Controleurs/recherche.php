@@ -21,16 +21,46 @@ foreach ($dicos as $dico)
 {	$nomDico=$dico['dictionnaire'];
 	if (isset($_POST[$nomDico]))
 		array_push($listeDico, $nomDico);
-	}
+}
 
 foreach ($procedes as $procede)
 {	$nomProcede=$procede['police'];
 	if (isset($_POST[$nomProcede]))
 		array_push($listeProcede, $nomProcede);
+}
+	
+if (isset($_POST['results'])) {
+	$resultsSerialized = $_POST['results'];
+}
+
+if(isset($_POST['sortField']))
+{
+	$motsComp = unserialize(urldecode($resultsSerialized));
+
+	// Obtient une liste de colonnes pour préparer le tri
+	foreach ($motsComp as $key => $row) {
+		$motInit[$key]  = $row['initial'];
+		$comp[$key] = $row['compatible'];
+		$freq[$key] = $row['frequence'];
+	}	
+	
+	switch ($_POST['sortField']) {
+	    case "frequence":
+	        array_multisort($motInit, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	        break;
+	    case "motCorr":
+	        array_multisort($motInit, SORT_ASC,$comp, SORT_ASC, $motsComp);
+	        break;
+	    default:
+        	array_multisort($motInit, SORT_ASC,$freq, SORT_DESC, $motsComp);
 	}
 	
-if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
+	$resultsSerialized = urlencode(serialize($motsComp));
+}
+
 	
+if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
+		$resultsSerialized = NULL;
         if (isset($_POST['type_recherche'])){ 
 			if (isset($_POST['casse'])){
 				$mots = explode(" ", $_POST['mot']);
@@ -57,47 +87,21 @@ readfile('".$cheminServer.'P2MM'.$cheminFichier."');
 		fclose($handle);
 		$fichierResultats = fopen($cheminServer.'P2MM'.$cheminFichier, 'w');		
 		foreach ($motsComp as $results) {
-			fputcsv($fichierResultats, array_values($results), ';');
+			//fputcsv($fichierResultats, array_values($results), ';');
 }
 			}
-			fclose($fichierResultats);
-		}
+			//fclose($fichierResultats);
+		}		
 		
-		// Obtient une liste de colonnes pour préparer le tri
-foreach ($motsComp as $key => $row) {
-	$motInit[$key]  = $row['initial'];
-	$pol[$key] = $row['police'];
-	$dico[$key]  = $row['dictionnaire'];
-	$comp[$key] = $row['compatible'];
-	$freq[$key] = $row['frequence'];
-}	
-
-if(isset($_GET['order']))
-{
-	switch ($_GET['order']) {
-	    case "motInit":
-	        array_multisort($motInit, SORT_ASC,$freq, SORT_DESC, $motsComp);
-	        break;
-	    case "police":
-	        array_multisort($pol, SORT_ASC,$freq, SORT_DESC, $motsComp);
-	        break;
-	    case "dictionnaire":
-	        array_multisort($dico, SORT_ASC,$freq, SORT_DESC, $motsComp);
-	        break;
-	    case "motCorr":
-	        array_multisort($comp, SORT_ASC,$freq, SORT_DESC, $motsComp);
-	        break;
-	    default:
-        	array_multisort($freq, SORT_DESC, $motsComp);
-	}
-}else
-{
-	//array_multisort($freq, SORT_DESC, $motsComp);
-	array_multisort($comp, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	// Obtient une liste de colonnes pour préparer le tri
+	foreach ($motsComp as $key => $row) {
+		$motInit[$key]  = $row['initial'];
+		$comp[$key] = $row['compatible'];
+		$freq[$key] = $row['frequence'];
+	}	
+	array_multisort($motInit, SORT_ASC,$freq, SORT_DESC, $motsComp);
+	$resultsSerialized = urlencode(serialize($motsComp));
 }
-	}
-
-
 
 include '../Vue/recherche.php'; 
 ?>
