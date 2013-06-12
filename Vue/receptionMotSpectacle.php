@@ -53,7 +53,7 @@ $cpt=0;
 foreach($result as $mots){ 
 $cpt++;
  //echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../Controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
- echo "<p id='p".$cpt."' draggable=\"true\" ondragstart=\"drag(event)\" ondragend=\"drop(event)\" onmouseover=\"play(".$cpt.");\" >".$mots['mot']." <a  href='javascript:deleteMotSpectacle(\"".$mots['mot']."\",\"".$cpt."\"); 
+ echo "<p id='p".$cpt."' draggable=\"true\" ondragstart=\"drag(event)\" ondragend=\"drop(event)\" onClick=\"play(".$cpt.");\" >".$mots['mot']." <a  href='javascript:deleteMotSpectacle(\"".$mots['mot']."\",\"".$cpt."\"); 
 '><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20'  /></a></p>"; 
 
 
