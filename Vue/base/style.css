@@ -92,6 +92,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	color: #3B3B3B;
+	url('../Vue/Ressources/Demibas_2010.ttf') format('truetype');
 }
 
 h1, h2, h3 {
@@ -569,3 +570,9 @@ ul#rechercheDicoProcede li
 	box-shadow: 0px 0px 0px 10px rgba(0,0,0,0.03);
 }
 
+#msg
+{
+ color: inherit;	
+ color: red;
+ font-family: 'Open Sans', sans-serif;
+}

@@ -34,6 +34,8 @@ for(i=1;i<compteur+1;i++)
 	  element.style.left = position["p"+i]["y"]+"px";
 	  element.style.fontSize =position["p"+i]["font"]+"px";
 	 element.style.color = "white";
+	  element.style.fontFamily = "Demibas_2010";
+	  //alert(element.style.fontFamily);
 	}
  });
 
