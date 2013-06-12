@@ -1,5 +1,4 @@
 ﻿<head>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css" />
 <link href="../Vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
@@ -16,7 +15,7 @@
 </div>
 <div id="wrapper">
 <!-- end #header -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="../jQuery.js"></script>
 <script>
 function deleteMotSpectacle(mot, cpt){
 	 var pos=position["p"+(cpt-1)];

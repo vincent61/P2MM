@@ -15,8 +15,8 @@ $policeManager= new PoliceManager($con);
 $procedes = $policeManager->getAll();
 $motsComp= array();
 		$motsCompUni= array();
-        if (isset($_POST['type_recherche'])){
-			if (isset($_POST['casse'])){
+        if (isset($_POST['ftype_recherche'])){
+			if (isset($_POST['fcasse'])){
 			$motsCompUni = $motManager->motsCompatibles($_POST['fmot'], $dicos, $procedes, $_POST['fcasse'], $_POST['ftype_recherche']);
 			$motsComp = array_merge($motsComp, $motsCompUni);
 			$flag=1;
