@@ -87,10 +87,10 @@ readfile('".$cheminServer.'P2MM'.$cheminFichier."');
 		fclose($handle);
 		$fichierResultats = fopen($cheminServer.'P2MM'.$cheminFichier, 'w');		
 		foreach ($motsComp as $results) {
-			//fputcsv($fichierResultats, array_values($results), ';');
+			fputcsv($fichierResultats, array_values($results), ';');
 }
 			}
-			//fclose($fichierResultats);
+			fclose($fichierResultats);
 		}		
 		
 	// Obtient une liste de colonnes pour préparer le tri
