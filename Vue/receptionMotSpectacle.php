@@ -82,14 +82,14 @@ function play(cpt)
 
 
 function getMotsSpectacleCompatible(mot,cpt){
-casse=0;
+casse=1;
 type_recherche=0;
  $.ajax({
  type: "POST",
  url: "../Controleurs/interroSpectacle.php",
  data: {fmot:mot,fcasse:casse,ftype_recherche:type_recherche}
  }).done(function( result) {
-	// alert (motsComp[0]);
+	//alert (motsComp[0]["compatible"]);
 	alert(result);
 //document.getElementById('p'+cpt).firstChild.data=motsComp[0];
  });
