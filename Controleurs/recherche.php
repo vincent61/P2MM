@@ -9,7 +9,7 @@ include_once '../cheminsPerso.php';
 $flag=0;
 $motManager=new MotManager($con);
 $dicoManager= new DictionnaireManager($con);
-$dicos= $dicoManager->getAll('dictionnaire'); // récupération de tous les noms des dictionnaires présents en base
+$dicos= $dicoManager->getAll(); // récupération de tous les noms des dictionnaires présents en base
 $policeManager= new PoliceManager($con);
 $procedes = $policeManager->getAll();
 
@@ -67,7 +67,6 @@ if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 				foreach($mots as $mot){
 					$motsCompUni= array();
 					$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, $_POST['casse'], $_POST['type_recherche']);
-					//$motsComp=$motsComp+$motsCompUni;
 					print_r (array_values($listeDico));
 
 					$motsComp = array_merge($motsComp, $motsCompUni);

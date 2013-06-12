@@ -39,7 +39,7 @@ class DictionnaireManager{
     return new Dictionnaire($donnees['dictionnaire'],$donnees['langue'],$donnees['fichierDictionnaire'],$donnees['casse'],$donnees['statut']);
   }
   
-   public function getAll($order)
+   public function getAll($order='dictionnaire')
   { 
     $q = $this->_db->prepare('SELECT dictionnaire,langue, fichierDictionnaire, casse, statut FROM Dictionnaire order by '.$order.';');
 	$q->execute();
