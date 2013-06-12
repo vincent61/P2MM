@@ -41,7 +41,7 @@ $motsComp= array();
 		array_push($tab, $motComp);
 			//$tata =  $motComp['initial'] ; 
    }
-    $alea= rand(2, count($tab)-1);
+    $alea= rand(2, count($tab));
 	echo($tab[$alea]['compatible']);
 
 

@@ -66,8 +66,7 @@
                 <?php
 				
 				if((isset($_POST['mot']) && isset($_POST['type_recherche'])) || isset($motsComp)) {    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
-				//if((isset($_POST['mot']) && isset($_POST['type_recherche'])) ) {    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
-
+				
 			?>
 			<!--lien vers le fichier généré-->
 			<form action="<?php echo '../'.$csvFileName ?>" method="get">
