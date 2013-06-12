@@ -1,4 +1,4 @@
-<?php include "base/header.php"; ?>
+﻿<?php include "base/header.php"; ?>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
@@ -70,7 +70,7 @@
 			?>
 			<!--lien vers le fichier généré-->
 			<form action="<?php echo '../'.$cheminFichierPhp ?>" method="get">
-				<input type="submit" value="T�lecharger les r�sultats" />
+				<input type="submit" value="Télecharger les résultats" />
 			</form>
 			
                 <table border='1'>
@@ -92,7 +92,7 @@
 					</form>
                     
                     <form id="sortFreq" action="../Controleurs/recherche.php" method="post">
-					    <th><a onclick="document.getElementById('sortFreq').submit();">Fr�quence</a></th>
+					    <th><a onclick="document.getElementById('sortFreq').submit();">Fréquence</a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized;?>" />
 					    <input type="hidden" name="sortField" value="frequence" />
 					</form>
