@@ -79,7 +79,7 @@ if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 		$cheminFichierPhp = $cheminFichierBase.'.php';
 		
 	$phpCode= "<?php
-header('Content-disposition: attachment; filename=".$cheminFichier."');
+header('Content-disposition: attachment; filename=\'recherche_p2mm.csv\'');
 header('Content-type: application/pdf');
 readfile('".$cheminServer.'P2MM'.$cheminFichier."');
 ?>"; //changer avec chemins relatifs?
