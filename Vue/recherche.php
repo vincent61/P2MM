@@ -86,13 +86,13 @@
 
                     
                     <form id="sortmotCorr" action="../Controleurs/recherche.php" method="post">
-					    <th><a onclick="document.getElementById('sortmotCorr').submit();">Mots Correspondants</a></th>
+					    <th><a href="#resultats" onclick="document.getElementById('sortmotCorr').submit();"><span style="color : #000066;text-decoration:underline;">Mots Correspondants</span></a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized; ?>" />
 					    <input type="hidden" name="sortField" value="motCorr" />
 					</form>
                     
                     <form id="sortFreq" action="../Controleurs/recherche.php" method="post">
-					    <th><a onclick="document.getElementById('sortFreq').submit();">Fréquence</a></th>
+					    <th><a href="#resultats" onclick="document.getElementById('sortFreq').submit();"><span style="color : #000066;text-decoration:underline;">Fréquence</span></a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized;?>" />
 					    <input type="hidden" name="sortField" value="frequence" />
 					</form>
