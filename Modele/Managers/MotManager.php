@@ -103,7 +103,6 @@ class MotManager{
   public function codage(Mot $motParam, array $policesParam=NULL)
   {
   include '../dbconnect.php';
-  
   //$motManager = new MotManager ($con);
  
   $mot= $motParam->getMot();
@@ -159,10 +158,12 @@ class MotManager{
 		}
 	
 	if ($suite) // si mot n'a pas été codé dans la police
-	{
+	{	
+
 		for($i=0; $i<strlen($mot); $i++)   // On parcourt chaque lettre du mot initial
 		{	
 			//echo $mot[$i];
+			
 			if ($suite)
 		{       	
 			try {

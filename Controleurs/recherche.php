@@ -68,6 +68,8 @@ if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 					$motsCompUni= array();
 					$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, $_POST['casse'], $_POST['type_recherche']);
 					//$motsComp=$motsComp+$motsCompUni;
+					print_r (array_values($listeDico));
+
 					$motsComp = array_merge($motsComp, $motsCompUni);
 					$flag=1;
 				}

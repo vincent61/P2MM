@@ -57,33 +57,6 @@ if(isset($_POST['fmot']) && isset($_POST['fcpt'])){
 }
 
 
-//Gestion du requêtage de mots
-
-if(isset($_POST['fmot']) && isset($_POST['fcasse']) && isset($_POST['ftype_recherche'])){
-$flag=0;
-$motManager=new MotManager($con);
-$dicoManager= new DictionnaireManager($con);
-$dicos= $dicoManager->getAll('dictionnaire'); // récupération de tous les noms des dictionnaires présents en base
-$policeManager= new PoliceManager($con);
-$procedes = $policeManager->getAll();
-$motsComp= array();
-		foreach($mots as $mot){
-		$motsCompUni= array();
-        if (isset($_POST['type_recherche'])){
-			if (isset($_POST['casse'])){
-			$motsCompUni = $motManager->motsCompatibles($_POST['fmot'], $dicos, $procedes, $_POST['fcasse'], $_POST['ftype_recherche']);
-			$motsComp = array_merge($motsComp, $motsCompUni);
-			$flag=1;
-			}
-			}
-		}
-		foreach($motsComp as $motComp){
-                 
-					echo $motComp['compatible'] ; 
-   }
-}
-
-
 $mots = $motSpectacleManager->getAll('frequence');
 
 
