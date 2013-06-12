@@ -90,8 +90,8 @@ type_recherche=0;
  data: {fmot:mot,fcasse:casse,ftype_recherche:type_recherche}
  }).done(function( result) {
 	//alert (motsComp[0]["compatible"]);
-	//alert(result);
-document.getElementById('p'+cpt).firstChild.data=result;
+	alert(result);
+//document.getElementById('p'+cpt).firstChild.data=result;
  });
 
 }
