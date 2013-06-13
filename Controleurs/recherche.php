@@ -15,7 +15,7 @@ $procedes = $policeManager->getAll();
 
 $listeDico= array(); // liste contenant les dictionnaires passés en paramètres par l'utilisateur (cochés dans la checkbox)
 $listeProcede= array();
-$motsComp= array();
+
 
 foreach ($dicos as $dico)
 {	$nomDico=$dico['dictionnaire'];
@@ -31,6 +31,10 @@ foreach ($procedes as $procede)
 	
 if (isset($_POST['results'])) {
 	$resultsSerialized = $_POST['results'];
+}
+
+if (isset($_POST['nameOfCsvFile'])) {
+	$csvFileName = $_POST['nameOfCsvFile'];
 }
 
 if(isset($_POST['sortField']))
@@ -60,6 +64,7 @@ if(isset($_POST['sortField']))
 
 	
 if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
+		$motsComp= array();
 		$resultsSerialized = NULL;
         if (isset($_POST['type_recherche'])){ 
 				if (isset($_POST['casse'])){
@@ -90,6 +95,8 @@ if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 		$cheminFichierBase = '/Fichiers/Recherches/recherche_'.microtime();
 		$cheminFichier = $cheminFichierBase.'.csv';
 		$cheminFichierPhp = $cheminFichierBase.'.php';
+		
+		$csvFileName = $cheminFichierBase.'.php';
 		
 		$phpCode= "<?php
 		header('Content-disposition: attachment; filename=\'recherche_p2mm.csv\'');
