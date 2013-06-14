@@ -15,7 +15,7 @@ pos["font"]=Math.floor((Math.random()*100)+10);
 position["p"+j]=pos;
 }
 </script>
-<script src="../jQuery.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 function getMotsSpectacle(){
  $.ajax({
