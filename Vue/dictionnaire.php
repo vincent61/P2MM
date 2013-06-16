@@ -72,7 +72,6 @@ foreach($dictionnaire as $dictionnaire)
                     </th>
                     <th> <?php echo $dictionnaire['fichierDictionnaire'];?> </th>
                     <th> <?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?> </th>
-                    <th> <?php echo $dictionnaire['statut'];?> </th>
                     <input type="hidden" name="oldDictionnaire" value="<?php echo $dictionnaire['dictionnaire'];?>" />
                     <input type="hidden" name="oldLangue" value="<?php echo $dictionnaire['langue'];?>" />
                     <input type="hidden" name="oldFichierDictionnaire" value="<?php echo $dictionnaire['fichierDictionnaire'];?>" />
