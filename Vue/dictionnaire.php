@@ -88,7 +88,7 @@ foreach($dictionnaire as $dictionnaire)
 	?>
 	<!--                    <th><a href="../Controleurs/dictionnaire.php?delete=<?php //echo $dictionnaire['dictionnaire'];?>"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
 -->
-                    <th><form id="supprform" method="get" action="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><a href="#" id="suppr"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></form></th>
+                    <th><form id="supprform<?php echo $dictionnaire['dictionnaire'];?>" method="get" action="../Controleurs/dictionnaire.php?delete=<?php echo $dictionnaire['dictionnaire'];?>"><a href="#" onclick="confirmsuppr('<?php echo $dictionnaire['dictionnaire'];?>')"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></form></th>
                     <th><a href="../Controleurs/dictionnaire.php?edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
 					<th><a href="../Controleurs/dictionnaire.php?addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../Vue/ressources/arrow.png' height='20' width='20' ></a></th>
 					
@@ -116,9 +116,9 @@ foreach($dictionnaire as $dictionnaire)
 <script type="text/javascript" src="../functions.js"></script>
 <script type="text/javascript" src="../script/ajaxdico.js"></script/>
 <script type="text/javascript">
-document.getElementById('suppr').onclick = function(){
-	if(confirm("Voulez-vous supprimer le dictionnaire?")){
-		document.getElementById("supprform").submit();
+function confirmsuppr(dico){
+	if(confirm("Voulez-vous supprimer le dictionnaire" + dico + "?")){
+		document.getElementById("supprform" + dico).submit();
 	}
 	
 }
