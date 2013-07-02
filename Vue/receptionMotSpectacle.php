@@ -2,16 +2,7 @@
 <link href="../Vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-<div id="menu-wrapper">
-  <div id="menu">
-  <ul>
-    <li class="current_page_item"> <a href="../Vue/recherche.php">Recherche</a></li>
-    <li><a href="../Vue/admin.php">Admin</a></li>
-    <li><a href="../Controleurs/receptionMotSpectacle.php">Spectacle</a></li>
-    </div>
-  </ul>
-  <!-- end #menu --> 
-</div>
+<?php include "base/header.php";?>
 </div>
 <div id="wrapper">
 <!-- end #header -->
