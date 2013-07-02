@@ -23,6 +23,5 @@ function codageDico($nomDico, $dictionnaireManager){
 	//echo $message;
 	//mail('danyferreira.utc@gmail.com', 'Résultat Codage', $message);
 	mail('guerryma.utc@gmail.com', 'Résultat Codage', $message);
-
 }
 ?>
