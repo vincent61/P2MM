@@ -6,7 +6,7 @@
 </div>
 <div id="wrapper">
 <!-- end #header -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 <script>
 function deleteMotSpectacle(mot, cpt){
 	 var pos=position["p"+(cpt-1)];
