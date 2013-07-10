@@ -127,5 +127,5 @@
   </div>
   <!-- end #page --> 
 </div>
-<?php include "base/footer.html"; ?>
+<?php include "base/footer.html";?>
 </html>

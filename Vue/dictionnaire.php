@@ -90,7 +90,7 @@ foreach($dictionnaire as $dictionnaire)
 -->
                     <th>
 						<form id="supprform<?php echo $dictionnaire['dictionnaire'];?>" method="post" action="../Controleurs/dictionnaire.php">
-							<input type="hidden" name="delete" value="<?php echo $dictionnaire['dictionnaire'];?>">
+							<input type="hidden" name="deleteDico" value="<?php echo $dictionnaire['dictionnaire'];?>">
 							<a target="blank" onclick="confirmsuppr('<?php echo $dictionnaire['dictionnaire'];?>')"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a>
 						</form>
 					</th>
@@ -124,9 +124,20 @@ foreach($dictionnaire as $dictionnaire)
 function confirmsuppr(dico){
 	if(confirm("Voulez-vous supprimer le dictionnaire" + dico + "?")){
 	//window.location.href = "../Controleurs/dictionnaire.php?delete=" + dico;
-		document.getElementById("supprform" + dico).submit();
+		//document.getElementById("supprform" + dico).submit();
+		$.post(
+			"../Controleurs/dictionnaire.php",
+			{
+				deleteDico: dico
+			},
+			"update_ligne_dictionnaire", 
+			"text"
+		);
+		function update_ligne(){
+		alert(dico  +" supprimé!");
 	}
 	
+}
 }
 function validForm(form){
 	var valid = true;
