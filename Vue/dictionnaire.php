@@ -50,7 +50,7 @@
 // on fait une boucle qui va faire un tour pour chaque enregistrement 
 foreach($dictionnaire as $dictionnaire)
 {?>
-                <tr>
+                <tr id="ligne_<?php echo $dictionnaire['dictionnaire'];?>">
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 	{?>
                   <form action="../Controleurs/dictionnaire.php" method="post">
@@ -130,15 +130,18 @@ function confirmsuppr(dico){
 			{
 				deleteDico: dico
 			},
-			"update_ligne_dictionnaire", 
-			"text"
+			//"update_ligne_dictionnaire", 
+			function(data){
+			alert(dico  +" supprimé!");
+			$('ligne_' + dico).remove();
+			//window.location.href="../Controleurs/dictionnaire.php"; // temporaire, ne recharger que le tableau
+			}
 		);
-		function update_ligne(){
-		alert(dico  +" supprimé!");
+		
 	}
 	
 }
-}
+
 function validForm(form){
 	var valid = true;
 	var msg = "Saisir : \n";

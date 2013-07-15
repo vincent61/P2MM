@@ -1,10 +1,10 @@
 ﻿<?php
 ini_set("auto_detect_line_endings", true);
-include '../dbconnect.php';
-include '../cheminsPerso.php';
-include '../Modele/Managers/DictionnaireManager.php';
-include '../Modele/Managers/LangueManager.php';
-
+include_once '../dbconnect.php';
+include_once '../cheminsPerso.php';
+//include_once 'dictionnaireTools.php';
+include_once '../Modele/Managers/DictionnaireManager.php';
+include_once '../Modele/Managers/LangueManager.php';
 $dictionnaireManager = new DictionnaireManager($con);
 $langueManager = new LangueManager($con);
 
@@ -56,6 +56,7 @@ if(isset($_POST['deleteDico'])){
 	unlink ($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$dictionnaireManager->get($_POST['deleteDico'])->getFichierDictionnaire());
 	$dictionnaireManager->delete($_POST['deleteDico']);
 }
+
 
 
 //Gestion du codage des mots
