@@ -49,9 +49,9 @@ if(isset($_POST['police']) && $_POST['police']!=''&& isset($_FILES['fichierCodes
 }
 
 //Gestion des supression
-if(isset($_GET['delete'])){
-	unlink ($cheminServer.'P2MM/Fichiers/Polices/'.$policeManager->get($_GET['delete'])->getFichierCodes());
-	$policeManager->delete($_GET['delete']);
+if(isset($_GET['deletePolice'])){
+	unlink ($cheminServer.'P2MM/Fichiers/Polices/'.$policeManager->get($_GET['deletePolice'])->getFichierCodes());
+	$policeManager->delete($_GET['deletePolice']);
 
 }
 

@@ -86,8 +86,6 @@ foreach($dictionnaire as $dictionnaire)
                     <?php 
 	}
 	?>
-	<!--                    <th><a href="../Controleurs/dictionnaire.php?delete=<?php //echo $dictionnaire['dictionnaire'];?>"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
--->
                     <th>
 						<form id="supprform<?php echo $dictionnaire['dictionnaire'];?>" method="post" action="../Controleurs/dictionnaire.php">
 							<input type="hidden" name="deleteDico" value="<?php echo $dictionnaire['dictionnaire'];?>">
@@ -122,19 +120,16 @@ foreach($dictionnaire as $dictionnaire)
 <script type="text/javascript" src="../script/ajaxdico.js"></script/>
 <script type="text/javascript">
 function confirmsuppr(dico){
+//Supprime le dictionnaire de la bdd en ajax et met à jour le tableau de résultats
 	if(confirm("Voulez-vous supprimer le dictionnaire" + dico + "?")){
-	//window.location.href = "../Controleurs/dictionnaire.php?delete=" + dico;
-		//document.getElementById("supprform" + dico).submit();
 		$.post(
 			"../Controleurs/dictionnaire.php",
 			{
 				deleteDico: dico
 			},
-			//"update_ligne_dictionnaire", 
 			function(data){
 			alert(dico  +" supprimé!");
-			$('ligne_' + dico).remove();
-			//window.location.href="../Controleurs/dictionnaire.php"; // temporaire, ne recharger que le tableau
+			$('#ligne_' + dico).remove();
 			}
 		);
 		
