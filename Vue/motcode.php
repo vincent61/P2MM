@@ -30,7 +30,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/motcode.php" method="post" onsubmit="return validForm(this)">
+                <form action="../Controleurs/motcode.php" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Code:
                     <input type="text" name="code" />

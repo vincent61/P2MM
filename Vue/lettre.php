@@ -30,7 +30,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/lettre.php" method="post" onsubmit="return validForm(this)">
+                <form action="../Controleurs/lettre.php" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b>
                   <p>
                     <input type="text" name="lettre" />
@@ -53,7 +53,7 @@ function validForm(form){
 foreach($lettres as $lettres){ ?>
                 <tr>
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$lettres['lettreAscii']) {?>
-                  <th> <form action="../controleurs/lettre.php" method="post">
+                  <th> <form action="../Controleurs/lettre.php" method="post">
                       <input type="hidden" name="oldLettre" value="<?php echo $lettres['lettreAscii'];?>" />
                       <input type="text" name="newLettre" value="<?php echo $lettres['lettreAscii'];?>" />
                     </form>
@@ -61,8 +61,8 @@ foreach($lettres as $lettres){ ?>
                   <?php }else{ ?>
                   <th> <?php echo $lettres['lettreAscii'];?> </th>
                   <?php } ?>
-                  <th><a href="../controleurs/lettre.php?delete=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                  <th><a href="../controleurs/lettre.php?edit=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                  <th><a href="../Controleurs/lettre.php?delete=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                  <th><a href="../Controleurs/lettre.php?edit=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
                 </tr>
                 <?php } ?>
               </table>

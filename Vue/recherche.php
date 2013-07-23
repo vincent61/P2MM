@@ -85,14 +85,14 @@
                     <th><u>Dictionnaire</u></th>
 
                     
-                    <form id="sortmotCorr" action="../controleurs/recherche.php" method="post">
+                    <form id="sortmotCorr" action="../Controleurs/recherche.php" method="post">
 					    <th><a href="#resultats" onclick="document.getElementById('sortmotCorr').submit();"><span style="color : #000066;text-decoration:underline;">Mots Correspondants</span></a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized; ?>" />
 					    <input type="hidden" name="sortField" value="motCorr" />
 					    <input type="hidden" name="nameOfCsvFile" value="<?php echo $csvFileName; ?>" />
 					</form>
                     
-                    <form id="sortFreq" action="../controleurs/recherche.php" method="post">
+                    <form id="sortFreq" action="../Controleurs/recherche.php" method="post">
 					    <th><a href="#resultats" onclick="document.getElementById('sortFreq').submit();"><span style="color : #000066;text-decoration:underline;">Fréquence</span></a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized;?>" />
 					    <input type="hidden" name="sortField" value="frequence" />

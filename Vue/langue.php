@@ -30,7 +30,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/langue.php" method="post" onsubmit="return validForm(this)">
+                <form action="../Controleurs/langue.php" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:
                   <p></b>
                     <input type="text" name="langue" />
@@ -52,7 +52,7 @@ function validForm(form){
 foreach($langues as $langues){ ?>
                 <tr>
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$langues['langue']){?>
-                  <th> <form action="../controleurs/langue.php" method="post">
+                  <th> <form action="../Controleurs/langue.php" method="post">
                       <input type="hidden" name="oldLangue" value="<?php echo $langues['langue']; ?>" />
                       <input type="text" name="newLangue" value="<?php echo $langues['langue']; ?>" />
                     </form>
@@ -60,8 +60,8 @@ foreach($langues as $langues){ ?>
                   <?php }else{ ?>
                   <th> <?php echo $langues['langue']; ?> </th>
                   <?php } ?>
-                  <th><a href="../controleurs/langue.php?delete=<?php echo $langues['langue']; ?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                  <th><a href="../controleurs/langue.php?edit=<?php echo $langues['langue'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                  <th><a href="../Controleurs/langue.php?delete=<?php echo $langues['langue']; ?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                  <th><a href="../Controleurs/langue.php?edit=<?php echo $langues['langue'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
                 </tr>
                 <?php }  ?>
               </table>

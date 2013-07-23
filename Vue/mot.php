@@ -42,7 +42,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/mot.php" method="post" onsubmit="return validForm(this)">
+                <form action="../Controleurs/mot.php" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   </p>
                   <p>Mot:
