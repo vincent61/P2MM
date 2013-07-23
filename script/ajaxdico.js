@@ -1,7 +1,7 @@
 function confirmsuppr(dico){
 	if(confirm("Voulez-vous supprimer le dictionnaire" + dico + "?")){
 		$.post(
-			"../Controleurs/dictionnaire.php",
+			"../controleurs/dictionnaire.php",
 			{
 				deleteDico: dico
 			},

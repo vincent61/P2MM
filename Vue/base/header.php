@@ -11,9 +11,9 @@
 <div id="menu-wrapper">
   <div id="menu">
   <ul>
-    <li class="current_page_item"> <a href="../Controleurs/recherche.php">Recherche</a></li>
-    <li><a href="../Controleurs/admin.php">Admin</a></li>
-    <li><a href="../Controleurs/receptionMotSpectacle.php">Spectacle</a></li>
+    <li class="current_page_item"> <a href="../controleurs/recherche.php">Recherche</a></li>
+    <li><a href="../controleurs/admin.php">Admin</a></li>
+    <li><a href="../controleurs/receptionMotSpectacle.php">Spectacle</a></li>
     </div>
   </ul>
   <!-- end #menu --> 
