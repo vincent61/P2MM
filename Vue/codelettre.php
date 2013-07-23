@@ -43,7 +43,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../Controleurs/codelettre.php" method="post" onsubmit="return validForm(this)">
+                <form action="../controleurs/codelettre.php" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Code:
                     <input type="text" name="code" />
@@ -79,7 +79,7 @@ function validForm(form){
 foreach($codelettre as $codelettre){ ?>
                 <tr>
                   <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){ ?>
-                  <form action="../Controleurs/codelettre.php" method="post">
+                  <form action="../controleurs/codelettre.php" method="post">
                     <td></th></td>
                     <th> <input type="text" name="newCode" value="<?php echo $codelettre['code'];?>" />
                     </th>
@@ -107,8 +107,8 @@ foreach($codelettre as $codelettre){ ?>
                     <th><?php echo $codelettre['typeLettre'];?></th>
                     <th><?php echo $codelettre['police'];?></th>
                     <?php }?>
-                    <th><a href="../Controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../Controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="../controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){?>
                     <th><input type="submit" value="Ajouter" /></th>
                   </form>
