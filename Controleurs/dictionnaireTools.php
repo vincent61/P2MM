@@ -6,7 +6,7 @@ $dictionnaireManager = new DictionnaireManager($con);
 $langueManager = new LangueManager($con);
 
 	if(isset($_POST['deleteDico'])){
-		unlink ($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$dictionnaireManager->get($_POST['deleteDico'])->getFichierDictionnaire());
+		unlink ($cheminServer.'Fichiers/Dictionnaires/'.$dictionnaireManager->get($_POST['deleteDico'])->getFichierDictionnaire());
 		$dictionnaireManager->delete($_POST['deleteDico']);
 	}
 

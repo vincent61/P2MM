@@ -31,7 +31,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 	 // ce qui signifie qu'il n'y a eu aucune erreur  
 		if ((isset($_FILES['fichierDictionnaire']['tmp_name'])&&($_FILES['fichierDictionnaire']['error'] == UPLOAD_ERR_OK))) {   
 			if(substr($_FILES['fichierDictionnaire']['name'], -3, 3)=='csv'){  
-				$chemin_destination = $cheminServer.'P2MM/Fichiers/Dictionnaires/'; 
+				$chemin_destination = $cheminServer.'Fichiers/Dictionnaires/'; 
 				//Pour assurer un nom de fichier unique, on le renomme avec le nom (unique) du dictionnaire
 				$_FILES['fichierDictionnaire']['name'] = $_POST['dictionnaire'].".csv";
 				move_uploaded_file($_FILES['fichierDictionnaire']['tmp_name'], $chemin_destination.$_FILES['fichierDictionnaire']['name']);     
@@ -53,7 +53,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 
 //Gestion des supression
 if(isset($_POST['deleteDico'])){
-	unlink ($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$dictionnaireManager->get($_POST['deleteDico'])->getFichierDictionnaire());
+	unlink ($cheminServer.'Fichiers/Dictionnaires/'.$dictionnaireManager->get($_POST['deleteDico'])->getFichierDictionnaire());
 	$dictionnaireManager->delete($_POST['deleteDico']);
 }
 
@@ -69,7 +69,7 @@ if(isset($_GET['addMotsCode'])){
 if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){
 //Le nom du fichier doit etre le meme que celui du dictionnaire pour éviter d'écraser un fichier existant. Ne pas autoriser le changement de nom du fichier.
 	$nomFichier = $_POST['newDictionnaire'].'.csv';
-	$chemin_destination = $cheminServer.'P2MM/Fichiers/Dictionnaires/';
+	$chemin_destination = $cheminServer.'Fichiers/Dictionnaires/';
 	$dictionnaireManager->update(new Dictionnaire($_POST['oldDictionnaire'],$_POST['oldLangue'],$_POST['oldFichierDictionnaire'],$_POST['oldCasse']),new Dictionnaire($_POST['newDictionnaire'],$_POST['newLangue'],$nomFichier,$_POST['oldCasse']));
 		//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi
 	rename($chemin_destination.$_POST['oldFichierDictionnaire'], $chemin_destination.$nomFichier);

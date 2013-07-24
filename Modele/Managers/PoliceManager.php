@@ -105,7 +105,7 @@ class PoliceManager{
 	  include '../cheminsPerso.php';
 
 	  $clManager = new CorrespondanceLettreManager($this->getDb());
-	  if (($handle = fopen($cheminServer.'P2MM/Fichiers/Polices/'.$police->getFichierCodes(), "r")) !== FALSE) {
+	  if (($handle = fopen($cheminServer.'Fichiers/Polices/'.$police->getFichierCodes(), "r")) !== FALSE) {
 		while (($ligneCorrespondance = fgets($handle)) !== FALSE) {
 			if($police->getCasse() ==0){
 				//si on traite des majuscules, la ligne est transformée également

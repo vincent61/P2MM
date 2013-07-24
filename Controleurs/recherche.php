@@ -101,13 +101,13 @@ if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 		$phpCode= "<?php
 		header('Content-disposition: attachment; filename=\'recherche_p2mm.csv\'');
 		header('Content-type: application/pdf');
-		readfile('".$cheminServer.'P2MM'.$cheminFichier."');
+		readfile('".$cheminServer.$cheminFichier."');
 		?>"; //changer avec chemins relatifs?
 		
-		$handle = fopen($cheminServer.'P2MM'.$cheminFichierPhp, 'w');
+		$handle = fopen($cheminServer.$cheminFichierPhp, 'w');
 		fwrite($handle, $phpCode);
 		fclose($handle);
-		$fichierResultats = fopen($cheminServer.'P2MM'.$cheminFichier, 'w');		
+		$fichierResultats = fopen($cheminServer.$cheminFichier, 'w');		
 		foreach ($motsComp as $results) {
 			fputcsv($fichierResultats, array_values($results), ';');
 		}

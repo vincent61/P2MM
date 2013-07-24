@@ -29,7 +29,7 @@ if(isset($_POST['police']) && $_POST['police']!=''&& isset($_FILES['fichierCodes
 		// ce qui signifie qu'il n'y a eu aucune erreur  
 		if ((isset($_FILES['fichierCodes']['tmp_name'])&&($_FILES['fichierCodes']['error'] == UPLOAD_ERR_OK))) {   
 			if(substr($_FILES['fichierCodes']['name'], -3, 3)=='txt'){  
-				$chemin_destination = $cheminServer.'P2MM/Fichiers/Polices/';
+				$chemin_destination = $cheminServer.'Fichiers/Polices/';
 				//Pour assurer un nom de fichier unique, on le renomme avec le nom (unique) de la POlice
 				$_FILES['fichierCodes']['name'] = $_POST['police'].".txt";
 				move_uploaded_file($_FILES['fichierCodes']['tmp_name'], $chemin_destination.$_FILES['fichierCodes']['name']);     
@@ -50,7 +50,7 @@ if(isset($_POST['police']) && $_POST['police']!=''&& isset($_FILES['fichierCodes
 
 //Gestion des supression
 if(isset($_GET['deletePolice'])){
-	unlink ($cheminServer.'P2MM/Fichiers/Polices/'.$policeManager->get($_GET['deletePolice'])->getFichierCodes());
+	unlink ($cheminServer.'Fichiers/Polices/'.$policeManager->get($_GET['deletePolice'])->getFichierCodes());
 	$policeManager->delete($_GET['deletePolice']);
 
 }
@@ -59,7 +59,7 @@ if(isset($_GET['deletePolice'])){
 if(isset($_POST['oldPolice']) and isset($_POST['newPolice'])){
 	//Le nom du fichier doit etre le meme que celui de la police pour éviter d'écraser un fichier existant. Ne pas autoriser le changement de nom du fichier.
 	$nomFichier = $_POST['newPolice'].'.txt';
-	$chemin_destination = $cheminServer.'P2MM/Fichiers/Polices/';
+	$chemin_destination = $cheminServer.'Fichiers/Polices/';
 	//renomme le fichier de codes avec le nouveau nom spécifié
 	$policeManager->update(new Police($_POST['oldPolice'],$_POST['oldFichierCodes'],$_POST['oldCasse']),new Police($_POST['newPolice'],$nomFichier,$_POST['oldCasse']));
 	//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi

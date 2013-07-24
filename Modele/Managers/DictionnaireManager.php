@@ -90,7 +90,7 @@ class DictionnaireManager{
 	  $log = $cheminServer.'error.log';
 	  error_log('Codage dico '.$dictionnaire->getDictionnaire(), 3, $log);
 	  // A MODIFIER SELON L'ADRESSE DU SERVEUR.
-	  if (($handle = fopen($cheminServer.'P2MM/Fichiers/Dictionnaires/'.$dictionnaire->getFichierDictionnaire(), "r")) !== FALSE) {
+	  if (($handle = fopen($cheminServer.'Fichiers/Dictionnaires/'.$dictionnaire->getFichierDictionnaire(), "r")) !== FALSE) {
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
 			$num = count($data);
 				$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
