@@ -60,8 +60,8 @@ foreach($langues as $langues){ ?>
                   <?php }else{ ?>
                   <th> <?php echo $langues['langue']; ?> </th>
                   <?php } ?>
-                  <th><a href="../controleurs/langue.php?delete=<?php echo $langues['langue']; ?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                  <th><a href="../controleurs/langue.php?edit=<?php echo $langues['langue'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                  <th><a href="../controleurs/langue.php?delete=<?php echo $langues['langue']; ?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                  <th><a href="../controleurs/langue.php?edit=<?php echo $langues['langue'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
                 </tr>
                 <?php }  ?>
               </table>

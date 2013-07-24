@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Séparation</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css" />
-<link href="../Vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="../vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
@@ -23,8 +23,8 @@
     <div id="logo">
     <h1> </h1>
     <p> </p>
-    <p><img class = "titreHaut" src="../Vue/ressources/titreHaut.png" width="331" height="34" alt="" /></p>
-       <p><img class = "titreBas" src="../Vue/ressources/titreBas.png" width="331" height="34" alt="" /></p>
+    <p><img class = "titreHaut" src="../vue/ressources/titreHaut.png" width="331" height="34" alt="" /></p>
+       <p><img class = "titreBas" src="../vue/ressources/titreBas.png" width="331" height="34" alt="" /></p>
       <!--<h1><a href="#">Séparation</a></h1>-->
       <p>Procédé inventé par Pierre Fourny</p>
     </div>

@@ -1,5 +1,5 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/CodeLettre.php';
+include '../modele/modeleMemoire/CodeLettre.php';
 
 class CodeLettreManager{
 	private $_db; // Instance de db

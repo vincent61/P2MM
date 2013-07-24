@@ -3,9 +3,9 @@
 	print('<?xml version="1.0" encoding="UTF-8"?>');
 	print('<words>');
 
-	include_once '../Modele/Managers/MotManager.php';
-	include_once '../Modele/Managers/PoliceManager.php';
-	include_once '../Modele/Managers/DictionnaireManager.php';
+	include_once '../modele/Managers/MotManager.php';
+	include_once '../modele/Managers/PoliceManager.php';
+	include_once '../modele/Managers/DictionnaireManager.php';
 	include_once '../dbconnect.php';
 	$pm = new PoliceManager($con);
 	$mm = new MotManager($con);

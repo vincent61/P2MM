@@ -1,8 +1,8 @@
 ﻿<?php
 
 include '../dbconnect.php';
-include '../Modele/Managers/MotManager.php';
-include_once '../Modele/Managers/DictionnaireManager.php';
+include '../modele/Managers/MotManager.php';
+include_once '../modele/Managers/DictionnaireManager.php';
 
 //Gestion du requêtage de mots
 

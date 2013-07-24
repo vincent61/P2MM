@@ -92,7 +92,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 13px;
 	color: #3B3B3B;
-	url('../Vue/Ressources/Demibas_2010.ttf') format('truetype');
+	url('../vue/Ressources/Demibas_2010.ttf') format('truetype');
 }
 
 h1, h2, h3 {

@@ -1,6 +1,6 @@
 <?php
 include '../dbconnect.php';
-include '../Modele/Managers/PoliceManager.php';
+include '../modele/Managers/PoliceManager.php';
 
 
 	$pm = new PoliceManager($con);

@@ -1,5 +1,5 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/Dictionnaire.php';
+include '../modele/modeleMemoire/Dictionnaire.php';
 class DictionnaireManager{
 	private $_db; // Instance de db
  

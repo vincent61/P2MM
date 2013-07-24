@@ -1,5 +1,5 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/MotSpectacle.php';
+include '../modele/modeleMemoire/MotSpectacle.php';
 class MotSpectacleManager{
 	private $_db; // Instance de db
  

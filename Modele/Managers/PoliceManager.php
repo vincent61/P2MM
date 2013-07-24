@@ -1,6 +1,6 @@
 ﻿<?php			 
-include_once '../Modele/ModeleMemoire/Police.php';
-include_once '../Modele/Managers/CorrespondanceLettreManager.php';
+include_once '../modele/modeleMemoire/Police.php';
+include_once '../modele/Managers/CorrespondanceLettreManager.php';
 
 class PoliceManager{
 	private $_db; // Instance de db

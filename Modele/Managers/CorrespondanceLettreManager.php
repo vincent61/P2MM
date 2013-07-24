@@ -1,7 +1,7 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/CorrespondanceLettre.php';
-include_once '../Modele/Managers/CodeLettreManager.php';
-include '../Modele/Managers/LettreManager.php';
+include '../modele/modeleMemoire/CorrespondanceLettre.php';
+include_once '../modele/Managers/CodeLettreManager.php';
+include '../modele/Managers/LettreManager.php';
 
 
 class CorrespondanceLettreManager{

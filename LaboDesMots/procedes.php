@@ -2,7 +2,7 @@
 header("Content-type: text/xml");		   
 print('<?xml version="1.0" encoding="UTF-8"?>');
 print('<procedes>');
-include_once '../Modele/Managers/PoliceManager.php';
+include_once '../modele/Managers/PoliceManager.php';
 include_once '../dbconnect.php';
 function casse($numCasse){
 /**

@@ -59,16 +59,16 @@ foreach($police as $police){ ?>
                     <th><?php echo $police['fichierCode'];?></th>
                     <th><?php echo $police['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
                     <?php }?>
-                    <!--<th><a href="../controleurs/police.php?delete=<?php echo $police['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <!--<th><a href="../controleurs/police.php?delete=<?php echo $police['police'];?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
 					-->
 					<th>
 						<form id="supprform<?php echo $police['police'];?>" method="post" action="../controleurs/police.php">
 							<input type="hidden" name="deletePolice" value="<?php echo $police['police'];?>">
-							<a target="blank" onclick="confirmsuppr('<?php echo $police['police'];?>')"><img title="supprimer" src='../Vue/ressources/supprimer.png' height='20' width='20' /></a>
+							<a target="blank" onclick="confirmsuppr('<?php echo $police['police'];?>')"><img title="supprimer" src='../vue/ressources/supprimer.png' height='20' width='20' /></a>
 						</form>
 					</th>
 					
-                    <th><a href="../controleurs/police.php?edit=<?php echo $police['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="../controleurs/police.php?edit=<?php echo $police['police'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
                     <th><input type="submit" value="Ajouter" /></th>
                   </form>

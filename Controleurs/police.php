@@ -1,7 +1,7 @@
 ﻿<?php
 include '../dbconnect.php';
 include '../cheminsPerso.php';
-include '../Modele/Managers/PoliceManager.php';
+include '../modele/Managers/PoliceManager.php';
 
 $policeManager = new PoliceManager($con);
 
@@ -71,7 +71,7 @@ if(isset($_POST['oldPolice']) and isset($_POST['newPolice'])){
 $police = $policeManager->getAll();
 
 //On inclue la vue
-include '../Vue/police.php'; 
+include '../vue/police.php'; 
 ?>
 
 

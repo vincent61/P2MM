@@ -1,7 +1,7 @@
 <?php
 
-include_once '../Modele/Managers/DictionnaireManager.php';
-include_once '../Modele/Managers/LangueManager.php';
+include_once '../modele/Managers/DictionnaireManager.php';
+include_once '../modele/Managers/LangueManager.php';
 $dictionnaireManager = new DictionnaireManager($con);
 $langueManager = new LangueManager($con);
 

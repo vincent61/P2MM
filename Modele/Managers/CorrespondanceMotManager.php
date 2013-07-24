@@ -1,5 +1,5 @@
 <?php
-include '../Modele/ModeleMemoire/CorrespondanceMot.php';
+include '../modele/modeleMemoire/CorrespondanceMot.php';
 class CorrespondanceMotManager{
 	private $_db; // Instance de db
  

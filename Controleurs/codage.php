@@ -1,6 +1,6 @@
 <?php
 include '../dbconnect.php';
-include '../Modele/Managers/MotManager.php';
+include '../modele/Managers/MotManager.php';
 
 $mot= new Mot("mot", 0, "min_bas");
 $motManager= new MotManager($con);

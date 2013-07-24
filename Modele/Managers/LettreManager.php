@@ -1,5 +1,5 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/Lettre.php';
+include '../modele/modeleMemoire/Lettre.php';
 class LettreManager{
 	private $_db; // Instance de db
  

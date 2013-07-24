@@ -20,7 +20,7 @@ position["p"+j]=pos;
 function getMotsSpectacle(){
  $.ajax({
  type: "POST",
- url: "../Vue/receptionMotSpectacle.php",
+ url: "../vue/receptionMotSpectacle.php",
  data: {}
  }).done(function( result ) {
  $("#msg").html( result );
@@ -51,7 +51,7 @@ var int=self.setInterval(function(){getMotsSpectacle()},1000);
 </script>
 <?php
 include '../dbconnect.php';
-include '../Modele/Managers/MotSpectacleManager.php';
+include '../modele/Managers/MotSpectacleManager.php';
 $motSpectacleManager = new MotSpectacleManager($con);
 //Gestion des supression
 if(isset($_POST['fmot']) && isset($_POST['fcpt'])){

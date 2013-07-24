@@ -1,5 +1,5 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/MotCode.php';
+include '../modele/modeleMemoire/MotCode.php';
 class MotCodeManager{
 	private $_db; // Instance de db
  

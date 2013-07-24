@@ -1,5 +1,5 @@
 ﻿<head>
-<link href="../Vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="../vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
 <?php include "base/header.php";?>
@@ -29,7 +29,7 @@ position ["p"+(cpt-1)]=pos;
 
 <?php
 include '../dbconnect.php';
-include '../Modele/Managers/MotSpectacleManager.php';
+include '../modele/Managers/MotSpectacleManager.php';
 $motSpectacleManager = new MotSpectacleManager($con);
 $result = $motSpectacleManager->getAll();
 
@@ -43,9 +43,9 @@ $result = $motSpectacleManager->getAll();
 $cpt=0;
 foreach($result as $mots){ 
 $cpt++;
- //echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
+ //echo "<p id='p".$cpt."'>".$mots['mot']." <a href='../controleurs/receptionMotSpectacle.php?deleteMot=".$mots['mot']."'><img src='../vue/ressources/supprimeBlanc.png' height='20' width='20' /></a></p>"; 
  echo "<p id='p".$cpt."' draggable=\"true\" ondragstart=\"drag(event)\" ondragend=\"drop(event)\" onClick=\"play(".$cpt.");\" >".$mots['mot']." <a  href='javascript:deleteMotSpectacle(\"".$mots['mot']."\",\"".$cpt."\"); 
-'><img src='../Vue/ressources/supprimeBlanc.png' height='20' width='20'  /></a></p>"; 
+'><img src='../vue/ressources/supprimeBlanc.png' height='20' width='20'  /></a></p>"; 
 
 
  echo "<script>compteur++;</script>";

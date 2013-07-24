@@ -61,8 +61,8 @@ foreach($lettres as $lettres){ ?>
                   <?php }else{ ?>
                   <th> <?php echo $lettres['lettreAscii'];?> </th>
                   <?php } ?>
-                  <th><a href="../controleurs/lettre.php?delete=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                  <th><a href="../controleurs/lettre.php?edit=<?php echo $lettres['lettreAscii'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                  <th><a href="../controleurs/lettre.php?delete=<?php echo $lettres['lettreAscii'];?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                  <th><a href="../controleurs/lettre.php?edit=<?php echo $lettres['lettreAscii'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
                 </tr>
                 <?php } ?>
               </table>

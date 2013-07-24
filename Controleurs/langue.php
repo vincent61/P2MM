@@ -1,6 +1,6 @@
 ﻿<?php
 include '../dbconnect.php';
-include '../Modele/Managers/LangueManager.php';
+include '../modele/Managers/LangueManager.php';
 
 $langueManager = new LangueManager($con);
 
@@ -21,5 +21,5 @@ if(isset($_POST['oldLangue']) and isset($_POST['newLangue'])){
 $langues = $langueManager->getAll();
 
 //On inclue la vue
-include '../Vue/langue.php'; 
+include '../vue/langue.php'; 
 ?>

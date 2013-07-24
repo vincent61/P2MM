@@ -1,5 +1,5 @@
 ﻿<?php
-include 'Modele/ModeleMemoire/Code.php';
+include 'modele/modeleMemoire/Code.php';
 class CodeManager{
 	private $_db; // Instance de db
  

@@ -4,7 +4,7 @@ set_time_limit(0); // le script peut s'exécuter de façon illimitée
 
 function codageMotsPolice($policeManager, $nomPolice,$connexion){
 
-	include_once '../Modele/Managers/MotManager.php';
+	include_once '../modele/Managers/MotManager.php';
 
 	$motManager = new MotManager($connexion);
 	

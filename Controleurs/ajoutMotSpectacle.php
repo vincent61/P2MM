@@ -7,7 +7,7 @@
 <body>
 <?php 
 include '../dbconnect.php';
-include '../Modele/Managers/MotSpectacleManager.php';
+include '../modele/Managers/MotSpectacleManager.php';
 
 $motSpectacleManager = new MotSpectacleManager($con);
 // Gestion des ajouts
@@ -21,7 +21,7 @@ if(isset($_POST['mot']) ){
 
 	$mots = $motSpectacleManager->getAll();
 
-include "../Vue/ajoutMotSpectacle.php";
+include "../vue/ajoutMotSpectacle.php";
 ?>
 </body>
 </html>

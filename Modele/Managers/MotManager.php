@@ -1,9 +1,9 @@
 ﻿<?php
-include '../Modele/ModeleMemoire/Mot.php';
-include_once '../Modele/Managers/PoliceManager.php';
-include '../Modele/Managers/MotCodeManager.php';
-//include '../Modele/Managers/CorrespondanceLettreManager.php';
-include '../Modele/Managers/CorrespondanceMotManager.php';
+include '../modele/modeleMemoire/Mot.php';
+include_once '../modele/Managers/PoliceManager.php';
+include '../modele/Managers/MotCodeManager.php';
+//include '../modele/Managers/CorrespondanceLettreManager.php';
+include '../modele/Managers/CorrespondanceMotManager.php';
 class MotManager{
 	private $_db; // Instance de db
  

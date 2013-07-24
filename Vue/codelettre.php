@@ -107,8 +107,8 @@ foreach($codelettre as $codelettre){ ?>
                     <th><?php echo $codelettre['typeLettre'];?></th>
                     <th><?php echo $codelettre['police'];?></th>
                     <?php }?>
-                    <th><a href="../controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../Vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="../controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){?>
                     <th><input type="submit" value="Ajouter" /></th>
                   </form>
