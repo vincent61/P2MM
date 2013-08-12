@@ -1,5 +1,6 @@
 ﻿<?php
-include 'modele/Managers/LettreManager.php';
+include '../dbconnect.php';
+include '../modele/Managers/LettreManager.php';
 
 $lettreManager = new LettreManager($con);
 
@@ -21,5 +22,5 @@ if(isset($_POST['oldLettre']) and isset($_POST['newLettre'])){
 $lettres = $lettreManager->getAll();
 
 //On inclue la vue
-include 'vue/lettre.php'; 
+include '../vue/lettre.php'; 
 ?>
