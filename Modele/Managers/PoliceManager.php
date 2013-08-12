@@ -1,6 +1,6 @@
 ﻿<?php			 
-include_once '../modele/modeleMemoire/Police.php';
-include_once '../modele/Managers/CorrespondanceLettreManager.php';
+include_once 'modele/modeleMemoire/Police.php';
+include_once 'modele/Managers/CorrespondanceLettreManager.php';
 
 class PoliceManager{
 	private $_db; // Instance de db
@@ -102,7 +102,7 @@ class PoliceManager{
   
   public function remplirLettresCodes(Police $police)
   {
-	  include '../cheminsPerso.php';
+	  //include '../cheminsPerso.php';
 
 	  $clManager = new CorrespondanceLettreManager($this->getDb());
 	  if (($handle = fopen($cheminServer.'Fichiers/Polices/'.$police->getFichierCodes(), "r")) !== FALSE) {

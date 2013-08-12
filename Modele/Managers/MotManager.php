@@ -1,9 +1,8 @@
 ﻿<?php
-include '../modele/modeleMemoire/Mot.php';
-include_once '../modele/Managers/PoliceManager.php';
-include '../modele/Managers/MotCodeManager.php';
-//include '../modele/Managers/CorrespondanceLettreManager.php';
-include '../modele/Managers/CorrespondanceMotManager.php';
+include 'modele/modeleMemoire/Mot.php';
+include_once 'modele/Managers/PoliceManager.php';
+include 'modele/Managers/MotCodeManager.php';
+include 'modele/Managers/CorrespondanceMotManager.php';
 class MotManager{
 	private $_db; // Instance de db
  
@@ -102,9 +101,9 @@ class MotManager{
   
   public function codage(Mot $motParam, array $policesParam=NULL)
   {
-  include '../dbconnect.php';
+  //include '../dbconnect.php';
   //$motManager = new MotManager ($con);
- 
+  $con = $this->_db;
   $mot= $motParam->getMot();
   
   $lettreManager= new LettreManager($con);
@@ -255,11 +254,12 @@ class MotManager{
  
  
  public function motsCompatibles($motParam, $dicos, $procedes, $casse, $typeRecherche=0){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos et procédés dans lesquels on recherche les mots compatibles
-		include '../dbconnect.php';
+		//include '../dbconnect.php';
 		$result = array(); 
 		// tableau : [{"code": mot_code.code, "police": mot_code.police, "mots": [liste des vrais mots compatibles pour ce code et cette police]},{}...]
 		
-		//$motManager= new MotManager($con);		
+		//$motManager= new MotManager($con);
+		$con = $this->_db;		
 		$motP = new Mot($motParam, $casse, "autre_min", 1);
 		$this->codage($motP);
 		

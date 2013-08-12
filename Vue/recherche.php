@@ -1,5 +1,4 @@
-﻿<?php include "base/header.php"; ?>
-<div id="wrapper"> 
+﻿<div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
     <div id="page-bgtop">
@@ -21,7 +20,7 @@
               
 			  <div id="recherche">
                 <fieldset> 
-				  <form action="recherche.php" method="post">
+				  <form action="index.php?page=recherche" method="post">
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
 					<p>Mot:
                     <input type="text" name="mot" />
@@ -69,7 +68,7 @@
 				
 			?>
 			<!--lien vers le fichier généré-->
-			<form action="<?php echo '../'.$csvFileName ?>" method="get">
+			<form action="<?php echo $csvFileName ?>" method="get">
 				<input type="submit" value="Télecharger les résultats" />
 			</form>
 			
@@ -85,14 +84,14 @@
                     <th><u>Dictionnaire</u></th>
 
                     
-                    <form id="sortmotCorr" action="../controleurs/recherche.php" method="post">
+                    <form id="sortmotCorr" action="index.php?page=recherche.php" method="post">
 					    <th><a href="#resultats" onclick="document.getElementById('sortmotCorr').submit();"><span style="color : #000066;text-decoration:underline;">Mots Correspondants</span></a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized; ?>" />
 					    <input type="hidden" name="sortField" value="motCorr" />
 					    <input type="hidden" name="nameOfCsvFile" value="<?php echo $csvFileName; ?>" />
 					</form>
                     
-                    <form id="sortFreq" action="../controleurs/recherche.php" method="post">
+                    <form id="sortFreq" action="index.php?page=recherche" method="post">
 					    <th><a href="#resultats" onclick="document.getElementById('sortFreq').submit();"><span style="color : #000066;text-decoration:underline;">Fréquence</span></a></th>
 					    <input type="hidden" name="results" value="<?php echo $resultsSerialized;?>" />
 					    <input type="hidden" name="sortField" value="frequence" />
@@ -127,5 +126,4 @@
   </div>
   <!-- end #page --> 
 </div>
-<?php include "base/footer.html";?>
 </html>

@@ -1,5 +1,5 @@
 ﻿<?php
-include '../modele/modeleMemoire/Dictionnaire.php';
+include 'modele/modeleMemoire/Dictionnaire.php';
 class DictionnaireManager{
 	private $_db; // Instance de db
  
@@ -83,8 +83,7 @@ class DictionnaireManager{
   
   public function remplirMotsCode($dictionnaire)
   {
-	  include '../cheminsPerso.php';
-	  include '../dbconnect.php';
+	  $con = $this->_db;
 	  $motManager = new MotManager($con);
 	  $row = 1;
 	  $log = $cheminServer.'error.log';

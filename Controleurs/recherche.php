@@ -1,9 +1,8 @@
 <?php
 
-include '../dbconnect.php';
-include '../modele/Managers/MotManager.php';
-include_once '../modele/Managers/DictionnaireManager.php';
-include_once '../cheminsPerso.php';
+include 'modele/Managers/MotManager.php';
+include_once 'modele/Managers/DictionnaireManager.php';
+//include_once '../cheminsPerso.php';
 
 //$mot = new Mot('baba', 0, 'min_bas', 0);
 $flag=0;
@@ -117,5 +116,5 @@ if(isset($_POST['mot']) && isset($_POST['type_recherche'])){
 
 }
 
-include '../vue/recherche.php'; 
+include 'vue/recherche.php'; 
 ?>

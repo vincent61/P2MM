@@ -1,5 +1,5 @@
 ﻿<?php
-include '../modele/modeleMemoire/Langue.php';
+include 'modele/modeleMemoire/Langue.php';
 
 class LangueManager{
 	private $_db; // Instance de db

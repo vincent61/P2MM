@@ -1,7 +1,7 @@
 ﻿<?php
-include '../modele/modeleMemoire/CorrespondanceLettre.php';
-include_once '../modele/Managers/CodeLettreManager.php';
-include '../modele/Managers/LettreManager.php';
+include 'modele/modeleMemoire/CorrespondanceLettre.php';
+include_once 'modele/Managers/CodeLettreManager.php';
+include 'modele/Managers/LettreManager.php';
 
 
 class CorrespondanceLettreManager{
@@ -84,7 +84,7 @@ class CorrespondanceLettreManager{
   
  /*
   public function getList()
-  {// Serieux soucis de gestion mémoir: taille des array limités
+  {// Serieux soucis de gestion mémoire: taille des array limités
     $dictionnaire = array();
  
     $q = $this->_db->query('SELECT mot FROM Dictionnaire ORDER BY mot');
