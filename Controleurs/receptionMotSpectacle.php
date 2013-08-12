@@ -50,8 +50,7 @@ var int=self.setInterval(function(){getMotsSpectacle()},1000);
 //getMotsSpectacle();
 </script>
 <?php
-include '../dbconnect.php';
-include '../modele/Managers/MotSpectacleManager.php';
+include 'modele/Managers/MotSpectacleManager.php';
 $motSpectacleManager = new MotSpectacleManager($con);
 //Gestion des supression
 if(isset($_POST['fmot']) && isset($_POST['fcpt'])){

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html>
 <script type="text/javascript">
 
 function validForm(form){
@@ -30,20 +30,19 @@ function validForm(form){
 }
 
 </script>
-<?php include "base/header.php"; ?>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
     <div id="page-bgtop">
       <div id="page-bgbtm">
-        <?php include 'base/barreLaterale.php';?>
+        <?php include 'vue/base/barreLaterale.php';?>
         <div id="content">
           <div class="post">
             <h2 class="title">Codes Lettres</h2>
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/codelettre.php" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?page=codelettre" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Code:
                     <input type="text" name="code" />
@@ -79,7 +78,7 @@ function validForm(form){
 foreach($codelettre as $codelettre){ ?>
                 <tr>
                   <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){ ?>
-                  <form action="../controleurs/codelettre.php" method="post">
+                  <form action="index.php?page=codelettre" method="post">
                     <td></th></td>
                     <th> <input type="text" name="newCode" value="<?php echo $codelettre['code'];?>" />
                     </th>
@@ -107,8 +106,8 @@ foreach($codelettre as $codelettre){ ?>
                     <th><?php echo $codelettre['typeLettre'];?></th>
                     <th><?php echo $codelettre['police'];?></th>
                     <?php }?>
-                    <th><a href="../controleurs/codelettre.php?deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                    <th><a href="../controleurs/codelettre.php?editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="../index.php?page=codelettre&amp;deleteCode=<?php echo $codelettre['code'];?>&amp;deletePolice=<?php echo $codelettre['police'];?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                    <th><a href="../index.php?page=codelettre&amp;editCode=<?php echo $codelettre['code'];?>&amp;editPolice=<?php echo $codelettre['police'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['editCode']) and isset($_GET['editPolice'])and $_GET['editCode']==$codelettre['code'] and $_GET['editPolice']==$codelettre['police']){?>
                     <th><input type="submit" value="Ajouter" /></th>
                   </form>
@@ -127,5 +126,4 @@ foreach($codelettre as $codelettre){ ?>
   <!-- end #page --> 
 </div>
 <script type="text/javascript" src="../functions.js" ></script>
-<?php include "base/footer.html"; ?>
 </html>

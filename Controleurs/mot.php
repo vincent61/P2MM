@@ -1,8 +1,7 @@
 ﻿<?php
 
-include '../dbconnect.php';
-include '../modele/Managers/MotManager.php';
-include '../modele/Managers/DictionnaireManager.php';
+include 'modele/Managers/MotManager.php';
+include 'modele/Managers/DictionnaireManager.php';
 
 $motManager = new MotManager($con);
 $dictionnaireManager = new DictionnaireManager($con);
@@ -29,7 +28,7 @@ $dictionnaires = $dictionnaireManager->getAll('dictionnaire');
 $numberOfWords = $motManager->getNumberOfWords();
 
 //On inclue la vue
-include '../vue/mot.php'; 
+include 'vue/mot.php'; 
 ?>
 
 
