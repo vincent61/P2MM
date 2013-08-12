@@ -1,6 +1,7 @@
 ﻿<?php
-include 'modele/Managers/CodeLettreManager.php';
-include 'modele/Managers/PoliceManager.php';
+include '../dbconnect.php';
+include '../modele/Managers/CodeLettreManager.php';
+include '../modele/Managers/PoliceManager.php';
 
 $codeLettreManager = new CodeLettreManager($con);
 $policeManager = new PoliceManager($con);
@@ -27,7 +28,7 @@ $codelettre = $codeLettreManager->getAll();
 $polices = $policeManager->getAll();
 
 //On inclue la vue
-include 'vue/codelettre.php'; 
+include '../vue/codelettre.php'; 
 ?>
 
 

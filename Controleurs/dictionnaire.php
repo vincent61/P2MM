@@ -1,8 +1,10 @@
 ﻿<?php
 ini_set("auto_detect_line_endings", true);
-
-include_once 'modele/Managers/DictionnaireManager.php';
-include_once 'modele/Managers/LangueManager.php';
+include_once '../dbconnect.php';
+include_once '../cheminsPerso.php';
+//include_once 'dictionnaireTools.php';
+include_once '../modele/Managers/DictionnaireManager.php';
+include_once '../modele/Managers/LangueManager.php';
 $dictionnaireManager = new DictionnaireManager($con);
 $langueManager = new LangueManager($con);
 
@@ -35,7 +37,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 				move_uploaded_file($_FILES['fichierDictionnaire']['tmp_name'], $chemin_destination.$_FILES['fichierDictionnaire']['name']);     
 				// Gestion des ajouts
 				$dictionnaireManager->add(new Dictionnaire($_POST['dictionnaire'],$_POST['langue'],$_FILES['fichierDictionnaire']['name'],$_POST['casse']));			
-				include 'controleurs/codagedico.php';
+				include 'codagedico.php';
 				codageDico($_POST['dictionnaire'], $dictionnaireManager);
 
 			} 
@@ -84,5 +86,5 @@ else
 }
 $langues = $langueManager->getAll();
 //On inclue la vue
-include 'vue/dictionnaire.php'; 
+include '../vue/dictionnaire.php'; 
 ?></em></em>

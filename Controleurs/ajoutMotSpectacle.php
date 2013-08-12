@@ -1,4 +1,11 @@
-﻿<?php 
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ajout Mot Spectacle</title>
+</head>
+<body>
+<?php 
 include 'modele/Managers/MotSpectacleManager.php';
 
 $motSpectacleManager = new MotSpectacleManager($con);
@@ -15,3 +22,5 @@ if(isset($_POST['mot']) ){
 
 include "vue/ajoutMotSpectacle.php";
 ?>
+</body>
+</html>
