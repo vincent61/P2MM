@@ -1,8 +1,7 @@
 ﻿<?php
 
-include '../dbconnect.php';
-include '../modele/Managers/MotCodeManager.php';
-include '../modele/Managers/PoliceManager.php';
+include 'modele/Managers/MotCodeManager.php';
+include 'modele/Managers/PoliceManager.php';
 
 $motCodeManager = new MotCodeManager($con);
 $policeManager = new PoliceManager($con);
@@ -28,7 +27,7 @@ if(isset($_POST['oldCode']) and isset($_POST['newCode'])){
 $polices = $policeManager->getAll();
 
 //On inclue la vue
-include '../vue/motcode.php'; 
+include 'vue/motcode.php'; 
 ?>
 
 
