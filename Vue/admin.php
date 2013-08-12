@@ -1,10 +1,9 @@
-<?php include "base/header.php"; ?>
 <div id="wrapper"> 
 	<!-- end #header -->
 	<div id="page">
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
-			<?php include 'base/barreLaterale.php';?>
+			<?php include 'vue/base/barreLaterale.php';?>
 				<div id="content">
 					<div class="post">
 						<h2 class="title">Espace d'administration</h2>
@@ -24,5 +23,4 @@
 	</div>
 	<!-- end #page --> 
 </div>
-<?php include "base/footer.html"; ?>
 </html>
