@@ -1,10 +1,4 @@
-﻿<head>
-<link href="../vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
-</head>
-<body>
-<?php include "base/header.php";?>
-</div>
-<div id="wrapper">
+﻿<div id="wrapper">
 <!-- end #header -->
 <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 <script>
@@ -28,14 +22,13 @@ position ["p"+(cpt-1)]=pos;
 </script>
 
 <?php
-include '../dbconnect.php';
-include '../modele/Managers/MotSpectacleManager.php';
+include 'modeles/Managers/MotSpectacleManager.php';
 $motSpectacleManager = new MotSpectacleManager($con);
 $result = $motSpectacleManager->getAll();
 
 ?>
 <div id="content" > 
-<form action="../controleurs/ajoutMotSpectacle.php" target="_blank">
+<form action="index.php?page=ajoutMotSpectacle" target="_blank">
 <input type="submit" value="INTERFACE D'AJOUT" />
 </form>
   <script> var compteur=0;</script>
@@ -77,7 +70,7 @@ casse=1;
 type_recherche=0;
  $.ajax({
  type: "POST",
- url: "../controleurs/interroSpectacle.php",
+ url: "index.php?page=interroSpectacle",
  data: {fmot:mot,fcasse:casse,ftype_recherche:type_recherche}
  }).done(function( result) {
 	//alert (motsComp[0]["compatible"]);

@@ -1,7 +1,7 @@
 ﻿				<div id="sidebar">
 					<ul>
 						<li>
-							<p><img class = "logo" src="../vue/ressources/petitLogo.png" width="151" height="151" alt="" /></p>
+							<p><img class = "logo" src="vue/ressources/petitLogo.png" width="151" height="151" alt="" /></p>
 						</li>
 						<li>
 							<h2>Categories</h2>
