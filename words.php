@@ -2,11 +2,11 @@
 	header("Content-type: text/xml");		   
 	print('<?xml version="1.0" encoding="UTF-8"?>');
 	print('<words>');
-
-	include_once '../modele/Managers/MotManager.php';
-	include_once '../modele/Managers/PoliceManager.php';
-	include_once '../modele/Managers/DictionnaireManager.php';
-	include_once '../dbconnect.php';
+	include_once 'dbconnect.php';
+	include_once 'modele/Managers/MotManager.php';
+	include_once 'modele/Managers/PoliceManager.php';
+	include_once 'modele/Managers/DictionnaireManager.php';
+	
 	$pm = new PoliceManager($con);
 	$mm = new MotManager($con);
 	$dm = new DictionnaireManager($con);
