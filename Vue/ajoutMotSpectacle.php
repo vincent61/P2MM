@@ -1,6 +1,6 @@
 ﻿
 <fieldset>
-        <form action="../controleurs/ajoutMotSpectacle.php" method="post">
+        <form action="index.php?page=ajoutMotSpectacle" method="post">
            <input type="text" name="mot" />
            <input type="submit" value="Chercher" />
        </form>
