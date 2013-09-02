@@ -5,7 +5,11 @@ include 'vue/base/header.php';
 
 
 //On inclut le contrôleur s'il existe et s'il est spécifié
-if (!empty($_GET['page']) && is_file('controleurs/'.$_GET['page'].'.php'))
+if (!empty($_GET['page']) && $_GET['page'] = 'receptionMotSpectacle')
+{
+		include 'vue/receptionMotSpectacle.php';
+}
+else if (!empty($_GET['page']) && is_file('controleurs/'.$_GET['page'].'.php'))
 {
         include 'controleurs/'.$_GET['page'].'.php';
 }
