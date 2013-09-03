@@ -37,11 +37,11 @@
               </fieldset>
               <table border='1'>
                 <tr class="titre">
-                  <th><u><a href="index.php?page=dictionnaire&amp;order=dictionnaire"><span TITLE="Trier par Dictionnaires">Dictionnaire</span></u></a></th>
-                  <th><u><a href="index.php?page=dictionnaire&amp;order=langue"><span TITLE="Trier par Langues">Langues</span></a></u></th>
-                  <th><u><a href="index.php?page=dictionnaire&amp;order=fichierDictionnaire"><span TITLE="Trier par Fichiers">Fichier Dictionnaire</span></a></u></th>
-                  <th><u><a href="index.php?page=dictionnaire&amp;order=casse"><span TITLE="Trier par Casses">Casse</span></a></u></th>
-                  <th><u><a href="index.php?page=dictionnaire&amp;order=statut"><span TITLE="Trier par Statuts">Statut</span></a></u></th>
+                  <th><u><a href="../index.php?page=dictionnaire&amp;order=dictionnaire"><span TITLE="Trier par Dictionnaires">Dictionnaire</span></u></a></th>
+                  <th><u><a href="../index.php?page=dictionnaire&amp;order=langue"><span TITLE="Trier par Langues">Langues</span></a></u></th>
+                  <th><u><a href="../index.php?page=dictionnaire&amp;order=fichierDictionnaire"><span TITLE="Trier par Fichiers">Fichier Dictionnaire</span></a></u></th>
+                  <th><u><a href="../index.php?page=dictionnaire&amp;order=casse"><span TITLE="Trier par Casses">Casse</span></a></u></th>
+                  <th><u><a href="../index.php?page=dictionnaire&amp;order=statut"><span TITLE="Trier par Statuts">Statut</span></a></u></th>
                   <th><u></u></th>
                   <th><u></u></th>
                 </tr>
@@ -52,7 +52,7 @@ foreach($dictionnaire as $dictionnaire)
                 <tr id="ligne_<?php echo $dictionnaire['dictionnaire'];?>">
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 	{?>
-                  <form action="index.php?page=dictionnaire" method="post">
+                  <form action="../index.php?page=dictionnaire" method="post">
                     <th> <input type="text" name="newDictionnaire" value="<?php echo $dictionnaire['dictionnaire'];?>" />
                     </th>
                     <th> <select name="newLangue" size="1">
@@ -88,11 +88,11 @@ foreach($dictionnaire as $dictionnaire)
                     <th>
 						<form id="supprform<?php echo $dictionnaire['dictionnaire'];?>" method="post" action="../index.php?page=dictionnaire">
 							<input type="hidden" name="deleteDico" value="<?php echo $dictionnaire['dictionnaire'];?>">
-							<a target="blank" onclick="confirmsuppr('<?php echo $dictionnaire['dictionnaire'];?>')"><img title="supprimer" src='vue/ressources/supprimer.png' height='20' width='20' /></a>
+							<a target="blank" onclick="confirmsuppr('<?php echo $dictionnaire['dictionnaire'];?>')"><img title="supprimer" src='../vue/ressources/supprimer.png' height='20' width='20' /></a>
 						</form>
 					</th>
-                    <th><a href="index.php?page=dictionnaire&amp;edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='vue/ressources/edit.png' height='20' width='20' /></a></th>
-					<th><a href="index.php?page=dictionnaire&amp;addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='vue/ressources/arrow.png' height='20' width='20' ></a></th>
+                    <th><a href="../index.php?page=dictionnaire&amp;edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
+					<th><a href="../index.php?page=dictionnaire&amp;addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='../vue/ressources/arrow.png' height='20' width='20' ></a></th>
 					
                     <?php 
 					    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
@@ -114,8 +114,8 @@ foreach($dictionnaire as $dictionnaire)
   <!-- end #page --> 
 </div>
 <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
-<script type="text/javascript" src="functions.js"></script>
-<script type="text/javascript" src="script/ajaxdico.js"></script/>
+<script type="text/javascript" src="../functions.js"></script>
+<script type="text/javascript" src="../script/ajaxdico.js"></script/>
 <script type="text/javascript">
 function confirmsuppr(dico){
 //Supprime le dictionnaire de la bdd en ajax et met à jour le tableau de résultats
