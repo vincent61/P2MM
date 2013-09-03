@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<script type="text/javascript">
+﻿<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;
@@ -42,7 +41,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/mot.php" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?page=mot" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   </p>
                   <p>Mot:
@@ -81,6 +80,6 @@ function validForm(form){
   </div>
   <!-- end #page --> 
 </div>
-<script type="text/javascript" src="../functions.js" ></script>
+<script type="text/javascript" src="functions.js" ></script>
 <?php include "base/footer.html"; ?>
 </html>

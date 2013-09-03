@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<script type="text/javascript">
+﻿<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;
@@ -30,7 +29,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/langue.php" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?page=langue" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:
                   <p></b>
                     <input type="text" name="langue" />
@@ -52,7 +51,7 @@ function validForm(form){
 foreach($langues as $langues){ ?>
                 <tr>
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$langues['langue']){?>
-                  <th> <form action="../controleurs/langue.php" method="post">
+                  <th> <form action="index.php?page=langue" method="post">
                       <input type="hidden" name="oldLangue" value="<?php echo $langues['langue']; ?>" />
                       <input type="text" name="newLangue" value="<?php echo $langues['langue']; ?>" />
                     </form>
@@ -60,8 +59,8 @@ foreach($langues as $langues){ ?>
                   <?php }else{ ?>
                   <th> <?php echo $langues['langue']; ?> </th>
                   <?php } ?>
-                  <th><a href="../controleurs/langue.php?delete=<?php echo $langues['langue']; ?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                  <th><a href="../controleurs/langue.php?edit=<?php echo $langues['langue'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
+                  <th><a href="index.php?page=langue&amp;delete=<?php echo $langues['langue']; ?>"><img src='vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                  <th><a href="index.php?page=langue&amp;edit=<?php echo $langues['langue'];?>"><img src='vue/ressources/edit.png' height='20' width='20' /></a></th>
                 </tr>
                 <?php }  ?>
               </table>
@@ -76,6 +75,6 @@ foreach($langues as $langues){ ?>
   </div>
   <!-- end #page --> 
 </div>
-<script type="text/javascript" src="../functions.js" ></script>
+<script type="text/javascript" src="functions.js" ></script>
 <?php include "base/footer.html"; ?>
 </html>

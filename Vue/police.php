@@ -1,6 +1,4 @@
-﻿<!DOCTYPE html>
-<?php include "base/header.php"; ?>
-<div id="wrapper"> 
+﻿<div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
     <div id="page-bgtop">
@@ -12,7 +10,7 @@
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                <form action="controleurs/police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Police:
                     <input type="text" name="police" />
@@ -45,7 +43,7 @@
 foreach($police as $police){ ?>
                 <tr id="ligne_<?php echo $police['police'];?>">
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
-                  <form action="../controleurs/police.php" method="post">
+                  <form action="index.php?page=police" method="post">
                     <td>  </th></td>
                     <th> <input type="text" name="newPolice" value="<?php echo $police['police'];?>" />
                     </th>
@@ -62,13 +60,13 @@ foreach($police as $police){ ?>
                     <!--<th><a href="../controleurs/police.php?delete=<?php echo $police['police'];?>"><img src='../vue/ressources/supprimer.png' height='20' width='20' /></a></th>
 					-->
 					<th>
-						<form id="supprform<?php echo $police['police'];?>" method="post" action="../controleurs/police.php">
+						<form id="supprform<?php echo $police['police'];?>" method="post" action="index.php?page=police">
 							<input type="hidden" name="deletePolice" value="<?php echo $police['police'];?>">
-							<a target="blank" onclick="confirmsuppr('<?php echo $police['police'];?>')"><img title="supprimer" src='../vue/ressources/supprimer.png' height='20' width='20' /></a>
+							<a target="blank" onclick="confirmsuppr('<?php echo $police['police'];?>')"><img title="supprimer" src='vue/ressources/supprimer.png' height='20' width='20' /></a>
 						</form>
 					</th>
 					
-                    <th><a href="../controleurs/police.php?edit=<?php echo $police['police'];?>"><img src='../vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="index.php?page=police&amp;edit=<?php echo $police['police'];?>"><img src='vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
                     <th><input type="submit" value="Ajouter" /></th>
                   </form>
@@ -86,7 +84,7 @@ foreach($police as $police){ ?>
   </div>
   <!-- end #page --> 
 </div>
-<script type="text/javascript" src="../functions.js" ></script>
+<script type="text/javascript" src="functions.js" ></script>
 <script type="text/javascript">
 
 function confirmsuppr(police){
@@ -94,7 +92,7 @@ function confirmsuppr(police){
 
 	if(confirm("Voulez-vous supprimer la police" + police + "?")){
 		$.post(
-			"../controleurs/police.php",
+			"index.php?page=police",
 			{
 				deletePolice: police
 			},

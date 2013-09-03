@@ -30,7 +30,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/motcode.php" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?page=motcode" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Code:
                     <input type="text" name="code" />
@@ -59,6 +59,6 @@ function validForm(form){
   </div>
   <!-- end #page --> 
 </div>
-<script type="text/javascript" src="../functions.js" ></script>
+<script type="text/javascript" src="functions.js" ></script>
 <?php include "base/footer.html"; ?>
 </html>
