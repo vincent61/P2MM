@@ -1,4 +1,7 @@
-﻿<head>
+﻿<!DOCTYPE html>
+<html>
+<body>
+<head>
 <meta name="Keywords" content="" />
 <meta name="Description" content="" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />

@@ -28,7 +28,7 @@ $result = $motSpectacleManager->getAll();
 
 ?>
 <div id="content" > 
-<form action="index.php?" target="_blank">
+<form action="index.php" target="_blank">
 <input type="hidden" name="page" value="ajoutMotSpectacle">
 <input type="submit" value="INTERFACE D'AJOUT" />
 </form>

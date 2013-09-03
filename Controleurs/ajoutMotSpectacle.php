@@ -1,11 +1,4 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Ajout Mot Spectacle</title>
-</head>
-<body>
-<?php 
+﻿<?php 
 include 'modele/Managers/MotSpectacleManager.php';
 
 $motSpectacleManager = new MotSpectacleManager($con);
