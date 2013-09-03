@@ -1,10 +1,8 @@
 ﻿<?php
 ini_set("auto_detect_line_endings", true);
-include_once '../dbconnect.php';
-include_once '../cheminsPerso.php';
 //include_once 'dictionnaireTools.php';
-include_once '../modele/Managers/DictionnaireManager.php';
-include_once '../modele/Managers/LangueManager.php';
+include_once 'modele/Managers/DictionnaireManager.php';
+include_once 'modele/Managers/LangueManager.php';
 $dictionnaireManager = new DictionnaireManager($con);
 $langueManager = new LangueManager($con);
 
@@ -86,5 +84,5 @@ else
 }
 $langues = $langueManager->getAll();
 //On inclue la vue
-include '../vue/dictionnaire.php'; 
+include 'vue/dictionnaire.php'; 
 ?></em></em>
