@@ -30,7 +30,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="../controleurs/langue.php" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?page=langue" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:
                   <p></b>
                     <input type="text" name="langue" />
