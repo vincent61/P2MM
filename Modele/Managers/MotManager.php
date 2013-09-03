@@ -20,7 +20,7 @@ class MotManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['mot'])
 		{
-			echo "Le Mot existe déja.";
+			echo "Le Mot ".$mot->getMot()." existe déja.";
 		}
 	  else{  
     	$this->_db->exec('INSERT INTO Mot (mot, casse, dictionnaire,frequence) VALUES (\''.$mot->getMot().'\', '.$mot->getCasse().', \''.$mot->getDictionnaire().'\', \''.$mot->getFrequence().'\');');
@@ -243,14 +243,39 @@ class MotManager{
 		  $motCodeManager->add($motCode);
 		  
 		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
-		
-		  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), $pol);
-		  $correspMotMan = new CorrespondanceMotManager($con);
-		  $correspMotMan->add($correspMot);
+		  //Si le mot codé contient des codes différents pour la même vraie lettre, alors la correspondance n'est pas gardée
+		  $combinaisonValide = true;
+		  
+		  for ($i=0; $i<strlen($mot); $i++){
+			  if ($combinaisonValide == true) {
+						$indices = array();
+						$lettre = $mot[$i];
+						array_push($indices, $i);
+						for ($j=$i; $j<strlen($mot); $j++ ){
+							if ($mot[$j] == $lettre){
+									array_push($indices, $j);
+								}
+						if (count($indices) > 1){
+							for ($l=0; $l<count($indices); $l++){
+								if ($motCode->getCode()[$indices[0]] != $motCode->getCode()[$l]){
+									$combinaisonValide = false;
+							}
+						}
+					}
+				}
+		  }
+		  }
+		  if ($combinaisonValide == true) {
+		  echo $mot." : ".$motCode->getCode();
+			  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), $pol);
+			  $correspMotMan = new CorrespondanceMotManager($con);
+			  $correspMotMan->add($correspMot);
 	}	  
   }
   //else echo "Aucun mot inséré <br>";
- }}
+ }
+ }
+ }
  
  
  public function motsCompatibles($motParam, $dicos, $procedes, $casse, $typeRecherche=0){ // prend en parametre un mot (type string), le type de la recherche (1mot/code..), et les dicos et procédés dans lesquels on recherche les mots compatibles

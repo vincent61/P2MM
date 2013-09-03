@@ -28,7 +28,6 @@ function validForm(form){
 }
 
 </script>
-<?php include "base/header.php"; ?>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
