@@ -248,22 +248,22 @@ class MotManager{
 		  
 		  for ($i=0; $i<strlen($mot); $i++){
 			  if ($combinaisonValide == true) {
-						$indices = array();
-						$lettre = $mot[$i];
-						array_push($indices, $i);
-						for ($j=$i; $j<strlen($mot); $j++ ){
-							if ($mot[$j] == $lettre){
-									array_push($indices, $j);
-								}
-						if (count($indices) > 1){
-							for ($l=0; $l<count($indices); $l++){
-								if ($motCode->getCode()[$indices[0]] != $motCode->getCode()[$l]){
-									$combinaisonValide = false;
+					$indices = array();
+					$lettre = $mot[$i];
+					array_push($indices, $i);
+					for ($j=$i; $j<strlen($mot); $j++ ){
+						if ($mot[$j] == $lettre){
+								array_push($indices, $j);
+							}
+					if (count($indices) > 1){
+						for ($l=0; $l<count($indices); $l++){
+							if ($motCode->getCode()[$indices[0]] != $motCode->getCode()[$l]){
+								$combinaisonValide = false;
 							}
 						}
 					}
 				}
-		  }
+			}
 		  }
 		  if ($combinaisonValide == true) {
 		  echo $mot." : ".$motCode->getCode();

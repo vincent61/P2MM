@@ -1,7 +1,7 @@
 <?php
 include_once 'dbconnect.php';
-include_once 'cheminsPerso.php';
-include 'vue/base/header.php';
+include 'cheminsPerso.php';
+include_once 'vue/base/header.php';
 
 
 //On inclut le contrôleur s'il existe et s'il est spécifié

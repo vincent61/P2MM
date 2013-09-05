@@ -119,9 +119,9 @@ foreach($dictionnaire as $dictionnaire)
 <script type="text/javascript">
 function confirmsuppr(dico){
 //Supprime le dictionnaire de la bdd en ajax et met à jour le tableau de résultats
-	if(confirm("Voulez-vous supprimer le dictionnaire" + dico + "?")){
+	if(confirm("Voulez-vous supprimer le dictionnaire " + dico + "?")){
 		$.post(
-			"controleurs/dictionnaire.php",
+			"index.php?page=dictionnaire",
 			{
 				deleteDico: dico
 			},

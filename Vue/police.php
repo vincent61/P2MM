@@ -90,7 +90,7 @@ foreach($police as $police){ ?>
 function confirmsuppr(police){
 //Supprime la police de la bdd en ajax et met à jour le tableau de résultats
 
-	if(confirm("Voulez-vous supprimer la police" + police + "?")){
+	if(confirm("Voulez-vous supprimer la police " + police + "?")){
 		$.post(
 			"index.php?page=police",
 			{

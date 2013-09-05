@@ -8,7 +8,9 @@
 <title>Séparation</title>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700|Archivo+Narrow:400,700" rel="stylesheet" type="text/css" />
 <link href="vue/base/style.css" rel="stylesheet" type="text/css" media="screen" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
+<script src="jQuery.js"></script>
+
 </head>
 <body>
 <div id="menu-wrapper">
