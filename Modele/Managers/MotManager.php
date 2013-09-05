@@ -245,8 +245,10 @@ class MotManager{
 		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
 		  //Si le mot codé contient des codes différents pour la même vraie lettre, alors la correspondance n'est pas gardée
 		  $combinaisonValide = true;
-		  
+		  echo strlen($mot);
+		  echo "";
 		  for ($i=0; $i<strlen($mot); $i++){
+			echo "on entre dans la boucle";
 			  if ($combinaisonValide == true) {
 					$indices = array();
 					$lettre = $mot[$i];
@@ -257,7 +259,7 @@ class MotManager{
 							}
 					if (count($indices) > 1){
 						for ($l=0; $l<count($indices); $l++){
-							if ($motCode->getCode()[$indices[0]] != $motCode->getCode()[$l]){
+							if ($motCode->getCode()[$indices[0]] != $motCode->getCode()[$indices[$l]]){
 								$combinaisonValide = false;
 							}
 						}
