@@ -1,6 +1,6 @@
 <?php
 
-include 'modele/Managers/MotManager.php';
+include_once 'modele/Managers/MotManager.php';
 include_once 'modele/Managers/DictionnaireManager.php';
 //include_once '../cheminsPerso.php';
 

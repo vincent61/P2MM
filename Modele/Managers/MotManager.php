@@ -259,7 +259,8 @@ class MotManager{
 							}
 					if (count($indices) > 1){
 						for ($l=0; $l<count($indices); $l++){
-							if ($motCode->getCode()[$indices[0]] != $motCode->getCode()[$indices[$l]]){
+							$mc = $motCode->getCode();
+							if ($mc[$indices[0]] != $mc[$indices[$l]]){
 								$combinaisonValide = false;
 							}
 						}
