@@ -1,3 +1,3 @@
 <?php
-include_once '../controleurs/admin.php';
+include_once './admin.php';
 ?>
