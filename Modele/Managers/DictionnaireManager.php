@@ -83,6 +83,7 @@ class DictionnaireManager{
   
   public function remplirMotsCode($dictionnaire)
   {
+	  include 'cheminsPerso.php';
 	  $con = $this->_db;
 	  $motManager = new MotManager($con);
 	  $row = 1;
