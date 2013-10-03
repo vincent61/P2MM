@@ -1,5 +1,5 @@
 ﻿<?php
-include 'modele/managers/PoliceManager.php';
+include 'modele/Managers/PoliceManager.php';
 
 $policeManager = new PoliceManager($con);
 

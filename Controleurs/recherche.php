@@ -1,7 +1,7 @@
 <?php
 
-include_once 'modele/managers/MotManager.php';
-include_once 'modele/managers/DictionnaireManager.php';
+include_once 'modele/Managers/MotManager.php';
+include_once 'modele/Managers/DictionnaireManager.php';
 //include_once '../cheminsPerso.php';
 
 //$mot = new Mot('baba', 0, 'min_bas', 0);
