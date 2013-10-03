@@ -11,9 +11,10 @@ class CorrespondanceMotManager{
 	   if($cor instanceof CorrespondanceMot){
 	   	$q = $this->_db->query('SELECT * FROM CorrespondanceMot WHERE mot = \''.$cor->getMot().'\' AND police= \''.$cor->getPolice().'\' AND motCode= \''.$cor->getMotCode() .'\';');
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
-		if($donnees['mot']){
-			echo "La correpondance Mot-Code existe déja.";
-		}
+		 if($donnees['mot']){  // Exception
+			$x=0;
+			//echo "La correpondance Mot-Code existe déja.";
+		} 
 		else{
 		  $this->_db->exec('INSERT INTO CorrespondanceMot VALUES (\''.$cor->getMot().'\',\''.$cor->getMotCode().'\',\''.$cor->getPolice().'\');');
 		  }

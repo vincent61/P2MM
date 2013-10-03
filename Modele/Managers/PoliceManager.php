@@ -26,7 +26,7 @@ class PoliceManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['police'])
 		{
-			echo "La police existe déja.";
+			echo "La police existe déja."; // Mettre une exception
 		}
 		else{
 		$this->_db->exec('INSERT INTO Police VALUES (\''.$police->getPolice().'\',\''.$police->getFichierCodes().'\',\''.$police->getCasse().'\');');
@@ -115,7 +115,7 @@ class PoliceManager{
 				$ligneCorrespondance = strtolower((string)$ligneCorrespondance);
 			
 			}
-			echo $ligneCorrespondance;
+			//echo $ligneCorrespondance;
 			$correspondances = explode(":", $ligneCorrespondance);
 			$lettre = $correspondances[0];
 			$l = new Lettre($lettre);

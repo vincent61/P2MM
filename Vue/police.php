@@ -10,7 +10,7 @@
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="controleurs/police.php" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?page=police" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Police:
                     <input type="text" name="police" />
@@ -143,5 +143,4 @@ function validForm(form){
 }
 
 </script>
-<?php include "base/footer.html"; ?>
 </html>

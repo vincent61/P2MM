@@ -16,7 +16,7 @@ class DictionnaireManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['dictionnaire'])
 		{
-			echo "Le Dictionnaire existe déja.";
+			echo "Le Dictionnaire existe déja."; // Mettre une exception
 		}
 	  else{  
     	$this->_db->exec('INSERT INTO Dictionnaire (dictionnaire, langue, fichierDictionnaire, casse) VALUES (\''.$dictionnaire->getDictionnaire().'\', \''.$dictionnaire->getLangue().'\', \''.$dictionnaire->getFichierDictionnaire().'\', '.$dictionnaire->getCasse().');');
@@ -93,7 +93,7 @@ class DictionnaireManager{
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
 			$num = count($data);
 				$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
-				//$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
+				$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
 			}
 		fclose($handle);
 	}

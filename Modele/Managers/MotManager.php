@@ -1,8 +1,8 @@
 ﻿<?php
-include 'modele/modeleMemoire/Mot.php';
+include_once 'modele/modeleMemoire/Mot.php';
 include_once 'modele/Managers/PoliceManager.php';
-include 'modele/Managers/MotCodeManager.php';
-include 'modele/Managers/CorrespondanceMotManager.php';
+include_once 'modele/Managers/MotCodeManager.php';
+include_once 'modele/Managers/CorrespondanceMotManager.php';
 class MotManager{
 	private $_db; // Instance de db
  
@@ -20,7 +20,8 @@ class MotManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['mot'])
 		{
-			echo "Le Mot ".$mot->getMot()." existe déja.";
+			//echo "Le Mot ".$mot->getMot()." existe déja."; Mettre une exception
+			$x =0; // instruction pour garder le "if"
 		}
 	  else{  
     	$this->_db->exec('INSERT INTO Mot (mot, casse, dictionnaire,frequence) VALUES (\''.$mot->getMot().'\', '.$mot->getCasse().', \''.$mot->getDictionnaire().'\', \''.$mot->getFrequence().'\');');
@@ -245,10 +246,7 @@ class MotManager{
 		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
 		  //Si le mot codé contient des codes différents pour la même vraie lettre, alors la correspondance n'est pas gardée
 		  $combinaisonValide = true;
-		  echo strlen($mot);
-		  echo "";
 		  for ($i=0; $i<strlen($mot); $i++){
-			echo "on entre dans la boucle";
 			  if ($combinaisonValide == true) {
 					$indices = array();
 					$lettre = $mot[$i];

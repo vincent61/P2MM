@@ -19,7 +19,8 @@ class CorrespondanceLettreManager{
 			$q->execute();
 			$donnees = $q->fetch(PDO::FETCH_ASSOC);
 			if($donnees['lettreAscii']){
-				echo "La correpondance Lettre existe déja.";
+				$x=0; // instruction pour remplir le "if"
+				//mettre une exception
 			}
 			else{
 			  $this->_db->exec('INSERT INTO CorrespondanceLettre VALUES (\''.$cor->getLettreAscii().'\',\''.$cor->getCode().'\',\''.$cor->getPolice().'\');');
@@ -34,10 +35,9 @@ class CorrespondanceLettreManager{
   public function addCombinaison($lettre, $codeLettre){
   //cette fonction se charge d'ajouter une nouvelle lettre dans la BDD, ainsi que le code et la correspondance associés
 	  if($lettre instanceof Lettre and $codeLettre instanceof CodeLettre ){
-		  include '../dbconnect.php';
 		  
-		  $clm = new CodeLettreManager($con);
-		  $lm = new LettreManager($con);
+		  $clm = new CodeLettreManager($this->_db);
+		  $lm = new LettreManager($this->_db);
 		  
 		  $cor = new CorrespondanceLettre($lettre->getLettreAscii(), $codeLettre->getCode(), $codeLettre->getPolice() );
 		  

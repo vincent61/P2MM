@@ -25,6 +25,9 @@
 					<p>Mot:
                     <input type="text" name="mot" />
 					</p>
+					<p>Fichier:
+                    <input type="file" accept=".txt" name="fichier" id="fichier"/>
+					</p>
 					<p>
 						<input type="radio" name="casse" value="1" checked="checked"/>
 						Minuscule
@@ -64,7 +67,7 @@
               <div id="resultats">
                 <?php
 				
-				if((isset($_POST['mot']) && isset($_POST['type_recherche'])) || isset($motsComp)) {    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
+				if(((isset($_POST['mot'])||(isset($_FILES['fichier']))) && isset($_POST['type_recherche'])) || isset($motsComp)) {    // Si l'utilisateur a entré un mot, on lui affiche la liste des mots compatibles, sinon rien.
 				
 			?>
 			<!--lien vers le fichier généré-->

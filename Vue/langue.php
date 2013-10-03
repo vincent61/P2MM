@@ -16,7 +16,7 @@ function validForm(form){
 }
 
 </script>
-<?php include "base/header.php"; ?>
+
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
@@ -76,5 +76,4 @@ foreach($langues as $langues){ ?>
   <!-- end #page --> 
 </div>
 <script type="text/javascript" src="functions.js" ></script>
-<?php include "base/footer.html"; ?>
 </html>
