@@ -1,5 +1,4 @@
 <?php
-	include_once 'vue/base/header.php';
 
 
   // Definition des constantes et variables
@@ -29,7 +28,7 @@
         // On enregistre le login en session
         $_SESSION['login'] = LOGIN;
         // On redirige vers le fichier admin.php
-        header('Location: http://localhost/P2MM/index.php?zone=admin');  // provisoire pour tester
+        header('Location: index.php?zone=admin');  // provisoire pour tester
         exit();
       }
     }
@@ -38,8 +37,9 @@
       $errorMessage = 'Veuillez inscrire vos identifiants svp !';
     }
   }
+  	include_once 'vue/base/header.php';
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
   
 <div id="wrapper"> 
