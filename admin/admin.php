@@ -1,3 +1,3 @@
 <?php
-include 'vue/admin.php';
+include './vue/admin.php';
 ?>

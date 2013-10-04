@@ -40,7 +40,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="index.php?page=mot" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?zone=admin&page=mot" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   </p>
                   <p>Mot:

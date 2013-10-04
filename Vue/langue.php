@@ -29,7 +29,7 @@ function validForm(form){
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="index.php?page=langue" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?zone=admin&page=langue" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:
                   <p></b>
                     <input type="text" name="langue" />
@@ -51,7 +51,7 @@ function validForm(form){
 foreach($langues as $langues){ ?>
                 <tr>
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$langues['langue']){?>
-                  <th> <form action="index.php?page=langue" method="post">
+                  <th> <form action="index.php?zone=admin&page=langue" method="post">
                       <input type="hidden" name="oldLangue" value="<?php echo $langues['langue']; ?>" />
                       <input type="text" name="newLangue" value="<?php echo $langues['langue']; ?>" />
                     </form>
@@ -59,8 +59,8 @@ foreach($langues as $langues){ ?>
                   <?php }else{ ?>
                   <th> <?php echo $langues['langue']; ?> </th>
                   <?php } ?>
-                  <th><a href="index.php?page=langue&amp;delete=<?php echo $langues['langue']; ?>"><img src='vue/ressources/supprimer.png' height='20' width='20' /></a></th>
-                  <th><a href="index.php?page=langue&amp;edit=<?php echo $langues['langue'];?>"><img src='vue/ressources/edit.png' height='20' width='20' /></a></th>
+                  <th><a href="index.php?zone=admin&page=langue&amp;delete=<?php echo $langues['langue']; ?>"><img src='vue/ressources/supprimer.png' height='20' width='20' /></a></th>
+                  <th><a href="index.php?zone=admin&page=langue&amp;edit=<?php echo $langues['langue'];?>"><img src='vue/ressources/edit.png' height='20' width='20' /></a></th>
                 </tr>
                 <?php }  ?>
               </table>
