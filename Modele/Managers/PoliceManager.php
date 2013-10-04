@@ -102,7 +102,7 @@ class PoliceManager{
   
   public function remplirLettresCodes(Police $police)
   {
-	  //include '../cheminsPerso.php';
+	  include 'cheminsPerso.php';
 
 	  $clManager = new CorrespondanceLettreManager($this->getDb());
 	  if (($handle = fopen($cheminServer.'Fichiers/Polices/'.$police->getFichierCodes(), "r")) !== FALSE) {

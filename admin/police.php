@@ -34,7 +34,7 @@ if(isset($_POST['police']) && $_POST['police']!=''&& isset($_FILES['fichierCodes
 				// Gestion des ajouts
 				$policeManager->add(new Police($_POST['police'],$_FILES['fichierCodes']['name'],$_POST['casse']));
 				
-				include 'codagemotspolice.php';
+				include 'admin/codagemotspolice.php';
 				codageMotsPolice($policeManager, $_POST['police'], $con);
 			} 
 			else
