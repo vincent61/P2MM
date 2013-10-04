@@ -10,7 +10,7 @@
             <div style="clear: both;">&nbsp;</div>
             <div class="entry">
               <fieldset>
-                <form action="index.php?page=police" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
+                <form action="index.php?zone=admin&page=police" enctype="multipart/form-data" method="post" onsubmit="return validForm(this)">
                   <b>Ajout:</b></br>
                   <p>Police:
                     <input type="text" name="police" />
@@ -43,7 +43,7 @@
 foreach($police as $police){ ?>
                 <tr id="ligne_<?php echo $police['police'];?>">
                   <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
-                  <form action="index.php?page=police" method="post">
+                  <form action="index.php?zone=admin&page=police" method="post">
                     <td>  </th></td>
                     <th> <input type="text" name="newPolice" value="<?php echo $police['police'];?>" />
                     </th>
@@ -66,7 +66,7 @@ foreach($police as $police){ ?>
 						</form>
 					</th>
 					
-                    <th><a href="index.php?page=police&amp;edit=<?php echo $police['police'];?>"><img src='vue/ressources/edit.png' height='20' width='20' /></a></th>
+                    <th><a href="index.php?zone=admin&page=police&amp;edit=<?php echo $police['police'];?>"><img src='vue/ressources/edit.png' height='20' width='20' /></a></th>
                     <?php if(isset($_GET['edit']) and $_GET['edit']==$police['police']){?>
                     <th><input type="submit" value="Ajouter" /></th>
                   </form>

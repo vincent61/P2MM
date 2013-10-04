@@ -17,7 +17,7 @@
   <div id="menu">
   <ul>
     <li class="current_page_item"> <a href="index.php?page=recherche">Recherche</a></li>
-    <li><a href="index.php?page=admin">Admin</a></li>
+    <li><a href="index.php?zone=admin">Admin</a></li>
     <li><a href="index.php?page=receptionMotSpectacle">Spectacle</a></li>
     </div>
   </ul>
