@@ -61,6 +61,16 @@ class DictionnaireManager{
 	}
     return $result;
   }
+  
+  public function getAllByStatut($statut){
+  /**
+  * Renvoie tous les dictionnaires dont la casse est $statut (str) : charge noncharge ou chargement en cours
+  */
+  $q = $this->_db->prepare('SELECT dictionnaire FROM Dictionnaire where statut=\''.$statut.'\';');
+  $q->execute();
+    $donnees = $q->fetchAll();
+    return $donnees;
+  }
  
   public function update($oldDico, $newDico)
   {
@@ -94,7 +104,7 @@ class DictionnaireManager{
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
 			$num = count($data);
 				$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
-				$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
+				//$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
 			}
 		fclose($handle);
 	}

@@ -5,9 +5,8 @@ set_time_limit(0); // le script peut s'exécuter de façon illimitée
 function codageDico($nomDico, $dictionnaireManager){
 
 
-	//$dictionnaireManager->get($_POST['dictionnaire'])->remplirMotsCode();
 	$dico = $dictionnaireManager->get($nomDico);
-	$dictionnaireManager->updateStatut($nomDico, "enchargement");
+	//$dictionnaireManager->updateStatut($nomDico, "enchargement");
 	//ajouter un try-catch et mail d'erreur en cas de problème. + s'assurer de la fin su script
 	try{
 	$dictionnaireManager->remplirMotsCode($dico);
@@ -17,11 +16,9 @@ function codageDico($nomDico, $dictionnaireManager){
 			mail('guerryma.utc@gmail.com', 'Exception lors du Codage de '.$nomDico, $e->getMessage());
 
 	}
-	$dictionnaireManager->updateStatut($nomDico, "charge");
+	//$dictionnaireManager->updateStatut($nomDico, "charge");
 
 	$message = "Le remplissage du dictionnaire ".$nomDico. " est terminé\r\n";
-	//echo $message;
-	//mail('danyferreira.utc@gmail.com', 'Résultat Codage', $message);
 	mail('guerryma.utc@gmail.com', 'Résultat Codage', $message);
 }
 ?>

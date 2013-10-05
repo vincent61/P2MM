@@ -66,7 +66,7 @@ class MotManager{
   
    public function getAllByCasse($casse)
   { /**
-  * Rznvoie la liste des mots dont la casse est l'entier spécifié en paramètre.
+  * Renvoie la liste des mots dont la casse est l'entier spécifié en paramètre.
   */
 
     $q = $this->_db->prepare('select * from Mot where casse='.$casse.';');
@@ -74,6 +74,22 @@ class MotManager{
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
+  }
+  public function getAllFromDictionnaire($dico){
+  /**
+  * Renvoie la liste des mots faisant partie du dictionnaire $dico.
+  */
+    $q = $this->_db->prepare('select * from Mot where dictionnaire='.$dico.';');
+	$q->execute();
+    $donnees = $q->fetchAll();
+	
+	//On retourne une liste d'instance de Mots
+	$result = array();
+	foreach($donnees as $mot){
+		$m = new Mot($donnees['mot'],$donnees['casse'],$donnees['dictionnaire'],$donnees['frequence']);
+		array_push($result, $m);
+	}
+    return $result;
   }
   
   
@@ -102,8 +118,7 @@ class MotManager{
   
   public function codage(Mot $motParam, array $policesParam=NULL)
   {
-  //include '../dbconnect.php';
-  //$motManager = new MotManager ($con);
+
   $con = $this->_db;
   $mot= $motParam->getMot();
   
@@ -170,11 +185,7 @@ class MotManager{
 				$vraieLettre= $lettreManager->get($mot[$i]);  // La lettre en cours doit correspondre à une lettre existante dans la table Lettre de la BDD
 								
 				$codesLettres= $correspLetMan->getCodes($vraieLettre, $pol);  // On récupere les codes auxquels correspond la lettre en cours
-				/*foreach($codesLettres as $codelettre)
-					{	
-						echo $codelettre['code'];
-					}*/
-					
+			
 				$nbCodesLettre= count($codesLettres);
 				$tailleResultatIni = count ($listeResultat);
 				
@@ -187,9 +198,7 @@ class MotManager{
 								array_push($listeResultat, $listeResultat[$r]);
 							}
 						}
-						/*foreach($listeResultat as $resultat){
-							 echo $resultat;   // Verif des resultats contenus ds la liste des resultats
-						}*/
+						
 				}			
 				$j=0;
 				$k=0;
@@ -198,11 +207,7 @@ class MotManager{
 				for ($ii=0; $ii<($tailleResultatInter); $ii++)
 						{ // Exception div/0
 								
-									//if ($nbCodesLettre==0)
-										//{
-											//$suite=false; TODO Remarque: l'arret de la boucle en cas de valeur 0 est indispensable. cela veut dire qu'on ne peut pas coder lr mot
-											//throw new Exception('Division par zéro.');
-										//}
+									
 									if ($nbCodesLettre>0)
 									{
 										if ($j < $tailleResultatInter/$nbCodesLettre) 
@@ -248,7 +253,7 @@ class MotManager{
 		  $combinaisonValide = true;
 		  for ($i=0; $i<strlen($mot); $i++){
 			  if ($combinaisonValide == true) {
-					$indices = array();
+					$indices = array();//Ce tableau contient la liste des positions d'une lettre donnée dans un mot
 					$lettre = $mot[$i];
 					array_push($indices, $i);
 					for ($j=$i; $j<strlen($mot); $j++ ){
