@@ -17,7 +17,8 @@ class MotCodeManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['code'])
 		{
-			echo "Le Mot existe déja.";
+			//echo "Le Mot existe déja."; exception ou ignorer
+			$x = 0; //instruction pour conserver le "if"
 		}else{  
 		    //echo 'INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');';
 	    	$this->_db->exec('INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\')');

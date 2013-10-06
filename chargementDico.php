@@ -11,11 +11,13 @@ foreach($acharger as $dico){
 	$nomDico = $dico['dictionnaire'];
 	echo $nomDico;
 	$dm->updateStatut($nomDico, 'enchargement');
-	$mots = $mm->getAllFromDictionnaire($nomDico); // On récupère les mots contenus dans le dictionnaire
+	include 'admin/codagedico.php';
+	codageDico($nomDico, $dm);
+	/*$mots = $mm->getAllFromDictionnaire($nomDico); // On récupère les mots contenus dans le dictionnaire
 	foreach($mots as $mot){
 	echo $mot->getMot();
 		$mm->codage($mot);
-	}
+	}*/
 	$dm->updateStatut($nomDico, 'charge');
 	$message = "Le remplissage du dictionnaire ".$nomDico. " est terminé\r\n";
 
