@@ -4,7 +4,7 @@ include_once 'vue/base/header.php';
 
 if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
 session_unset ();  
-// On détruit notre session
+// On detruit notre session
 session_destroy ();}
 else echo "youhou";
 ?>
