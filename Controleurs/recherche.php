@@ -14,6 +14,8 @@ $procedes = $policeManager->getAll();
 $listeDico= array(); // liste contenant les dictionnaires passés en paramètres par l'utilisateur (cochés dans la checkbox)
 $listeProcede= array();
 
+$motsTab = array();  // tableau dans lequel on stocke les mots contenus dans le fichier
+$test=1;
 
 foreach ($dicos as $dico)
 {	$nomDico=$dico['dictionnaire'];
@@ -89,13 +91,15 @@ if(isset($_FILES['fichier'])){
 				
 				$data = file_get_contents($chemin_destination.$_FILES['fichier']['name']); // extraction des données TXT dans la variable $data
 				$tab=explode("\n", $data);
-				//$motsTab = array();
+				//echo count($tab);
+				$motsTab = array();
 				
-				foreach($tab as $line)
-				{		
-						array_push($motsTab, substr($line,0,-1));					
+				for($i=0; $i<(count($tab)-1); $i++)
+				{	array_push($motsTab, substr($tab[$i],0,-1));	
+								
 				}
-		
+			//if ($tab[count($tab)] != NULL)
+			array_push($motsTab, $tab[count($tab)-1]);	
 			} 
 			else
 			 {
@@ -110,10 +114,9 @@ if(isset($_POST['mot']) ||  isset($_FILES['fichier'])) {
 		if (isset($_POST['type_recherche'])){
 		$motsComp= array();
 		$resultsSerialized = NULL;
-		
         if (isset($_POST['type_recherche'])){ 
-		
 				if (isset($_POST['casse'])){
+				
 					if ((isset($_POST['mot']))&&($_POST['mot']!=NULL)){
 					$mots = explode(" ", $_POST['mot']);
 					if ($_POST['casse']!=2){  // Si le choix de la casse est UNIQUEMENT majuscule OU minuscule
@@ -146,29 +149,30 @@ if(isset($_POST['mot']) ||  isset($_FILES['fichier'])) {
 					}}
 					
 					if (isset($_FILES['fichier'])) {
-					
 					if ($_POST['casse']!=2){
 					foreach($motsTab as $motT){
-						
+						if (($motT!=NULL)&&($test==1)){
 						$motsCompUni= array();
 						$motsCompUni = $motManager->motsCompatibles($motT, $listeDico, $listeProcede, $_POST['casse'], $_POST['type_recherche']);
-						//print_r (array_values($listeDico));
 						$motsComp = array_merge($motsComp, $motsCompUni);
-						$flag=1;
+						$flag=1;} else $test=0; //stop la boucle
 					}
 					} else
 						{
 						foreach($motsTab as $motT){
+						if (($motT!=NULL)&&($test==1)){
 						$motsCompUni= array();
 						$motsCompUni = $motManager->motsCompatibles($motT, $listeDico, $listeProcede, 0, $_POST['type_recherche']);
 						$motsComp = array_merge($motsComp, $motsCompUni);
-						$flag=1;
+						$flag=1;} else $test=0; //stop la boucle
 					}
+					$test=1;
 					foreach($motsTab as $motT){
+						if (($motT!=NULL)&&($test==1)){
 						$motsCompUni= array();
 						$motsCompUni = $motManager->motsCompatibles($motT, $listeDico, $listeProcede, 1, $_POST['type_recherche']);
 						$motsComp = array_merge($motsComp, $motsCompUni);
-						$flag=1;
+						$flag=1;} else $test=0; //stop la boucle
 					}
 					}
 					

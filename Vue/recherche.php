@@ -20,7 +20,7 @@
               
 			  <div id="recherche">
                 <fieldset> 
-				  <form action="index.php?page=recherche" method="post">
+				  <form action="index.php?page=recherche" method="post" enctype="multipart/form-data">
                     <p><b>Determiner la liste des mots compatibles:</b></p></br>
 					<p>Mot:
                     <input type="text" name="mot" />
