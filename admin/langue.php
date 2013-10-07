@@ -1,4 +1,8 @@
 ﻿<?php
+
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
+
 include 'modele/Managers/LangueManager.php';
 
 $langueManager = new LangueManager($con);
@@ -21,4 +25,6 @@ $langues = $langueManager->getAll();
 
 //On inclue la vue
 include 'vue/langue.php'; 
+}
+else include "accesinterdit.php";
 ?>

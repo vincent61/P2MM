@@ -1,4 +1,8 @@
 ﻿<?php
+
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
+
 ini_set("auto_detect_line_endings", true);
 //include_once 'dictionnaireTools.php';
 include_once 'modele/Managers/DictionnaireManager.php';
@@ -84,5 +88,10 @@ else
 }
 $langues = $langueManager->getAll();
 //On inclue la vue
+
+  
+
 include 'vue/dictionnaire.php'; 
+}
+else include "accesinterdit.php";
 ?></em></em>

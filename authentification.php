@@ -1,6 +1,5 @@
 <?php
 
-
   // Definition des constantes et variables
   define('LOGIN','p2mm');
   define('PASSWORD','laseparation2013');
@@ -27,6 +26,7 @@
         session_start();
         // On enregistre le login en session
         $_SESSION['login'] = LOGIN;
+		$_SESSION['pwd']=PASSWORD;
         // On redirige vers le fichier admin.php
         header('Location: index.php?zone=admin');  // provisoire pour tester
         exit();
@@ -39,6 +39,7 @@
   }
   	include_once 'vue/base/header.php';
 ?>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
   
