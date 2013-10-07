@@ -272,7 +272,6 @@ class MotManager{
 			}
 		  }
 		  if ($combinaisonValide == true) {
-		  echo $mot." : ".$motCode->getCode();
 			  $correspMot = new CorrespondanceMot($mot, $motCode->getCode(), $pol);
 			  $correspMotMan = new CorrespondanceMotManager($con);
 			  $correspMotMan->add($correspMot);
