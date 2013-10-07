@@ -1,13 +1,13 @@
-<html>
+
 <?php
-include_once 'vue/base/header.php';
 
 session_start();
+include_once 'vue/base/header.php';
 session_unset ();  
 // On detruit notre session
 session_destroy ();
 ?>
-
+<html>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">

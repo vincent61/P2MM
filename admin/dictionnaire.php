@@ -1,6 +1,6 @@
 ﻿<?php
 
-session_start ();
+
 if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
 
 ini_set("auto_detect_line_endings", true);
