@@ -1,6 +1,6 @@
 ﻿<?php
 
-session_start ();
+
 if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
 
 include 'modele/Managers/LangueManager.php';

@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 include_once 'dbconnect.php';
 include 'cheminsPerso.php';
 include_once 'vue/base/header.php';
