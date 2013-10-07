@@ -17,7 +17,17 @@
   <div id="menu">
   <ul>
     <li class="current_page_item"> <a href="index.php?page=recherche">Recherche</a></li>
-    <li><a href="authentification.php">Admin</a></li>
+    
+	<?php if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) {
+		?>
+		<li><a href="index.php?zone=admin">Admin</a></li>
+		<?php
+		} 
+		else {
+ ?>
+	<li><a href="authentification.php">Admin</a></li>
+	<?php }
+    ?>
     <li><a href="index.php?page=receptionMotSpectacle">Spectacle</a></li>
 	<li><a href="deconnexion.php">Deconnexion</a></li>
     </div>

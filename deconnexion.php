@@ -13,6 +13,13 @@ session_destroy ();
   <div id="page">
     <div id="page-bgtop">
       <div id="page-bgbtm">
+	  <div id="sidebar">
+		<ul>
+			<li>
+				<p><img class = "logo" src="vue/ressources/petitLogo.png" width="151" height="151" alt="" /></p>
+			</li>
+		</ul>
+        </div>
         <div id="content">
           <div class="post">
             <h2 class="title">Deconnexion</h2>
