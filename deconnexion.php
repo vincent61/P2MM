@@ -2,11 +2,10 @@
 <?php
 include_once 'vue/base/header.php';
 
-if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
+session_start();
 session_unset ();  
 // On detruit notre session
-session_destroy ();}
-else echo "youhou";
+session_destroy ();
 ?>
 
 <div id="wrapper"> 
