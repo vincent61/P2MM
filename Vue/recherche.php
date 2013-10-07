@@ -29,10 +29,12 @@
                     <input type="file" accept=".txt" name="fichier" id="fichier"/>
 					</p>
 					<p>
-						<input type="radio" name="casse" value="1" checked="checked"/>
+						<input type="radio" name="casse" value="1" />
 						Minuscule
 						<input type="radio" name="casse" value="0" />
 						Majuscule
+						<input type="radio" name="casse" value="2" checked="checked"/>
+						Minuscule & Majuscule
 					</p>
 					<p>
 						<input type="radio" name="type_recherche" value="0" checked="checked"/>

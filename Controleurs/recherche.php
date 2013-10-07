@@ -116,18 +116,38 @@ if(isset($_POST['mot']) ||  isset($_FILES['fichier'])) {
 				if (isset($_POST['casse'])){
 					if ((isset($_POST['mot']))&&($_POST['mot']!=NULL)){
 					$mots = explode(" ", $_POST['mot']);
+					if ($_POST['casse']!=2){  // Si le choix de la casse est UNIQUEMENT majuscule OU minuscule
 					foreach($mots as $mot){
 						$motsCompUni= array();
+						
 						$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, $_POST['casse'], $_POST['type_recherche']);
 						//print_r (array_values($listeDico));
 	
 						$motsComp = array_merge($motsComp, $motsCompUni);
 						$flag=1;
 					}}
+					else {   // On veut les résultats de mots compatibles en majuscule ET minuscule
+						foreach($mots as $mot){
+						$motsCompUni= array();
+						$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, 0, $_POST['type_recherche']);
+						$motsComp = array_merge($motsComp, $motsCompUni);
+						$flag=1;
+					}
+						
+						foreach($mots as $mot){
+						$motsCompUni= array();
+						$motsCompUni = $motManager->motsCompatibles($mot, $listeDico, $listeProcede, 1, $_POST['type_recherche']);
+						$motsComp = array_merge($motsComp, $motsCompUni);
+						$flag=1;
+					}
+					
+						}
+					
+					}}
 					
 					if (isset($_FILES['fichier'])) {
 					
-					//print_r(array_values($motsTab));
+					if ($_POST['casse']!=2){
 					foreach($motsTab as $motT){
 						
 						$motsCompUni= array();
@@ -136,7 +156,22 @@ if(isset($_POST['mot']) ||  isset($_FILES['fichier'])) {
 						$motsComp = array_merge($motsComp, $motsCompUni);
 						$flag=1;
 					}
+					} else
+						{
+						foreach($motsTab as $motT){
+						$motsCompUni= array();
+						$motsCompUni = $motManager->motsCompatibles($motT, $listeDico, $listeProcede, 0, $_POST['type_recherche']);
+						$motsComp = array_merge($motsComp, $motsCompUni);
+						$flag=1;
 					}
+					foreach($motsTab as $motT){
+						$motsCompUni= array();
+						$motsCompUni = $motManager->motsCompatibles($motT, $listeDico, $listeProcede, 1, $_POST['type_recherche']);
+						$motsComp = array_merge($motsComp, $motsCompUni);
+						$flag=1;
+					}
+					}
+					
 					
 				}
 				
