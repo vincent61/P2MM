@@ -1,10 +1,9 @@
 <?php
 
-include 'modele/Managers/MotManager.php';
+include_once 'modele/Managers/MotManager.php';
 include_once 'modele/Managers/DictionnaireManager.php';
-//include_once '../cheminsPerso.php';
+include_once 'cheminsPerso.php';
 
-//$mot = new Mot('baba', 0, 'min_bas', 0);
 $flag=0;
 $motManager=new MotManager($con);
 $dicoManager= new DictionnaireManager($con);
@@ -83,9 +82,8 @@ if(isset($_FILES['fichier'])){
 	 // ce qui signifie qu'il n'y a eu aucune erreur  
 		if ((isset($_FILES['fichier']['tmp_name'])&&($_FILES['fichier']['error'] == UPLOAD_ERR_OK))) {   
 			if(substr($_FILES['fichier']['name'], -3, 3)=='txt'){  
-				$chemin_destination = $cheminServer.'P2MM/Fichiers/Recherches/'; 
+				$chemin_destination = $cheminServer.'Fichiers/Recherches/'; 
 				//Pour assurer un nom de fichier unique, on le renomme avec le nom (unique) du dictionnaire
-				//$_FILES['fichierDictionnaire']['name'] = $_POST['fichier'].".txt";
 				move_uploaded_file($_FILES['fichier']['tmp_name'], $chemin_destination.$_FILES['fichier']['name']);     
 				// Gestion des ajouts
 				
@@ -155,7 +153,7 @@ if(isset($_POST['mot']) ||  isset($_FILES['fichier'])) {
 		
 		
 		//écriture dans le fichier csv: on note uniquement les valeurs du tableau clé=>valeur
-		$cheminFichierBase = '/Fichiers/Recherches/recherche_'.microtime();
+		$cheminFichierBase = 'Fichiers/Recherches/recherche_'.microtime();
 		$cheminFichier = $cheminFichierBase.'.csv';
 		$cheminFichierPhp = $cheminFichierBase.'.php';
 		
