@@ -19,6 +19,7 @@
     <li class="current_page_item"> <a href="index.php?page=recherche">Recherche</a></li>
     <li><a href="authentification.php">Admin</a></li>
     <li><a href="index.php?page=receptionMotSpectacle">Spectacle</a></li>
+	<li><a href="deconnexion.php">Deconnexion</a></li>
     </div>
   </ul>
   <!-- end #menu --> 
