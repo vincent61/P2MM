@@ -251,12 +251,12 @@ class MotManager{
 		  // Ajout de la correspondance Mot - MotCode pour chaque MotCode
 		  //Si le mot codé contient des codes différents pour la même vraie lettre, alors la correspondance n'est pas gardée
 		  $combinaisonValide = true;
-		  for ($i=0; $i<strlen($mot); $i++){
+		  for ($x=0; $x<strlen($mot); $x++){
 			  if ($combinaisonValide == true) {
 					$indices = array();//Ce tableau contient la liste des positions d'une lettre donnée dans un mot
-					$lettre = $mot[$i];
-					array_push($indices, $i);
-					for ($j=$i; $j<strlen($mot); $j++ ){
+					$lettre = $mot[$x];
+					array_push($indices, $x);
+					for ($j=$x; $j<strlen($mot); $j++ ){
 						if ($mot[$j] == $lettre){
 								array_push($indices, $j);
 							}
