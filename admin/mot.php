@@ -1,5 +1,8 @@
 ﻿<?php
 
+session_start ();
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
+
 include 'modele/Managers/MotManager.php';
 include 'modele/Managers/DictionnaireManager.php';
 
@@ -29,6 +32,8 @@ $numberOfWords = $motManager->getNumberOfWords();
 
 //On inclue la vue
 include 'vue/mot.php'; 
+}
+else include "accesinterdit.php";
 ?>
 
 

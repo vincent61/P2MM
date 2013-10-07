@@ -27,6 +27,7 @@
         session_start();
         // On enregistre le login en session
         $_SESSION['login'] = LOGIN;
+		$_SESSION['pwd']=PASSWORD;
         // On redirige vers le fichier admin.php
         header('Location: index.php?zone=admin');  // provisoire pour tester
         exit();
