@@ -290,7 +290,7 @@ class MotManager{
 		
 		//$motManager= new MotManager($con);
 		$con = $this->_db;		
-		$motP = new Mot($motParam, $casse, "autre_min", 1);
+		$motP = new Mot($motParam, $casse, "defaut", 1);
 		$this->codage($motP);
 		
 		$corrMotManager = new CorrespondanceMotManager($con);
