@@ -242,7 +242,7 @@ class MotManager{
   {
 	  for ($i=0; $i<count($listeResultat); $i++)
 	{
-		  echo $listeResultat[$i];
+		  //echo $listeResultat[$i];
 		  //echo "<br>";
 		  $motCode = new MotCode( $listeResultat[$i], $pol);
 		  $motCodeManager = new MotCodeManager($con);

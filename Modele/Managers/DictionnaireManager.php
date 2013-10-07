@@ -102,7 +102,6 @@ class DictionnaireManager{
 	  // A MODIFIER SELON L'ADRESSE DU SERVEUR.
 	  if (($handle = fopen($cheminServer.'Fichiers/Dictionnaires/'.$dictionnaire->getFichierDictionnaire(), "r")) !== FALSE) {
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
-		echo "analyse de la ligne ".$data[0];
 			$num = count($data);
 				$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
 				//$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
