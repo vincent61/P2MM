@@ -291,7 +291,9 @@ class MotManager{
 		
 		//$motManager= new MotManager($con);
 		$con = $this->_db;		
-		$motP = new Mot($motParam, $casse, "defaut", 1);
+		if ($casse==1) // si le mot est en minuscule
+				$motP = new Mot($motParam, $casse, "defaut_min", 1);
+				else $motP = new Mot($motParam, $casse, "defaut_maj", 1);
 		$this->codage($motP);
 		
 		if ($casse==0)
