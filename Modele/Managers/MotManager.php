@@ -293,12 +293,17 @@ class MotManager{
 		$motP = new Mot($motParam, $casse, "defaut", 1);
 		$this->codage($motP);
 		
+		if ($casse==0)
+			$motParam=strtoupper($motParam);
+			else $motParam=strtolower($motParam);
+		
 		$corrMotManager = new CorrespondanceMotManager($con);
 		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné
 		
 		
 		//echo count($result);
 		//print_r (array_values($motsCodes));
+		
 		
 		foreach ($motsCodes as $motCode)
 			{
