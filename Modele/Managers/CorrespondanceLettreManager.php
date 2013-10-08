@@ -1,4 +1,5 @@
 ﻿<?php
+include 'cheminsPerso.php';
 include_once $cheminServer.'modele/modeleMemoire/CorrespondanceLettre.php';
 include_once $cheminServer.'modele/Managers/CodeLettreManager.php';
 include_once $cheminServer.'modele/Managers/LettreManager.php';

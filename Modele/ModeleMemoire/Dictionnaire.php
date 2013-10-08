@@ -1,4 +1,6 @@
 <?php
+include 'cheminsPerso.php';
+include_once $cheminServer.'modele/Managers/MotManager.php';
 class Dictionnaire{
 	
 	protected $dictionnaire;
