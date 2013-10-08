@@ -38,8 +38,7 @@ if(isset($_POST['dictionnaire']) && $_POST['dictionnaire'] != '' && isset($_POST
 				move_uploaded_file($_FILES['fichierDictionnaire']['tmp_name'], $chemin_destination.$_FILES['fichierDictionnaire']['name']);     
 				// Gestion des ajouts
 				$dictionnaireManager->add(new Dictionnaire($_POST['dictionnaire'],$_POST['langue'],$_FILES['fichierDictionnaire']['name'],$_POST['casse']));			
-				/*include 'codagedico.php';
-				codageDico($_POST['dictionnaire'], $dictionnaireManager);*/ // cette partiesera gérée via la tâche cron
+				//le codage est géré par la tache cron
 
 			} 
 			else
@@ -58,15 +57,7 @@ if(isset($_POST['deleteDico'])){
 	$dictionnaireManager->delete($_POST['deleteDico']);
 }
 
-
-
-//Gestion du codage des mots
-if(isset($_GET['addMotsCode'])){
-	include 'codagedico.php';
-	codageDico($_GET['addMotsCode'], $dictionnaireManager);
-}
-
-//Gestion de l'edition
+//Gestion de l'edition 
 if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){
 //Le nom du fichier doit etre le meme que celui du dictionnaire pour éviter d'écraser un fichier existant. Ne pas autoriser le changement de nom du fichier.
 	$nomFichier = $_POST['newDictionnaire'].'.csv';

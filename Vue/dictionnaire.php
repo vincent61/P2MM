@@ -92,7 +92,6 @@ foreach($dictionnaire as $dictionnaire)
 						</form>
 					</th>
                     <th><a href="index.php?zone=admin&page=dictionnaire&amp;edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='vue/ressources/edit.png' height='20' width='20' /></a></th>
-					<th><a href="index.php?zone=admin&page=dictionnaire&amp;addMotsCode=<?php echo $dictionnaire['dictionnaire'];?>"><img src='vue/ressources/arrow.png' height='20' width='20' ></a></th>
 					
                     <?php 
 					    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
