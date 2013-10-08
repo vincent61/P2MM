@@ -67,12 +67,22 @@ class DictionnaireManager{
   
   public function getAllByStatut($statut){
   /**
-  * Renvoie tous les dictionnaires dont la casse est $statut (str) : charge noncharge ou chargement en cours
+  * Renvoie tous les dictionnaires dont le statut est $statut (str) : charge noncharge ou chargement en cours
   */
   $q = $this->_db->prepare('SELECT dictionnaire FROM Dictionnaire where statut=\''.$statut.'\';');
   $q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
+  }
+  public function getAllLoading(){
+  /**
+  * Renvoie tous les dictionnaires dont le statut est différent de charge
+  */
+	$q = $this->_db->prepare('SELECT dictionnaire, statut FROM Dictionnaire where statut!=\'charge\';');
+	$q->execute();
+    $donnees = $q->fetchAll();
+    return $donnees;
+  
   }
  
   public function update($oldDico, $newDico)
@@ -94,8 +104,10 @@ class DictionnaireManager{
     $this->_db = $db;
   }
   
-  public function remplirMotsCode($dictionnaire)
-  {
+  public function remplirMotsCode($dictionnaire, $lettre=null)
+  {/** Ajoute les mots contenus dans le fichier dictionnaire et les code. 
+	*  Si $lettre est différent de "null", seuls les mots commençant par la lettre spécifiés sont ajoutés et codés.
+	*/
 	  include 'cheminsPerso.php';
 	  $con = $this->_db;
 	  $motManager = new MotManager($con);
@@ -106,8 +118,15 @@ class DictionnaireManager{
 	  if (($handle = fopen($cheminServer.'Fichiers/Dictionnaires/'.$dictionnaire->getFichierDictionnaire(), "r")) !== FALSE) {
 		while (($data = fgetcsv($handle, 1000, ';')) !== FALSE) {
 			$num = count($data);
+				if ($lettre !==null){
+				// on ne code le mot que s'il commence par lettre
+					if (strtolower($data[0][0]) == strtolower($lettre)){
+						$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
+					}
+				}
+				else{
 				$motManager->add(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
-				//$motManager->codage(new Mot($data[0], $dictionnaire->getCasse(), $dictionnaire->getDictionnaire(),$data[1]));
+				}
 			}
 		fclose($handle);
 	}

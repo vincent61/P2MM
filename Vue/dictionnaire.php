@@ -75,13 +75,13 @@ foreach($dictionnaire as $dictionnaire)
                     <input type="hidden" name="oldLangue" value="<?php echo $dictionnaire['langue'];?>" />
                     <input type="hidden" name="oldFichierDictionnaire" value="<?php echo $dictionnaire['fichierDictionnaire'];?>" />
                     <input type="hidden" name="oldCasse" value="<?php echo $dictionnaire['casse'];?>" />
-                    <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : 'Chargé')?> </th>
+                    <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : ($dictionnaire['statut'] == "charge" ? 'Chargé': $dictionnaire['statut']))?> </th>
                     <?php }else{ ?>
                     <th><?php echo $dictionnaire['dictionnaire'];?></th>
                     <th><?php echo $dictionnaire['langue'];?></th>
                     <th><?php echo $dictionnaire['fichierDictionnaire'];?></th>
                     <th><?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
-                    <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : 'Chargé')?> </th>
+                    <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : ($dictionnaire['statut'] == "charge" ? 'Chargé': $dictionnaire['statut']))?> </th>
                     <?php 
 	}
 	?>
