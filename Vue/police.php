@@ -92,7 +92,7 @@ function confirmsuppr(police){
 
 	if(confirm("Voulez-vous supprimer la police " + police + "?")){
 		$.post(
-			"index.php?zone=admin&amp;page=police",
+			"index.php?zone=admin&page=police",
 			{
 				deletePolice: police
 			},

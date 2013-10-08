@@ -72,7 +72,7 @@ if(isset($_POST['oldDictionnaire']) and isset($_POST['newDictionnaire'])){
 	$nomFichier = $_POST['newDictionnaire'].'.csv';
 	$chemin_destination = $cheminServer.'Fichiers/Dictionnaires/';
 	$dictionnaireManager->update(new Dictionnaire($_POST['oldDictionnaire'],$_POST['oldLangue'],$_POST['oldFichierDictionnaire'],$_POST['oldCasse']),new Dictionnaire($_POST['newDictionnaire'],$_POST['newLangue'],$nomFichier,$_POST['oldCasse']));
-		//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi
+	//attention gestion des erreurs: le renommage ne doit se faire que si l'update a été réussi
 	rename($chemin_destination.$_POST['oldFichierDictionnaire'], $chemin_destination.$nomFichier);
 	}
 

@@ -121,7 +121,7 @@ function confirmsuppr(dico){
 //Supprime le dictionnaire de la bdd en ajax et met à jour le tableau de résultats
 	if(confirm("Voulez-vous supprimer le dictionnaire " + dico + "?")){
 		$.post(
-			"index.php?page=dictionnaire",
+			"index.php?zone=admin&page=dictionnaire",
 			{
 				deleteDico: dico
 			},

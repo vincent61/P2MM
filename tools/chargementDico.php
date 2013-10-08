@@ -1,8 +1,9 @@
 <?php
-include 'admin/codagedico.php';
-include_once 'modele/Managers/DictionnaireManager.php';
-include_once 'modele/Managers/MotManager.php';
-include_once 'dbconnect.php';
+include 'cheminsPerso.php';
+include $cheminServer.'admin/codagedico.php';
+include_once $cheminServer.'modele/Managers/DictionnaireManager.php';
+include_once $cheminServer.'modele/Managers/MotManager.php';
+include_once $cheminServer.'dbconnect.php';
 $dm = new DictionnaireManager($con);
 $mm = new MotManager($con);
 $acharger = $dm->getAllByStatut('noncharge');// On récupère la liste des dictionnaires non chargés
