@@ -1,5 +1,6 @@
 ﻿<?php
-include 'modele/modeleMemoire/CodeLettre.php';
+include_once 'cheminsPerso.php';
+include_once $cheminServer.'modele/modeleMemoire/CodeLettre.php';
 
 class CodeLettreManager{
 	private $_db; // Instance de db

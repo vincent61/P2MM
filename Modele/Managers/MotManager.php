@@ -1,8 +1,9 @@
 ﻿<?php
-include_once 'modele/modeleMemoire/Mot.php';
-include_once 'modele/Managers/PoliceManager.php';
-include_once 'modele/Managers/MotCodeManager.php';
-include_once 'modele/Managers/CorrespondanceMotManager.php';
+include_once 'cheminsPerso.php';
+include_once $cheminServer.'modele/modeleMemoire/Mot.php';
+include_once $cheminServer.'modele/Managers/PoliceManager.php';
+include_once $cheminServer.'modele/Managers/MotCodeManager.php';
+include_once $cheminServer.'modele/Managers/CorrespondanceMotManager.php';
 class MotManager{
 	private $_db; // Instance de db
  

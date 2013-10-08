@@ -1,5 +1,6 @@
 ﻿<?php
-include 'modele/modeleMemoire/MotCode.php';
+include_once 'cheminsPerso.php';
+include_once $cheminServer.'modele/modeleMemoire/MotCode.php';
 class MotCodeManager{
 	private $_db; // Instance de db
  

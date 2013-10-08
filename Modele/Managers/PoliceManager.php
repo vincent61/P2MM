@@ -1,6 +1,7 @@
 ﻿<?php			 
-include_once 'modele/modeleMemoire/Police.php';
-include_once 'modele/Managers/CorrespondanceLettreManager.php';
+include_once 'cheminsPerso.php';
+include_once $cheminServer.'modele/modeleMemoire/Police.php';
+include_once $cheminServer.'modele/Managers/CorrespondanceLettreManager.php';
 
 class PoliceManager{
 	private $_db; // Instance de db

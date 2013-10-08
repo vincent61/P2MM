@@ -1,5 +1,6 @@
 ﻿<?php
-include_once 'modele/modeleMemoire/Dictionnaire.php';
+include_once 'cheminsPerso.php';
+include_once $cheminServer.'modele/modeleMemoire/Dictionnaire.php';
 class DictionnaireManager{
 	private $_db; // Instance de db
  

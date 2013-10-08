@@ -1,5 +1,6 @@
 <?php
-include 'modele/modeleMemoire/CorrespondanceMot.php';
+include_once 'cheminsPerso.php';
+include_once $cheminServer.'modele/modeleMemoire/CorrespondanceMot.php';
 class CorrespondanceMotManager{
 	private $_db; // Instance de db
  

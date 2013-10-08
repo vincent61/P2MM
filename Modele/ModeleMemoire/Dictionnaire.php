@@ -1,5 +1,4 @@
 <?php
-include_once 'modele/Managers/MotManager.php';
 class Dictionnaire{
 	
 	protected $dictionnaire;

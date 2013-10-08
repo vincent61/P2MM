@@ -2,8 +2,8 @@
 
 
 if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
-
-include 'modele/Managers/LangueManager.php';
+include 'cheminsPerso.php';
+include $cheminServer.'modele/Managers/LangueManager.php';
 
 $langueManager = new LangueManager($con);
 
