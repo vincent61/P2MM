@@ -5,7 +5,6 @@ session_unset ();
 session_destroy ();
 include_once 'vue/base/header.php';
 ?>
-<html>
 <div id="wrapper"> 
   <!-- end #header -->
   <div id="page">
