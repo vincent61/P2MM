@@ -7,3 +7,8 @@ deny from all
 order deny,allow
 deny from all
 </Files>
+
+<Files "scriptSQL.php">
+order deny,allow
+deny from all
+</Files>
