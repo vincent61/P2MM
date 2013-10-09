@@ -169,4 +169,3 @@ function validForm(form){
 	return valid;
 }
 </script>
-</html>

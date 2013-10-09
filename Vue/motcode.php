@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+﻿<!DOCTYPE html>
 <script type="text/javascript">
 
 function validForm(form){
@@ -60,5 +60,4 @@ function validForm(form){
   <!-- end #page --> 
 </div>
 <script type="text/javascript" src="functions.js" ></script>
-<?php include "base/footer.html"; ?>
-</html>
+

@@ -84,7 +84,3 @@ document.getElementById('p'+cpt).firstChild.data=result;
 
 </div>
 <div id="msg" ></div>
-
-
-
-</html>

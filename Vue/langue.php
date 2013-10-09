@@ -76,4 +76,3 @@ foreach($langues as $langues){ ?>
   <!-- end #page --> 
 </div>
 <script type="text/javascript" src="functions.js" ></script>
-</html>

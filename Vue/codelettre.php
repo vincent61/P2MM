@@ -1,5 +1,4 @@
-﻿<!DOCTYPE html>
-<script type="text/javascript">
+﻿<script type="text/javascript">
 
 function validForm(form){
 	var valid = true;
@@ -126,4 +125,3 @@ foreach($codelettre as $codelettre){ ?>
   <!-- end #page --> 
 </div>
 <script type="text/javascript" src="functions.js" ></script>
-</html>

@@ -77,4 +77,3 @@ foreach($lettres as $lettres){ ?>
 </div>
 <script type="text/javascript" src="functions.js" ></script>
 <?php include "base/footer.html"; ?>
-</html>

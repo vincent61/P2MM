@@ -23,4 +23,3 @@
 	</div>
 	<!-- end #page --> 
 </div>
-</html>
