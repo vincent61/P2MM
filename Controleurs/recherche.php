@@ -75,7 +75,7 @@ if(isset($_FILES['fichier'])){
 					   echo "L'envoi du fichier a été interrompu pendant le transfert !";     
 					   break;     
 					   case 4: // UPLOAD_ERR_NO_FILE     
-					   echo "Le fichier que vous avez envoyé a une taille nulle !"; 
+					   echo ""; 
 					   break;     
 		}     
 	}
