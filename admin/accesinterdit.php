@@ -1,6 +1,5 @@
 <html>
 <div id="wrapper"> 
-  <!-- end #header -->
   <div id="page">
     <div id="page-bgtop">
       <div id="page-bgbtm">

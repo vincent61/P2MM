@@ -16,9 +16,7 @@ function codageMotsPolice($policeManager, $nomPolice,$connexion){
 	}
 
 	$message = "Le codage des mots dans la police ".$nomPolice. " est terminé\r\n";
-	//echo $message;
-	//mail('danyferreira.utc@gmail.com', 'Résultat Codage Mots', $message);
-	mail('guerryma.utc@gmail.com', 'Résultat Codage Mots ', $message);
+	mail('combinalisons@gmail.com', 'Résultat Codage Mots ', $message);
 
 }
 ?>
