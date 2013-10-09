@@ -83,22 +83,21 @@ foreach($dictionnaire as $dictionnaire)
                     <th><?php echo $dictionnaire['casse']=="0" ? 'Majuscule' : 'Minuscule'?></th>
                     <th> <?php echo $dictionnaire['statut'] == "noncharge" ? 'Non chargé' : ($dictionnaire['statut'] == "enchargement" ? 'Chargement en cours' : ($dictionnaire['statut'] == "charge" ? 'Chargé': $dictionnaire['statut']))?> </th>
                     <?php 
-	}
-	?>
-                    <th>
-						<form id="supprform<?php echo $dictionnaire['dictionnaire'];?>" method="post" action="index.php?page=dictionnaire">
-							<input type="hidden" name="deleteDico" value="<?php echo $dictionnaire['dictionnaire'];?>">
-							<a target="blank" onclick="confirmsuppr('<?php echo $dictionnaire['dictionnaire'];?>')"><img title="supprimer" src='vue/ressources/supprimer.png' height='20' width='20' /></a>
-						</form>
-					</th>
+						}
+						?>
                     <th><a href="index.php?zone=admin&page=dictionnaire&amp;edit=<?php echo $dictionnaire['dictionnaire'];?>"><img title="modifier" src='vue/ressources/edit.png' height='20' width='20' /></a></th>
-					
                     <?php 
 					    if(isset($_GET['edit']) and $_GET['edit']==$dictionnaire['dictionnaire'])
 						{?>
                     <th><input type="submit" value="Modifier" /></th>
                   </form>
                   <?php }?>
+				  <th>
+						<form id="supprform<?php echo $dictionnaire['dictionnaire'];?>" method="post" action="index.php?zone=admin&amp;page=dictionnaire">
+							<input type="hidden" name="deleteDico" value="<?php echo $dictionnaire['dictionnaire'];?>">
+							<a target="blank" onclick="confirmsuppr('<?php echo $dictionnaire['dictionnaire'];?>')"><img title="supprimer" src='vue/ressources/supprimer.png' height='20' width='20' /></a>
+						</form>
+				  </th>
                 </tr>
                 <?php }?>
               </table>
