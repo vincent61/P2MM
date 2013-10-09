@@ -1,2 +1,0 @@
-MAILTO=guerrymaeva@gmail.com
-25 21 4 7 * touch machin.txt
