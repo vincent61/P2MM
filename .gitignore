@@ -2,5 +2,7 @@ Fichiers/Dictionnaires/*
 Fichiers/Polices/*
 Fichiers/Recherches/*
 cheminsPerso.php
+cheminsPerso_local.php
 error.log
 dbconnect.php
+dbconnect_local.php
