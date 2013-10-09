@@ -1,4 +1,6 @@
 ﻿<?php
+
+if (isset($_SESSION['login']) && isset($_SESSION['pwd'])) { 
 include 'modele/Managers/PoliceManager.php';
 
 $policeManager = new PoliceManager($con);
@@ -70,6 +72,8 @@ $police = $policeManager->getAll();
 
 //On inclue la vue
 include 'vue/police.php'; 
+}
+else include "accesinterdit.php";
 ?>
 
 
