@@ -1,5 +1,6 @@
 <?php
-$dossier_traite = "../Fichiers/Recherches";
+include "cheminsPerso.php";
+$dossier_traite = $cheminServer."Fichiers/Recherches";
   
 $repertoire = opendir($dossier_traite); // On définit le répertoire dans lequel on souhaite travailler.
   
