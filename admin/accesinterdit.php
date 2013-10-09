@@ -1,5 +1,4 @@
-<html>
-<div id="wrapper"> 
+<html><div id="wrapper"> 
   <div id="page">
     <div id="page-bgtop">
       <div id="page-bgbtm">
@@ -24,4 +23,3 @@
       </div>
     </div>
   </div></div>
-</html>
