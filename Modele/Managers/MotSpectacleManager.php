@@ -17,7 +17,7 @@ class MotSpectacleManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['mot'])
 		{
-			echo "Le Mot existe déja.";
+			$x=0;//exception "Le Mot existe déja."; Ajouter un try_catch 
 		}
 	  else{  
     	$this->_db->exec('INSERT INTO MotSpectacle (mot) VALUES (\''.$mot->getMot().'\');');

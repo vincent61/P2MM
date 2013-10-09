@@ -17,7 +17,8 @@ class CodeLettreManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['code'])
 		{
-			echo "Le codeLettre existe déja.";
+			$x=0;
+			//exception "Le codeLettre existe déja."; Ajouter un try/catch
 		}
 		else{
 			$this->_db->exec('INSERT INTO CodeLettre(code, typeLettre, police) VALUES (\''.$codeLettre->getCode().'\', '.$codeLettre->getTypeLettre().', \''.$codeLettre->getPolice().'\');');
@@ -49,7 +50,6 @@ class CodeLettreManager{
 	$q = $this->_db->prepare('SELECT * FROM police order by police;');
 	$q->execute();
 	$donnees = $q->fetchAll();
-	//echo $donnees['police'];
 	return $donnees;
   }
   

@@ -27,7 +27,7 @@ class PoliceManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['police'])
 		{
-			echo "La police existe déja."; // Mettre une exception
+			$x=0; // Exception "La police existe déja."; // Ajouter un try/catch
 		}
 		else{
 		$this->_db->exec('INSERT INTO Police VALUES (\''.$police->getPolice().'\',\''.$police->getFichierCodes().'\',\''.$police->getCasse().'\');');
@@ -57,20 +57,6 @@ class PoliceManager{
     return new Police($donnees['police'],$donnees['fichierCode'],$donnees['casse']);
   }
   
- /*
-  public function getList()
-  {// Serieux soucis de gestion mémoir: taille des array limités
-    $dictionnaire = array();
- 
-    $q = $this->_db->query('SELECT mot FROM Dictionnaire ORDER BY mot');
- 
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-     // $dictionnaire[] = new Mot($donnees['mot']);
-	  echo $donnees['mot'];
-    }
-    return $dictionnaire;
-  }*/
  
   public function update($oldPolice, $newPolice)
   {
@@ -116,7 +102,7 @@ class PoliceManager{
 				$ligneCorrespondance = strtolower((string)$ligneCorrespondance);
 			
 			}
-			//echo $ligneCorrespondance;
+
 			$correspondances = explode(":", $ligneCorrespondance);
 			$lettre = $correspondances[0];
 			$l = new Lettre($lettre);

@@ -18,11 +18,11 @@ class MotCodeManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['code'])
 		{
-			//echo "Le Mot existe déja."; exception ou ignorer
+			//exception "Le Mot existe déja."; exception ou ignorer
 			$x = 0; //instruction pour conserver le "if"
 		}else{  
-		    //echo 'INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\');';
-	    	$this->_db->exec('INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\')');
+		    
+			$this->_db->exec('INSERT INTO MotCode( code, police ) VALUES (\''.$motCode->getCode().'\', \''.$motCode->getPolice().'\')');
 		  }
 	  }
   }
@@ -50,26 +50,11 @@ class MotCodeManager{
   
    public function getAll()
   { 
-    //echo 'SELECT code, police FROM MotCode ORDER BY code';
-    $q = $this->_db->prepare('SELECT code, police FROM MotCode ORDER BY code');
+     $q = $this->_db->prepare('SELECT code, police FROM MotCode ORDER BY code');
 	$q->execute();
     $donnees = $q->fetchAll();
     return $donnees;
   }
- /*
-  public function getList()
-  {// Serieux soucis de gestion mémoir: taille des array limités
-    $dictionnaire = array();
- 
-    $q = $this->_db->query('SELECT mot FROM Dictionnaire ORDER BY mot');
- 
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-     // $dictionnaire[] = new Mot($donnees['mot']);
-	  echo $donnees['mot'];
-    }
-    return $dictionnaire;
-  }*/
  
   public function update($motCode, $newMotCode)
   {

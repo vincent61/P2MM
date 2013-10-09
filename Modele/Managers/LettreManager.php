@@ -45,21 +45,6 @@ class LettreManager{
     $donnees = $q->fetchAll();
     return $donnees;
   }
-  
- /*
-  public function getList()
-  {// Serieux soucis de gestion mémoir: taille des array limités
-    $dictionnaire = array();
- 
-    $q = $this->_db->query('SELECT mot FROM Dictionnaire ORDER BY mot');
- 
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-     // $dictionnaire[] = new Mot($donnees['mot']);
-	  echo $donnees['mot'];
-    }
-    return $dictionnaire;
-  }*/
 
   public function update($oldLettre, $newLettre)
   {
