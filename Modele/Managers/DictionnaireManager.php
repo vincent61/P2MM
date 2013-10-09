@@ -19,7 +19,8 @@ class DictionnaireManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['dictionnaire'])
 		{
-			echo "Le Dictionnaire existe déja."; // Mettre une exception
+			$x=0;
+			//exception "Le Dictionnaire existe déja."; // Mettre une exception avec try/catch
 		}
 	  else{  
     	$this->_db->exec('INSERT INTO Dictionnaire (dictionnaire, langue, fichierDictionnaire, casse) VALUES (\''.$dictionnaire->getDictionnaire().'\', \''.$dictionnaire->getLangue().'\', \''.$dictionnaire->getFichierDictionnaire().'\', '.$dictionnaire->getCasse().');');

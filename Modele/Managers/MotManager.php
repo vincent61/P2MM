@@ -4,6 +4,7 @@ include_once $cheminServer.'modele/modeleMemoire/Mot.php';
 include_once $cheminServer.'modele/Managers/PoliceManager.php';
 include_once $cheminServer.'modele/Managers/MotCodeManager.php';
 include_once $cheminServer.'modele/Managers/CorrespondanceMotManager.php';
+
 class MotManager{
 	private $_db; // Instance de db
  
@@ -21,7 +22,7 @@ class MotManager{
 		$donnees = $q->fetch(PDO::FETCH_ASSOC);
 		if($donnees['mot'])
 		{
-			//echo "Le Mot ".$mot->getMot()." existe déja."; Mettre une exception
+			//exception "Le Mot ".$mot->getMot()." existe déja."; Mettre une exception
 			$x =0; // instruction pour garder le "if"
 		}
 	  else{  
@@ -131,7 +132,7 @@ class MotManager{
  
   if (!$this->exist($motParam)>0)  // si le mot n'existe pas dans la BDD, on l'ajoute à la table Mot
 		{	$this->add($motParam);
-			//echo "Le Mot a été ajouté <br>";
+			
 		}
 	
   if (is_null($policesParam))  // Si aucune police spécifiée, on code le mot dans toutes les polices existantes correspondantes à la casse du mot
@@ -155,9 +156,7 @@ class MotManager{
 			{if (in_array($pol,$polices))
 				{	$policetab[$inc]=$pol;
 					$inc++;}
-			//		else 
-			//			echo "La police '$pol' n'existe pas, ou n'est pas dans la bonne casse. <br>";
-			}
+				}
 		}	
   
   // Codage du mot dans toutes les polices determinées
@@ -169,7 +168,7 @@ class MotManager{
 	
 	// Si mot déjà codé dans la police alors stop
 	if ($correspMotMan->existCorrespMot($mot,$pol) > 0)
-		{	//echo $correspMotMan->existCorrespMot($mot,$pol);
+		{	
 			$suite = false;
 		}
 	
@@ -177,9 +176,7 @@ class MotManager{
 	{	
 
 		for($i=0; $i<strlen($mot); $i++)   // On parcourt chaque lettre du mot initial
-		{	
-			//echo $mot[$i];
-			
+		{				
 			if ($suite)
 		{       	
 			try {
@@ -224,9 +221,9 @@ class MotManager{
 												$k++;   // k est la variable qui permet d'identifier le code dans la liste codesLettres
 											}
 										
-										//print_r (array_values($codesLettres));
+										
 										$listeResultat[$ii].= ($codesLettres[$k]['code']);
-										}//echo $listeResultat[$ii]; 
+										}
 								 
 								}
 								
@@ -243,8 +240,7 @@ class MotManager{
   {
 	  for ($i=0; $i<count($listeResultat); $i++)
 	{
-		  //echo $listeResultat[$i];
-		  //echo "<br>";
+
 		  $motCode = new MotCode( $listeResultat[$i], $pol);
 		  $motCodeManager = new MotCodeManager($con);
 		  $motCodeManager->add($motCode);
@@ -278,7 +274,6 @@ class MotManager{
 			  $correspMotMan->add($correspMot);
 	}	  
   }
-  //else echo "Aucun mot inséré <br>";
  }
  }
  }
@@ -304,9 +299,6 @@ class MotManager{
 		$motsCodes= $corrMotManager->getAllCodes($motParam); // retourne tous les Mots codes correspondants au mot donné
 		
 		
-		//echo count($result);
-		//print_r (array_values($motsCodes));
-		
 		
 		foreach ($motsCodes as $motCode)
 			{
@@ -315,8 +307,6 @@ class MotManager{
 				$motsComp= $corrMotManager->getAllMotsExcept($motCode[0], $motCode[1], $casse); // Retourne tous les mots correspondants au motCode, à la police donnée, et à la casse du mot initial 
 				if ($motsComp)
 			{	$suite=0;
-				//print_r (array_values($motsComp));
-				//echo "count : ".count($motsComp)."</br>";
 				
 				switch ($typeRecherche){   // En fonction du type de la recherche (0=tous les mots --- 1=1mot/code --- 2=+de 1mot/code)
 					case 0: $suite=1; // on prend tous les mots
@@ -342,15 +332,11 @@ class MotManager{
 							if (in_array($comp['dico'], $dicos))
 							{
 							$ligne = array ("initial" => $motParam, "code" => $motCode[0], "police" => $motCode[1], "compatible" => $comp['mo'],"dictionnaire" => $comp['dico'],"frequence" => $comp['freq']);
-							//print_r (array_values($ligne));
 							array_push($result, $ligne);}
 						}
 					}
 			}}
 			}
-				
-			
-		//print_r (array_values($result));
 		return $result;
  }
 }

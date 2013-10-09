@@ -21,7 +21,7 @@ class CorrespondanceLettreManager{
 			$donnees = $q->fetch(PDO::FETCH_ASSOC);
 			if($donnees['lettreAscii']){
 				$x=0; // instruction pour remplir le "if"
-				//mettre une exception
+						//Créer un try/catch avec une exception
 			}
 			else{
 			  $this->_db->exec('INSERT INTO CorrespondanceLettre VALUES (\''.$cor->getLettreAscii().'\',\''.$cor->getCode().'\',\''.$cor->getPolice().'\');');
@@ -76,27 +76,11 @@ class CorrespondanceLettreManager{
   { 
   $lettreAscii = (String) $lettreAsciiParam->getLettreAscii();
   $police = (String) $police;
- // echo 'SELECT code FROM CorrespondanceLettre WHERE lettreAscii = \''.$lettreAscii.'\' and police= \''.$police.'\';';
   $q = $this->_db->prepare('SELECT code FROM CorrespondanceLettre WHERE lettreAscii = \''.$lettreAscii.'\' and police= \''.$police.'\';');
 	$q->execute();
 	$donnees = $q->fetchAll();
 	return $donnees;
   }
-  
- /*
-  public function getList()
-  {// Serieux soucis de gestion mémoire: taille des array limités
-    $dictionnaire = array();
- 
-    $q = $this->_db->query('SELECT mot FROM Dictionnaire ORDER BY mot');
- 
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-     // $dictionnaire[] = new Mot($donnees['mot']);
-	  echo $donnees['mot'];
-    }
-    return $dictionnaire;
-  }*/
  
   public function update($cor, $newCor)
   {
